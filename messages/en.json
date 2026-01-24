@@ -1,0 +1,103 @@
+{
+  "en": {
+    "meta": {
+      "title": "Cerebrum Forex - AI-Powered Trading Solution",
+      "description": "Hybrid trading solution combining AI and MT5 Expert Advisor for precise EUR/USD trading."
+    },
+    "nav": {
+      "home": "Home",
+      "features": "Features",
+      "tools": "Trading Tools",
+      "faq": "FAQ",
+      "download": "Download",
+      "docs": "Documentation"
+    },
+    "hero": {
+      "tagline": "The Future of Forex Trading",
+      "title": "Cerebrum Forex",
+      "subtitle": "Hybrid AI + EA Trading Solution",
+      "description": "Precision scalping powered by artificial intelligence and professional-grade MT5 execution.",
+      "cta": "Download Now",
+      "ctaPrice": "xxx $"
+    },
+    "architecture": {
+      "title": "Smart Architecture",
+      "subtitle": "Clear separation between AI detection and EA execution",
+      "ai": {
+        "title": "AI Brain",
+        "description": "Machine learning models analyze market patterns, generate BUY/SELL signals with confidence levels."
+      },
+      "ea": {
+        "title": "MT5 Expert Advisor",
+        "description": "Ultra-fast order execution, strict risk management, prop firm compatible."
+      }
+    },
+    "profiles": {
+      "title": "Trading Modes",
+      "subtitle": "Three execution modes adapted to your trading style",
+      "master": {
+        "title": "Autonomous Mode",
+        "mode": "Full Auto",
+        "target": "Experienced Traders",
+        "features": [
+          "Configure indicators via the Indicators tab (EMA, RSI, ATR...)",
+          "Fine-tune strategies in Settings > Logic Tuning",
+          "Full EA Manager control (Risk, Trailing, Prop Firm)",
+          "Automatic entry & automatic exit via Expert Advisor"
+        ]
+      },
+      "standard": {
+        "title": "Assisted Mode",
+        "mode": "Semi-Auto",
+        "target": "All Levels",
+        "features": [
+          "Optimized default parameters or customize via EA Manager",
+          "AI signals displayed in real-time on Signal Panel",
+          "Automatic entry & manual exit for controlled trading",
+          "Learn from AI recommendations while keeping control"
+        ]
+      },
+      "manual": {
+        "title": "Manual Mode",
+        "mode": "Full Manual",
+        "target": "Independent Traders",
+        "features": [
+          "Default app parameters (no configuration needed)",
+          "Use Signal Panel & Dashboard as information tools",
+          "Manual entry & manual exit - full independence",
+          "Trade based on your own technical analysis"
+        ]
+      }
+    },
+    "visuals": {
+      "title": "Intelligent Visualization",
+      "subtitle": "Real-time signals directly on your charts",
+      "features": [
+        "Color-coded BUY/SELL/NEUTRAL signals",
+        "Confidence level indicators",
+        "Optimal entry zone overlays",
+        "Micro-trend detection"
+      ]
+    },
+    "screenshots": {
+      "title": "See It In Action",
+      "subtitle": "Professional interface designed for precision trading"
+    },
+    "download": {
+      "title": "Get Started Today",
+      "subtitle": "Download Cerebrum Forex and transform your trading",
+      "button": "Download Now",
+      "price": "xxx $",
+      "via": "Secure payment via Gumroad"
+    },
+    "legal": {
+      "title": "Legal Disclaimer",
+      "text": "Cerebrum Forex is trading automation software. No performance guarantee. Advanced parameters reserved for experienced users. Past performance does not guarantee future results."
+    },
+    "footer": {
+      "product": "Cerebrum Forex",
+      "tagline": "AI-Powered Trading Solution",
+      "rights": "All rights reserved."
+    }
+  }
+}

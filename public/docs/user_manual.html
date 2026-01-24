@@ -1,0 +1,1335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Manual - Cerebrum FX AI &mdash; Cerebrum Forex Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Core Module Reference" href="api/core.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #1e293b" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Cerebrum Forex
+              <img src="_static/icon.ico" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-via-setup">Installation via Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#developer-installation">Developer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#metatrader-5-configuration">MetaTrader 5 Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#verifying-the-installation">Verifying the Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#step-1-connect-to-mt5">Step 1: Connect to MT5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#step-2-data-extraction">Step 2: Data Extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#step-3-model-training">Step 3: Model Training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#step-4-predictions">Step 4: Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#signal-interpretation">Signal Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Manual - Cerebrum FX AI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard">Dashboard</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dashboard-sub-tabs">Dashboard Sub-tabs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mt5-account-info-section">MT5 Account Info Section</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-buttons">Action Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#open-positions">Open Positions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prediction-tab">Prediction Tab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#live-operations">Live Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signal">Signal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ea-manager">EA Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#order-tab">Order Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#position-tab">Position Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#risk-tab">Risk Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prop-firm-tab">Prop Firm Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trailing-tab">Trailing Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ea-logs-tab">EA Logs Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ea-analytics-tab">EA Analytics Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Dashboard - Sub-tabs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#calendar-tab">Calendar Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signals-chart-tab">Signals-Chart Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trading-tab">Trading Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#extraction">Extraction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ohlc-files-tab">OHLC Files Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#indicators">Indicators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#categories">Categories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#training">Training</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#training-pipeline">Training Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buttons">Buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-status">Model Status</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-tab">General Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-paths-tab">Data Paths Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-signals-tab">AI Signals Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logic-tuning-tab">Logic Tuning Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shortcuts-and-best-practices">Shortcuts and Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recommended-workflow">Recommended Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prop-firm-tips">Prop Firm Tips</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/core.html">Core Module Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.mt5_connector">MT5 Connector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector"><code class="docutils literal notranslate"><span class="pre">MT5Connector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.add_callback"><code class="docutils literal notranslate"><span class="pre">MT5Connector.add_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.close_all_positions"><code class="docutils literal notranslate"><span class="pre">MT5Connector.close_all_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.connect"><code class="docutils literal notranslate"><span class="pre">MT5Connector.connect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.check_health"><code class="docutils literal notranslate"><span class="pre">MT5Connector.check_health()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.disconnect"><code class="docutils literal notranslate"><span class="pre">MT5Connector.disconnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.test_connection"><code class="docutils literal notranslate"><span class="pre">MT5Connector.test_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.preload_history"><code class="docutils literal notranslate"><span class="pre">MT5Connector.preload_history()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_terminal_data_path"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_terminal_data_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_current_server_time"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_current_server_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_server_time"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_server_time()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_time_offset"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_time_offset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_account_info"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_account_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_market_status"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_market_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_ohlc_path"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_ohlc_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.extract_ohlc"><code class="docutils literal notranslate"><span class="pre">MT5Connector.extract_ohlc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.update_all_ohlc"><code class="docutils literal notranslate"><span class="pre">MT5Connector.update_all_ohlc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_buffer"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_buffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_latest_candles"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_latest_candles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.load_ohlc"><code class="docutils literal notranslate"><span class="pre">MT5Connector.load_ohlc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.load_ohlc_buffer"><code class="docutils literal notranslate"><span class="pre">MT5Connector.load_ohlc_buffer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.get_ohlc_status"><code class="docutils literal notranslate"><span class="pre">MT5Connector.get_ohlc_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.mt5_connector.MT5Connector.extract_all"><code class="docutils literal notranslate"><span class="pre">MT5Connector.extract_all()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.mt5_connector.get_mt5_connector"><code class="docutils literal notranslate"><span class="pre">get_mt5_connector()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.prediction_engine">Prediction Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine"><code class="docutils literal notranslate"><span class="pre">PredictionEngine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.add_callback"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.add_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.remove_callback"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.remove_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.get_signal_path"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.get_signal_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.get_enabled_models"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.get_enabled_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.predict_timeframe"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.predict_timeframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.load_signal"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.load_signal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.reset_engine"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.reset_engine()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.predict_all"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.predict_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.get_prediction_status"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.get_prediction_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.get_combined_signal"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.get_combined_signal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.prediction_engine.PredictionEngine.get_congress_history"><code class="docutils literal notranslate"><span class="pre">PredictionEngine.get_congress_history()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.training_manager">Training Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.training_manager.TrainingLogBridge"><code class="docutils literal notranslate"><span class="pre">TrainingLogBridge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingLogBridge.emit"><code class="docutils literal notranslate"><span class="pre">TrainingLogBridge.emit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.training_manager.RecoveryRequired"><code class="docutils literal notranslate"><span class="pre">RecoveryRequired</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager"><code class="docutils literal notranslate"><span class="pre">TrainingManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.add_callback"><code class="docutils literal notranslate"><span class="pre">TrainingManager.add_callback()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.get_model"><code class="docutils literal notranslate"><span class="pre">TrainingManager.get_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.get_normalizer"><code class="docutils literal notranslate"><span class="pre">TrainingManager.get_normalizer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.get_training_status"><code class="docutils literal notranslate"><span class="pre">TrainingManager.get_training_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.should_train_incremental"><code class="docutils literal notranslate"><span class="pre">TrainingManager.should_train_incremental()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.prepare_training_data"><code class="docutils literal notranslate"><span class="pre">TrainingManager.prepare_training_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.train_timeframe"><code class="docutils literal notranslate"><span class="pre">TrainingManager.train_timeframe()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.train_all"><code class="docutils literal notranslate"><span class="pre">TrainingManager.train_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.train_with_drift_check"><code class="docutils literal notranslate"><span class="pre">TrainingManager.train_with_drift_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.start_scheduled_training"><code class="docutils literal notranslate"><span class="pre">TrainingManager.start_scheduled_training()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.stop_scheduled_training"><code class="docutils literal notranslate"><span class="pre">TrainingManager.stop_scheduled_training()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.training_manager.TrainingManager.load_all_models"><code class="docutils literal notranslate"><span class="pre">TrainingManager.load_all_models()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.feature_engine">Feature Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.feature_engine.FeatureEngine"><code class="docutils literal notranslate"><span class="pre">FeatureEngine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.feature_engine.FeatureEngine.calculate_all_features"><code class="docutils literal notranslate"><span class="pre">FeatureEngine.calculate_all_features()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.feature_engine.FeatureEngine.get_feature_columns"><code class="docutils literal notranslate"><span class="pre">FeatureEngine.get_feature_columns()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.feature_engine.FeatureEngine.select_best_features"><code class="docutils literal notranslate"><span class="pre">FeatureEngine.select_best_features()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.app_controller">App Controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.app_controller.AppController"><code class="docutils literal notranslate"><span class="pre">AppController</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.mt5"><code class="docutils literal notranslate"><span class="pre">AppController.mt5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.training_manager"><code class="docutils literal notranslate"><span class="pre">AppController.training_manager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.prediction_engine"><code class="docutils literal notranslate"><span class="pre">AppController.prediction_engine</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.scheduler"><code class="docutils literal notranslate"><span class="pre">AppController.scheduler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.start"><code class="docutils literal notranslate"><span class="pre">AppController.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.stop"><code class="docutils literal notranslate"><span class="pre">AppController.stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.extract_all"><code class="docutils literal notranslate"><span class="pre">AppController.extract_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.predict_manual"><code class="docutils literal notranslate"><span class="pre">AppController.predict_manual()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.train_all"><code class="docutils literal notranslate"><span class="pre">AppController.train_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.predict_all"><code class="docutils literal notranslate"><span class="pre">AppController.predict_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_signal"><code class="docutils literal notranslate"><span class="pre">AppController.get_signal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_combined_signal"><code class="docutils literal notranslate"><span class="pre">AppController.get_combined_signal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_ohlc_status"><code class="docutils literal notranslate"><span class="pre">AppController.get_ohlc_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_training_status"><code class="docutils literal notranslate"><span class="pre">AppController.get_training_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_model"><code class="docutils literal notranslate"><span class="pre">AppController.get_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_settings"><code class="docutils literal notranslate"><span class="pre">AppController.get_settings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_cached_account_info"><code class="docutils literal notranslate"><span class="pre">AppController.get_cached_account_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.save_settings"><code class="docutils literal notranslate"><span class="pre">AppController.save_settings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.get_congress_config"><code class="docutils literal notranslate"><span class="pre">AppController.get_congress_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.save_congress_config"><code class="docutils literal notranslate"><span class="pre">AppController.save_congress_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.update_scheduler_config"><code class="docutils literal notranslate"><span class="pre">AppController.update_scheduler_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.sync_ea_config"><code class="docutils literal notranslate"><span class="pre">AppController.sync_ea_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.app_controller.AppController.log_training_event"><code class="docutils literal notranslate"><span class="pre">AppController.log_training_event()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.noble_kpi">Noble KPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#noble-safe-range-kpi-core-module">Noble Safe Range KPI - Core Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.MarketRegime"><code class="docutils literal notranslate"><span class="pre">MarketRegime</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.noble_kpi.MarketRegime.NORMAL"><code class="docutils literal notranslate"><span class="pre">MarketRegime.NORMAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.noble_kpi.MarketRegime.LOW_VOL"><code class="docutils literal notranslate"><span class="pre">MarketRegime.LOW_VOL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.noble_kpi.MarketRegime.HIGH_VOL"><code class="docutils literal notranslate"><span class="pre">MarketRegime.HIGH_VOL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.noble_kpi.MarketRegime.CRISIS"><code class="docutils literal notranslate"><span class="pre">MarketRegime.CRISIS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.calculate_atr_series"><code class="docutils literal notranslate"><span class="pre">calculate_atr_series()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.detect_regime_series"><code class="docutils literal notranslate"><span class="pre">detect_regime_series()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.calculate_atr"><code class="docutils literal notranslate"><span class="pre">calculate_atr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.detect_regime"><code class="docutils literal notranslate"><span class="pre">detect_regime()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.noble_safe_range"><code class="docutils literal notranslate"><span class="pre">noble_safe_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.calculate_position"><code class="docutils literal notranslate"><span class="pre">calculate_position()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.get_recommendation"><code class="docutils literal notranslate"><span class="pre">get_recommendation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.analyze_timeframe"><code class="docutils literal notranslate"><span class="pre">analyze_timeframe()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.validate_kpi"><code class="docutils literal notranslate"><span class="pre">validate_kpi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.noble_kpi.calculate_noble_bias"><code class="docutils literal notranslate"><span class="pre">calculate_noble_bias()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.congress_engine">Congress Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.congress_engine.AladdinPersona"><code class="docutils literal notranslate"><span class="pre">AladdinPersona</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.AladdinPersona.QUANT"><code class="docutils literal notranslate"><span class="pre">AladdinPersona.QUANT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.AladdinPersona.ARCHIVIST"><code class="docutils literal notranslate"><span class="pre">AladdinPersona.ARCHIVIST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.AladdinPersona.FUTURIST"><code class="docutils literal notranslate"><span class="pre">AladdinPersona.FUTURIST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.AladdinPersona.GUARDIAN"><code class="docutils literal notranslate"><span class="pre">AladdinPersona.GUARDIAN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.AladdinPersona.LEADER"><code class="docutils literal notranslate"><span class="pre">AladdinPersona.LEADER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.AladdinPersona.SENTINEL"><code class="docutils literal notranslate"><span class="pre">AladdinPersona.SENTINEL</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction"><code class="docutils literal notranslate"><span class="pre">ModelPrediction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction.model_name"><code class="docutils literal notranslate"><span class="pre">ModelPrediction.model_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction.model_role"><code class="docutils literal notranslate"><span class="pre">ModelPrediction.model_role</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction.score"><code class="docutils literal notranslate"><span class="pre">ModelPrediction.score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction.confidence"><code class="docutils literal notranslate"><span class="pre">ModelPrediction.confidence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction.regime"><code class="docutils literal notranslate"><span class="pre">ModelPrediction.regime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction.timeframe"><code class="docutils literal notranslate"><span class="pre">ModelPrediction.timeframe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.ModelPrediction.timestamp"><code class="docutils literal notranslate"><span class="pre">ModelPrediction.timestamp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision"><code class="docutils literal notranslate"><span class="pre">CongressDecision</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.final_signal"><code class="docutils literal notranslate"><span class="pre">CongressDecision.final_signal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.final_score"><code class="docutils literal notranslate"><span class="pre">CongressDecision.final_score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.final_confidence"><code class="docutils literal notranslate"><span class="pre">CongressDecision.final_confidence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.detected_regime"><code class="docutils literal notranslate"><span class="pre">CongressDecision.detected_regime</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.certainty_boost"><code class="docutils literal notranslate"><span class="pre">CongressDecision.certainty_boost</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.flux_boost"><code class="docutils literal notranslate"><span class="pre">CongressDecision.flux_boost</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.trend_certainty"><code class="docutils literal notranslate"><span class="pre">CongressDecision.trend_certainty</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.duration_tf5"><code class="docutils literal notranslate"><span class="pre">CongressDecision.duration_tf5</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.threshold"><code class="docutils literal notranslate"><span class="pre">CongressDecision.threshold</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.model_predictions"><code class="docutils literal notranslate"><span class="pre">CongressDecision.model_predictions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.flux_details"><code class="docutils literal notranslate"><span class="pre">CongressDecision.flux_details</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.weights_applied"><code class="docutils literal notranslate"><span class="pre">CongressDecision.weights_applied</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.timestamp"><code class="docutils literal notranslate"><span class="pre">CongressDecision.timestamp</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.override_type"><code class="docutils literal notranslate"><span class="pre">CongressDecision.override_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressDecision.to_dict"><code class="docutils literal notranslate"><span class="pre">CongressDecision.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine"><code class="docutils literal notranslate"><span class="pre">CongressEngine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.CONGRESS_WEIGHTS"><code class="docutils literal notranslate"><span class="pre">CongressEngine.CONGRESS_WEIGHTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.DEFAULT_WEIGHTS"><code class="docutils literal notranslate"><span class="pre">CongressEngine.DEFAULT_WEIGHTS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.BASE_THRESHOLD"><code class="docutils literal notranslate"><span class="pre">CongressEngine.BASE_THRESHOLD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.LAMBDA"><code class="docutils literal notranslate"><span class="pre">CongressEngine.LAMBDA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.KPI_GAMMA"><code class="docutils literal notranslate"><span class="pre">CongressEngine.KPI_GAMMA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.CERTAINTY_BONUS"><code class="docutils literal notranslate"><span class="pre">CongressEngine.CERTAINTY_BONUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.__init__"><code class="docutils literal notranslate"><span class="pre">CongressEngine.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.detect_market_regime"><code class="docutils literal notranslate"><span class="pre">CongressEngine.detect_market_regime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.calculate_adaptive_threshold"><code class="docutils literal notranslate"><span class="pre">CongressEngine.calculate_adaptive_threshold()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.get_weights"><code class="docutils literal notranslate"><span class="pre">CongressEngine.get_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.aggregate"><code class="docutils literal notranslate"><span class="pre">CongressEngine.aggregate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.get_decision_history"><code class="docutils literal notranslate"><span class="pre">CongressEngine.get_decision_history()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.simple_aggregate"><code class="docutils literal notranslate"><span class="pre">CongressEngine.simple_aggregate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.make_decision_batch"><code class="docutils literal notranslate"><span class="pre">CongressEngine.make_decision_batch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.aggregate_with_regime"><code class="docutils literal notranslate"><span class="pre">CongressEngine.aggregate_with_regime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.full_aggregate"><code class="docutils literal notranslate"><span class="pre">CongressEngine.full_aggregate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.congress_engine.CongressEngine.save_prediction_json"><code class="docutils literal notranslate"><span class="pre">CongressEngine.save_prediction_json()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.congress_engine.get_congress_engine"><code class="docutils literal notranslate"><span class="pre">get_congress_engine()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/core.html#module-core.model_scorer">Model Scorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.model_scorer.PredictionOutcome"><code class="docutils literal notranslate"><span class="pre">PredictionOutcome</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.PredictionOutcome.model_name"><code class="docutils literal notranslate"><span class="pre">PredictionOutcome.model_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.PredictionOutcome.timeframe"><code class="docutils literal notranslate"><span class="pre">PredictionOutcome.timeframe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.PredictionOutcome.predicted_signal"><code class="docutils literal notranslate"><span class="pre">PredictionOutcome.predicted_signal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.PredictionOutcome.actual_outcome"><code class="docutils literal notranslate"><span class="pre">PredictionOutcome.actual_outcome</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.PredictionOutcome.confidence"><code class="docutils literal notranslate"><span class="pre">PredictionOutcome.confidence</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.PredictionOutcome.timestamp"><code class="docutils literal notranslate"><span class="pre">PredictionOutcome.timestamp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer"><code class="docutils literal notranslate"><span class="pre">ModelScorer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer.HISTORY_SIZE"><code class="docutils literal notranslate"><span class="pre">ModelScorer.HISTORY_SIZE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer.MIN_SAMPLES"><code class="docutils literal notranslate"><span class="pre">ModelScorer.MIN_SAMPLES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer.DYNAMIC_WEIGHT"><code class="docutils literal notranslate"><span class="pre">ModelScorer.DYNAMIC_WEIGHT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer.EMA_ALPHA"><code class="docutils literal notranslate"><span class="pre">ModelScorer.EMA_ALPHA</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer.record_outcome"><code class="docutils literal notranslate"><span class="pre">ModelScorer.record_outcome()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer.get_dynamic_weights"><code class="docutils literal notranslate"><span class="pre">ModelScorer.get_dynamic_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core.html#core.model_scorer.ModelScorer.get_model_stats"><code class="docutils literal notranslate"><span class="pre">ModelScorer.get_model_stats()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core.html#core.model_scorer.get_model_scorer"><code class="docutils literal notranslate"><span class="pre">get_model_scorer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/models.html">Models Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/models.html#module-models.xgboost_model">XGBoost Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/models.html#models.xgboost_model.XGBoostModel"><code class="docutils literal notranslate"><span class="pre">XGBoostModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.xgboost_model.XGBoostModel.name"><code class="docutils literal notranslate"><span class="pre">XGBoostModel.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.xgboost_model.XGBoostModel.train"><code class="docutils literal notranslate"><span class="pre">XGBoostModel.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.xgboost_model.XGBoostModel.predict"><code class="docutils literal notranslate"><span class="pre">XGBoostModel.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.xgboost_model.XGBoostModel.load"><code class="docutils literal notranslate"><span class="pre">XGBoostModel.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/models.html#module-models.lightgbm_model">LightGBM Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/models.html#models.lightgbm_model.LightGBMModel"><code class="docutils literal notranslate"><span class="pre">LightGBMModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.lightgbm_model.LightGBMModel.name"><code class="docutils literal notranslate"><span class="pre">LightGBMModel.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.lightgbm_model.LightGBMModel.train"><code class="docutils literal notranslate"><span class="pre">LightGBMModel.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.lightgbm_model.LightGBMModel.predict"><code class="docutils literal notranslate"><span class="pre">LightGBMModel.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.lightgbm_model.LightGBMModel.load"><code class="docutils literal notranslate"><span class="pre">LightGBMModel.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/models.html#module-models.randomforest_model">RandomForest Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/models.html#models.randomforest_model.RandomForestModel"><code class="docutils literal notranslate"><span class="pre">RandomForestModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.randomforest_model.RandomForestModel.name"><code class="docutils literal notranslate"><span class="pre">RandomForestModel.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.randomforest_model.RandomForestModel.train"><code class="docutils literal notranslate"><span class="pre">RandomForestModel.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.randomforest_model.RandomForestModel.predict"><code class="docutils literal notranslate"><span class="pre">RandomForestModel.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.randomforest_model.RandomForestModel.load"><code class="docutils literal notranslate"><span class="pre">RandomForestModel.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/models.html#module-models.stacking_model">Stacking Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/models.html#models.stacking_model.StackingModel"><code class="docutils literal notranslate"><span class="pre">StackingModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.stacking_model.StackingModel.name"><code class="docutils literal notranslate"><span class="pre">StackingModel.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.stacking_model.StackingModel.train"><code class="docutils literal notranslate"><span class="pre">StackingModel.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.stacking_model.StackingModel.predict"><code class="docutils literal notranslate"><span class="pre">StackingModel.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.stacking_model.StackingModel.load"><code class="docutils literal notranslate"><span class="pre">StackingModel.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/models.html#module-models.meta_model">Meta Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/models.html#models.meta_model.MetaModel"><code class="docutils literal notranslate"><span class="pre">MetaModel</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.meta_model.MetaModel.prepare_meta_features"><code class="docutils literal notranslate"><span class="pre">MetaModel.prepare_meta_features()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.meta_model.MetaModel.train"><code class="docutils literal notranslate"><span class="pre">MetaModel.train()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.meta_model.MetaModel.predict_viability"><code class="docutils literal notranslate"><span class="pre">MetaModel.predict_viability()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.meta_model.MetaModel.save"><code class="docutils literal notranslate"><span class="pre">MetaModel.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/models.html#models.meta_model.MetaModel.load"><code class="docutils literal notranslate"><span class="pre">MetaModel.load()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/gui.html">GUI Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/gui.html#module-gui.main_window">Main Window</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/gui.html#gui.main_window.MainWindow"><code class="docutils literal notranslate"><span class="pre">MainWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.main_window.MainWindow.status_changed"><code class="docutils literal notranslate"><span class="pre">MainWindow.status_changed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.main_window.MainWindow.update_signal_display"><code class="docutils literal notranslate"><span class="pre">MainWindow.update_signal_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.main_window.MainWindow.closeEvent"><code class="docutils literal notranslate"><span class="pre">MainWindow.closeEvent()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/gui.html#panels">Panels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/gui.html#module-gui.panels.dashboard_panel">Dashboard Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.dashboard_panel.PredictionWorker"><code class="docutils literal notranslate"><span class="pre">PredictionWorker</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.dashboard_panel.DashboardPanel"><code class="docutils literal notranslate"><span class="pre">DashboardPanel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/gui.html#module-gui.panels.extraction_panel">Extraction Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.extraction_panel.ExtractionPanel"><code class="docutils literal notranslate"><span class="pre">ExtractionPanel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/gui.html#module-gui.panels.training_panel">Training Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.training_panel.TrainingSignals"><code class="docutils literal notranslate"><span class="pre">TrainingSignals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.training_panel.PhaseCard"><code class="docutils literal notranslate"><span class="pre">PhaseCard</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.training_panel.TrainingPanel"><code class="docutils literal notranslate"><span class="pre">TrainingPanel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.training_panel.SchedulerDialog"><code class="docutils literal notranslate"><span class="pre">SchedulerDialog</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/gui.html#module-gui.panels.prediction_panel">Prediction Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.prediction_panel.PredictionPanel"><code class="docutils literal notranslate"><span class="pre">PredictionPanel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/gui.html#module-gui.panels.settings_panel">Settings Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.panels.settings_panel.SettingsPanel"><code class="docutils literal notranslate"><span class="pre">SettingsPanel</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/gui.html#workers">Workers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/gui.html#module-gui.workers.prediction_worker">Prediction Worker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/gui.html#gui.workers.prediction_worker.PredictionWorker"><code class="docutils literal notranslate"><span class="pre">PredictionWorker</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-1-0-0-january-2026">Version 1.0.0 (January 2026)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#improvements">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#bug-fixes">Bug Fixes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-contribute">How to Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#reporting-bugs">Reporting Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#contact">Contact</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx_tech.html">Sphinx Documentation System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sphinx_tech.html#sphinx-engine">⚙️ Sphinx Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx_tech.html#parsing">🔍 Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx_tech.html#reference-resolution">🔗 Reference Resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphinx_tech.html#tree-generation-rtd-theme">🌳 Tree Generation (RTD Theme)</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #1e293b" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Cerebrum Forex</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">User Manual - Cerebrum FX AI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_manual.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-manual-cerebrum-fx-ai">
+<h1>User Manual - Cerebrum FX AI<a class="headerlink" href="#user-manual-cerebrum-fx-ai" title="Link to this heading"></a></h1>
+<p>This guide details each window and field of the Cerebrum FX AI application for optimal usage.</p>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#dashboard"><span class="xref myst">Dashboard</span></a></p></li>
+<li><p><a class="reference internal" href="#prediction-tab"><span class="xref myst">Prediction Tab</span></a></p></li>
+<li><p><a class="reference internal" href="#ea-manager"><span class="xref myst">EA Manager</span></a></p></li>
+<li><p><a class="reference internal" href="#extraction"><span class="xref myst">Extraction</span></a></p></li>
+<li><p><a class="reference internal" href="#indicators"><span class="xref myst">Indicators</span></a></p></li>
+<li><p><a class="reference internal" href="#training"><span class="xref myst">Training</span></a></p></li>
+<li><p><a class="reference internal" href="#test-center"><span class="xref myst">Test Center</span></a></p></li>
+<li><p><a class="reference internal" href="#settings"><span class="xref myst">Settings</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="dashboard">
+<h2>Dashboard<a class="headerlink" href="#dashboard" title="Link to this heading"></a></h2>
+<p>The Dashboard is the main window displaying MT5 information and open positions.</p>
+<p><img alt="Dashboard" src="_images/p1.jpg" /></p>
+<section id="dashboard-sub-tabs">
+<h3>Dashboard Sub-tabs<a class="headerlink" href="#dashboard-sub-tabs" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tab</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Signals - Chart</strong></p></td>
+<td><p>Candlestick chart with live price</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Trading</strong></p></td>
+<td><p>Trading zone with indicators and SL/TP zones</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Calendar</strong></p></td>
+<td><p>Economic calendar with impact events</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MT5</strong></p></td>
+<td><p>MetaTrader 5 account information</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mt5-account-info-section">
+<h3>MT5 Account Info Section<a class="headerlink" href="#mt5-account-info-section" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Login</strong></p></td>
+<td><p>MT5 account number</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Server</strong></p></td>
+<td><p>Broker server name</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Name</strong></p></td>
+<td><p>Account name</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Company</strong></p></td>
+<td><p>Broker name</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Currency</strong></p></td>
+<td><p>Account currency (USD, EUR…)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Leverage</strong></p></td>
+<td><p>Account leverage (e.g., 1:100)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Balance</strong></p></td>
+<td><p>Account balance</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Equity</strong></p></td>
+<td><p>Equity (Balance + Floating P/L)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Profit</strong></p></td>
+<td><p>Floating Profit/Loss</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Free Margin</strong></p></td>
+<td><p>Available free margin</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Margin Level</strong></p></td>
+<td><p>Margin level in %</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Trade Mode</strong></p></td>
+<td><p>Mode (Demo/Real)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="action-buttons">
+<h3>Action Buttons<a class="headerlink" href="#action-buttons" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Button</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>🔴 PANIC CLOSE</strong></p></td>
+<td><p>Closes all positions immediately</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>🔄 Refresh</strong></p></td>
+<td><p>Refreshes account data</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>🚀 Launch MT5</strong></p></td>
+<td><p>Launches MetaTrader 5 terminal</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="open-positions">
+<h3>Open Positions<a class="headerlink" href="#open-positions" title="Link to this heading"></a></h3>
+<p>List of open positions with symbol, lots, and P/L in real-time.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="prediction-tab">
+<h2>Prediction Tab<a class="headerlink" href="#prediction-tab" title="Link to this heading"></a></h2>
+<section id="live-operations">
+<h3>Live Operations<a class="headerlink" href="#live-operations" title="Link to this heading"></a></h3>
+<p><img alt="Prediction" src="_images/p1.jpg" /></p>
+<p><strong>Prediction Pipeline</strong> - Displays calculation steps:</p>
+<ol class="arabic simple">
+<li><p>SYNC TIMING - Synchronization</p></li>
+<li><p>HARDWARE - Resource check</p></li>
+<li><p>LOAD OHLC - Data loading</p></li>
+<li><p>ROW LIMIT - Row limitation</p></li>
+<li><p>INDICATORS - Indicator calculation</p></li>
+<li><p>XGBOOST / LIGHTGBM / RANDOMFOREST / CATBOOST / STACKING - ML Models</p></li>
+</ol>
+</section>
+<section id="signal">
+<h3>Signal<a class="headerlink" href="#signal" title="Link to this heading"></a></h3>
+<p><img alt="Signal BUY" src="_images/p2.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Signal</strong></p></td>
+<td><p>Direction (BUY/SELL/NEUTRAL)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Confidence</strong></p></td>
+<td><p>Confidence level (0-100%)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Timeframe</strong></p></td>
+<td><p>Analyzed interval (1m, 5m, 15m…)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Score</strong></p></td>
+<td><p>Raw model score (-1 to +1)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Regime</strong></p></td>
+<td><p>Market regime (Range/Trend)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Model Breakdown</strong> - Vote detail per model:</p>
+<ul class="simple">
+<li><p>XGBOOST: Vote and confidence</p></li>
+<li><p>LIGHTGBM: Vote and confidence</p></li>
+<li><p>etc.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ea-manager">
+<h2>EA Manager<a class="headerlink" href="#ea-manager" title="Link to this heading"></a></h2>
+<p>The EA Manager configures the MQL5 Expert Advisor with 7 tabs.</p>
+<section id="order-tab">
+<h3>Order Tab<a class="headerlink" href="#order-tab" title="Link to this heading"></a></h3>
+<p><img alt="EA Order" src="_images/p3.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Recommended Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Volume (Lots)</strong></p></td>
+<td><p>Position size</p></td>
+<td><p>0.01 - 1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Order Type</strong></p></td>
+<td><p>MARKET / LIMIT / STOP</p></td>
+<td><p>MARKET</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Direction</strong></p></td>
+<td><p>AUTO / BUY / SELL</p></td>
+<td><p>AUTO (follows signal)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Entry Price</strong></p></td>
+<td><p>Entry price (LIMIT/STOP)</p></td>
+<td><p>0 if MARKET</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Fixed SL (Initial)</strong></p></td>
+<td><p>Initial Stop Loss in points</p></td>
+<td><p>50-200</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Hard Stop Loss</strong></p></td>
+<td><p>Maximum SL in points</p></td>
+<td><p>100-500</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Take Profit</strong></p></td>
+<td><p>TP in points</p></td>
+<td><p>50-300</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="position-tab">
+<h3>Position Tab<a class="headerlink" href="#position-tab" title="Link to this heading"></a></h3>
+<p><img alt="EA Position" src="_images/p4.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Modify Active</strong></p></td>
+<td><p>Allows SL/TP modification</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Partial Close</strong></p></td>
+<td><p>% partial close at TP1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>BE Trigger</strong></p></td>
+<td><p>Profit points before Breakeven</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BE Lock Profit</strong></p></td>
+<td><p>Secured profit points at BE</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Strategy</strong></p></td>
+<td><p>Invert Position (Reverse trading)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Grid/Martingale</strong></p></td>
+<td><p>Allow Multiple Positions</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CLOSE ALL</strong> - Closes all positions.</p>
+</section>
+<section id="risk-tab">
+<h3>Risk Tab<a class="headerlink" href="#risk-tab" title="Link to this heading"></a></h3>
+<p><img alt="EA Risk" src="_images/p5.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Recommended Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Risk / Trade</strong></p></td>
+<td><p>Risk per trade in %</p></td>
+<td><p>0.5% - 2%</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Money Mgmt</strong></p></td>
+<td><p>Dynamic Lot (auto calculation)</p></td>
+<td><p>Disabled by default</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Max Drawdown</strong></p></td>
+<td><p>Max DD before pause (%)</p></td>
+<td><p>3% - 5%</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Stop after Loss</strong></p></td>
+<td><p>Consecutive SL count</p></td>
+<td><p>2-3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Equity Hard Stop</strong></p></td>
+<td><p>Minimum equity $ amount</p></td>
+<td><p>0 = disabled</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Max Positions</strong></p></td>
+<td><p>Maximum simultaneous positions</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Max Volume</strong></p></td>
+<td><p>Maximum total volume</p></td>
+<td><p>10 lots</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Session</strong></p></td>
+<td><p>Trading time filter</p></td>
+<td><p>7:00 - 20:00 UTC</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prop-firm-tab">
+<h3>Prop Firm Tab<a class="headerlink" href="#prop-firm-tab" title="Link to this heading"></a></h3>
+<p><img alt="EA Prop Firm" src="_images/p6.jpg" /></p>
+<p>Strict rules for trading challenges.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>FTMO/MFF Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Prop Firm Mode</strong></p></td>
+<td><p>Enables rules</p></td>
+<td><p>✅ Enabled</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Max Daily Loss</strong></p></td>
+<td><p>Maximum daily loss</p></td>
+<td><p>4% - 5%</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Max Total Drawdown</strong></p></td>
+<td><p>Maximum total loss</p></td>
+<td><p>8% - 10%</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Risk Per Trade</strong></p></td>
+<td><p>Risk per trade</p></td>
+<td><p>0.5%</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Profit Target</strong></p></td>
+<td><p>Profit target</p></td>
+<td><p>8% - 10%</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>News Filter</strong></p></td>
+<td><p>Avoids high-impact news</p></td>
+<td><p>✅ Enabled</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Neutral Stop</strong></p></td>
+<td><p>Closes if NEUTRAL signal with loss</p></td>
+<td><p>30-50 pts</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="trailing-tab">
+<h3>Trailing Tab<a class="headerlink" href="#trailing-tab" title="Link to this heading"></a></h3>
+<p><img alt="EA Trailing" src="_images/p7.jpg" /></p>
+<p>Adaptive Trailing Stop that tightens with profit.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Adaptive Mode</strong></p></td>
+<td><p>Enables adaptive trailing</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Trailing Step</strong></p></td>
+<td><p>Trailing distance in points</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Start After Profit</strong></p></td>
+<td><p>Profit points before activation</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Max Trail Distance</strong></p></td>
+<td><p>Maximum trailing distance</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Min Trail Distance</strong></p></td>
+<td><p>Minimum distance (protection)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ea-logs-tab">
+<h3>EA Logs Tab<a class="headerlink" href="#ea-logs-tab" title="Link to this heading"></a></h3>
+<p><img alt="EA Logs" src="_images/p8.jpg" /></p>
+<p>Real-time Expert Advisor logs.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Button</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Refresh Logs</strong></p></td>
+<td><p>Refreshes logs</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Manual EA Link</strong></p></td>
+<td><p>Manual EA connection</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Download Log</strong></p></td>
+<td><p>Downloads log file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ea-analytics-tab">
+<h3>EA Analytics Tab<a class="headerlink" href="#ea-analytics-tab" title="Link to this heading"></a></h3>
+<p><img alt="EA Analytics" src="_images/p9.jpg" /></p>
+<p>Performance statistics.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Winrate</strong></p></td>
+<td><p>% of winning trades</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Profit</strong></p></td>
+<td><p>Total Profit/Loss</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Realized Trades</strong></p></td>
+<td><p>Number of closed trades</p></td>
+</tr>
+</tbody>
+</table>
+<p>History table with Time, Type, Price, Profit, Comment.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2>Dashboard - Sub-tabs<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="calendar-tab">
+<h3>Calendar Tab<a class="headerlink" href="#calendar-tab" title="Link to this heading"></a></h3>
+<p><img alt="Calendar" src="_images/p11.jpg" /></p>
+<p>Economic calendar with impact events.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>🔴 <strong>High</strong></p></td>
+<td><p>High impact (NFP, FOMC)</p></td>
+</tr>
+<tr class="row-odd"><td><p>🟠 <strong>Medium</strong></p></td>
+<td><p>Medium impact</p></td>
+</tr>
+<tr class="row-even"><td><p>⚪ <strong>Low</strong></p></td>
+<td><p>Low impact</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signals-chart-tab">
+<h3>Signals-Chart Tab<a class="headerlink" href="#signals-chart-tab" title="Link to this heading"></a></h3>
+<p><img alt="Chart" src="_images/p12.jpg" /></p>
+<p>Candlestick chart with:</p>
+<ul class="simple">
+<li><p>Timeframe selector (1m to 4h)</p></li>
+<li><p>Live price with direction</p></li>
+<li><p>Fullscreen button</p></li>
+</ul>
+</section>
+<section id="trading-tab">
+<h3>Trading Tab<a class="headerlink" href="#trading-tab" title="Link to this heading"></a></h3>
+<p><img alt="Trading" src="_images/p13.jpg" /></p>
+<p>Advanced trading view:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Position Bar</strong></p></td>
+<td><p>Price position in range</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>SELL ZONE</strong></p></td>
+<td><p>Sell zone (price &lt; pivot)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>NEUTRAL</strong></p></td>
+<td><p>Neutral zone</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BUY ZONE</strong></p></td>
+<td><p>Buy zone (price &gt; pivot)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SAFE LOW/HIGH</strong></p></td>
+<td><p>Support/Resistance levels</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Range</strong></p></td>
+<td><p>Range in pips</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ATR</strong></p></td>
+<td><p>Average True Range</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>K-Value</strong></p></td>
+<td><p>Volatility measurement</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Trend Strength</strong></p></td>
+<td><p>Trend strength (%)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="extraction">
+<h2>Extraction<a class="headerlink" href="#extraction" title="Link to this heading"></a></h2>
+<p><img alt="Extraction" src="_images/p14.jpg" /></p>
+<p>OHLC data download and management.</p>
+<section id="ohlc-files-tab">
+<h3>OHLC Files Tab<a class="headerlink" href="#ohlc-files-tab" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>TF</strong></p></td>
+<td><p>Timeframe (1m, 5m, 15m…)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Status</strong></p></td>
+<td><p>Ready / Outdated / Missing</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Candles</strong></p></td>
+<td><p>Number of candles</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Train (50%)</strong></p></td>
+<td><p>Training data</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Val (50%)</strong></p></td>
+<td><p>Validation data</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>First Date</strong></p></td>
+<td><p>First candle</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Last Date</strong></p></td>
+<td><p>Last candle</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Button</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Smart Extract</strong></p></td>
+<td><p>Smart extraction (only needed data)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>From [Year]</strong></p></td>
+<td><p>Data start year</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="indicators">
+<h2>Indicators<a class="headerlink" href="#indicators" title="Link to this heading"></a></h2>
+<p><img alt="Indicators" src="_images/p15.jpg" /></p>
+<p>Technical indicator management.</p>
+<section id="categories">
+<h3>Categories<a class="headerlink" href="#categories" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tab</p></th>
+<th class="head"><p>Indicators</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Trend</strong></p></td>
+<td><p>EMA, SMA, ADX, Ichimoku…</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Momentum</strong></p></td>
+<td><p>RSI, MACD, Stochastic…</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Volatility</strong></p></td>
+<td><p>ATR, Bollinger, Keltner…</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Volume</strong></p></td>
+<td><p>OBV, MFI…</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Custom</strong></p></td>
+<td><p>Custom indicators</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Button</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Enable All</strong></p></td>
+<td><p>Enables all indicators</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Disable All</strong></p></td>
+<td><p>Disables all</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Refresh</strong></p></td>
+<td><p>Recalculates indicators</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="training">
+<h2>Training<a class="headerlink" href="#training" title="Link to this heading"></a></h2>
+<p><img alt="Training" src="_images/p16.jpg" /></p>
+<p>Machine Learning model training.</p>
+<section id="training-pipeline">
+<h3>Training Pipeline<a class="headerlink" href="#training-pipeline" title="Link to this heading"></a></h3>
+<p>Visual steps: Data → Features → Labels → Normalize → XGBoost → LightGBM → RandomForest → CatBoost → Stacking</p>
+</section>
+<section id="buttons">
+<h3>Buttons<a class="headerlink" href="#buttons" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Button</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Smart Train</strong></p></td>
+<td><p>Trains outdated models</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Stop</strong></p></td>
+<td><p>Stops training</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Info</strong></p></td>
+<td><p>Model information</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Auto-Train</strong></p></td>
+<td><p>Enables automatic training</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="model-status">
+<h3>Model Status<a class="headerlink" href="#model-status" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>TF</strong></p></td>
+<td><p>Model timeframe</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Status</strong></p></td>
+<td><p>READY / TRAINING / OUTDATED</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>XGBoost/LightGBM/…</strong></p></td>
+<td><p>Each model’s accuracy</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Avg Acc</strong></p></td>
+<td><p>Average accuracy</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Models</strong></p></td>
+<td><p>Ready models (e.g., 5/5)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Link to this heading"></a></h2>
+<section id="general-tab">
+<h3>General Tab<a class="headerlink" href="#general-tab" title="Link to this heading"></a></h3>
+<p><img alt="Settings General" src="_images/p17.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>MT5 Path</strong></p></td>
+<td><p>Path to terminal64.exe</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Symbol</strong></p></td>
+<td><p>Trading pair (EURUSD)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Install / Deploy EA</strong></p></td>
+<td><p>Installs EA in MT5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Enable Audio Alerts</strong></p></td>
+<td><p>Sounds for signals</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Auto-Connect MT5</strong></p></td>
+<td><p>Auto-connect on startup</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-paths-tab">
+<h3>Data Paths Tab<a class="headerlink" href="#data-paths-tab" title="Link to this heading"></a></h3>
+<p><img alt="Settings Paths" src="_images/p18.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>OHLC</strong></p></td>
+<td><p>Raw data folder</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Indicators</strong></p></td>
+<td><p>Calculated indicators folder</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Features</strong></p></td>
+<td><p>ML features folder</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Models</strong></p></td>
+<td><p>Trained models folder</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Signals</strong></p></td>
+<td><p>EA communication folder</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ai-signals-tab">
+<h3>AI Signals Tab<a class="headerlink" href="#ai-signals-tab" title="Link to this heading"></a></h3>
+<p><img alt="Settings AI" src="_images/p19.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Confidence Threshold</strong></p></td>
+<td><p>Minimum confidence threshold (0.65 = 65%)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Minimum Consensus</strong></p></td>
+<td><p>Minimum models in agreement</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Validation Ratio</strong></p></td>
+<td><p>Train/validation ratio (0.20 = 20%)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Incremental Training</strong></p></td>
+<td><p>Incremental training mode</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Hyper-optimization</strong></p></td>
+<td><p>Hyperparameter optimization</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CPU Threads</strong></p></td>
+<td><p>Calculation threads</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Execution Profile</strong></p></td>
+<td><p>PRO / FAST / ECO</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logic-tuning-tab">
+<h3>Logic Tuning Tab<a class="headerlink" href="#logic-tuning-tab" title="Link to this heading"></a></h3>
+<p><img alt="Settings Logic" src="_images/p20.jpg" /></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Section</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Optimization Strategy</strong></p></td>
+<td><p>Preset: Balanced / Opportunist / Guardian</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Voting Weights</strong></p></td>
+<td><p>Model weights in voting</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Democratic Override</strong></p></td>
+<td><p>Majority ignores Leader</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Range Threshold</strong></p></td>
+<td><p>Range detection threshold</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<hr class="docutils" />
+<section id="shortcuts-and-best-practices">
+<h2>Shortcuts and Best Practices<a class="headerlink" href="#shortcuts-and-best-practices" title="Link to this heading"></a></h2>
+<section id="recommended-workflow">
+<h3>Recommended Workflow<a class="headerlink" href="#recommended-workflow" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Extraction</strong> → Smart Extract (up-to-date data)</p></li>
+<li><p><strong>Indicators</strong> → Verify all enabled</p></li>
+<li><p><strong>Training</strong> → Smart Train if models outdated</p></li>
+<li><p><strong>Settings</strong> → Configure thresholds</p></li>
+<li><p><strong>EA Manager</strong> → Configure risk management</p></li>
+<li><p><strong>Prediction</strong> → Launch predictions</p></li>
+</ol>
+</section>
+<section id="prop-firm-tips">
+<h3>Prop Firm Tips<a class="headerlink" href="#prop-firm-tips" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Max Daily Loss: 4%</p></li>
+<li><p>Max Drawdown: 8%</p></li>
+<li><p>Risk per trade: 0.5%</p></li>
+<li><p>Enable News Filter</p></li>
+<li><p>Session: 7:00-20:00 UTC</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Document generated for Cerebrum FX AI v1.2</em></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/core.html" class="btn btn-neutral float-right" title="Core Module Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, BMZ Business, LLC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

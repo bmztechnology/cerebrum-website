@@ -1,0 +1,100 @@
+# Forex Trading Principles
+
+Technical analysis and trading concepts used in Cerebrum Forex.
+
+## Technical Indicators
+
+### Trend Indicators
+
+**Moving Averages (MA)**
+- SMA (Simple Moving Average): Average of last N prices
+- EMA (Exponential Moving Average): Weighted average, more recent = higher weight
+- Crossovers: Short MA crossing above long MA = bullish signal
+
+**MACD (Moving Average Convergence Divergence)**
+- MACD Line = EMA(12) - EMA(26)
+- Signal Line = EMA(9) of MACD
+- Histogram = MACD - Signal
+- Bullish: MACD crosses above Signal
+
+**ADX (Average Directional Index)**
+- Measures trend strength (0-100)
+- ADX > 25 = strong trend
+- ADX < 20 = weak/no trend
+
+**Ichimoku Cloud**
+- Tenkan-sen (Conversion): (High9 + Low9) / 2
+- Kijun-sen (Base): (High26 + Low26) / 2
+- Senkou A: (Tenkan + Kijun) / 2
+- Senkou B: (High52 + Low52) / 2
+- Price above cloud = bullish
+
+---
+
+### Momentum Indicators
+
+**RSI (Relative Strength Index)**
+- Range: 0-100
+- RSI > 70 = overbought (potential sell)
+- RSI < 30 = oversold (potential buy)
+
+**Stochastic Oscillator**
+- %K = (Close - Low14) / (High14 - Low14) × 100
+- %D = SMA(3) of %K
+- Overbought > 80, Oversold < 20
+
+**Williams %R**
+- Range: -100 to 0
+- Similar to Stochastic but inverted
+
+---
+
+### Volatility Indicators
+
+**ATR (Average True Range)**
+- Measures market volatility
+- True Range = max(High-Low, |High-PrevClose|, |Low-PrevClose|)
+- ATR = SMA(14) of True Range
+
+**Bollinger Bands**
+- Middle = SMA(20)
+- Upper = SMA(20) + 2×STD(20)
+- Lower = SMA(20) - 2×STD(20)
+- Width indicates volatility
+
+---
+
+## Signal Logic
+
+### Consensus Voting
+
+Cerebrum uses 3 models: XGBoost, LightGBM, LSTM
+
+**Rule: 2 out of 3 models must agree**
+
+| XGBoost | LightGBM | LSTM | Final Signal |
+|---------|----------|------|--------------|
+| BUY     | BUY      | SELL | BUY          |
+| SELL    | SELL     | BUY  | SELL         |
+| BUY     | SELL     | NEUTRAL | NEUTRAL   |
+
+### Confidence Calculation
+
+```
+Confidence = Average of agreeing models' confidence scores
+```
+
+---
+
+## Forex Math
+
+### Pip Value
+- EUR/USD: 1 pip = 0.0001
+- Pip value = (Pip × Lot Size) / Exchange Rate
+
+### Risk Management
+- Risk per trade: 1-2% of account
+- Position Size = (Account × Risk%) / (SL pips × Pip Value)
+
+### Profit/Loss
+- P/L = (Close - Open) × Lot Size × Pip Value

@@ -1,0 +1,63 @@
+# Quick Start
+
+This guide will get you up and running in less than 10 minutes.
+
+## Step 1: Connect to MT5
+
+On launch, Cerebrum automatically attempts to connect to MetaTrader 5.
+
+- ✅ **Connection successful**: The indicator in the top right turns green
+- ❌ **Failed**: Verify that MT5 is open and configured
+
+## Step 2: Data Extraction
+
+Before you can train models or make predictions, you need to extract historical data.
+
+1. Go to the **Extraction** tab
+2. Configure the start year (default: 2015)
+3. Click **Smart Extract**
+
+```{note}
+The first extraction may take several minutes depending on the amount of data.
+```
+
+## Step 3: Model Training
+
+Once data is extracted:
+
+1. Go to the **Training** tab
+2. Click **Train All** to train all models
+3. Monitor progress in the indicators
+
+| Model | Description |
+|-------|-------------|
+| XGBoost | Fast gradient boosting model |
+| LightGBM | Optimized for large datasets |
+| RandomForest | Ensemble of decision trees |
+| Stacking | Meta-model combining the others |
+
+## Step 4: Predictions
+
+After training:
+
+1. Go to the **Prediction** tab
+2. Select a timeframe (e.g., 1h)
+3. Click **Predict** or enable automatic predictions
+
+## Signal Interpretation
+
+| Signal | Meaning | Suggested Action |
+|--------|---------|------------------|
+| 🟢 **BUY** | Bullish trend predicted | Consider buying |
+| 🔴 **SELL** | Bearish trend predicted | Consider selling |
+| ⚪ **NEUTRAL** | No clear signal | Wait |
+
+```{warning}
+Predictions are provided for informational purposes only. They do not constitute investment advice.
+```
+
+## Next Steps
+
+- Explore the [Dashboard](api/gui.html) to customize the display
+- Configure [Settings](api/core.html) according to your preferences
+- Consult the [API Reference](api/core.html) for advanced usage

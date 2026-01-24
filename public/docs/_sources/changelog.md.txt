@@ -1,0 +1,20 @@
+# Changelog
+
+## Version 1.0.0 (January 2026)
+
+### New Features
+- 🚀 First stable release
+- 📊 Support for 6 timeframes (1m, 5m, 15m, 30m, 1h, 4h)
+- 🤖 4 ML models: XGBoost, LightGBM, RandomForest, Stacking
+- 📈 Over 50 technical indicators
+- 🎯 Noble KPI for risk management
+- 🔗 MetaTrader 5 integration
+
+### Improvements
+- Modern user interface with PyQt6
+- Complete documentation with Sphinx
+- Robust logging system
+
+### Bug Fixes
+- Fixed permission errors in the installer
+- Improved data migration to AppData

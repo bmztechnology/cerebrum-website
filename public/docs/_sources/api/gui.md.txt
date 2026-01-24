@@ -1,0 +1,70 @@
+# GUI Reference
+
+This section documents the graphical user interface of Cerebrum Forex.
+
+## Main Window
+
+```{eval-rst}
+.. automodule:: gui.main_window
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Panels
+
+### Dashboard Panel
+
+```{eval-rst}
+.. automodule:: gui.panels.dashboard_panel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+### Extraction Panel
+
+```{eval-rst}
+.. automodule:: gui.panels.extraction_panel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+### Training Panel
+
+```{eval-rst}
+.. automodule:: gui.panels.training_panel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+### Prediction Panel
+
+```{eval-rst}
+.. automodule:: gui.panels.prediction_panel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+### Settings Panel
+
+```{eval-rst}
+.. automodule:: gui.panels.settings_panel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Workers
+
+### Prediction Worker
+
+```{eval-rst}
+.. automodule:: gui.workers.prediction_worker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```

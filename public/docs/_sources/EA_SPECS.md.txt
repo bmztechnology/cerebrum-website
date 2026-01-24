@@ -1,0 +1,173 @@
+# Business Design & Architecture - Expert Advisor (Cerebrum.mq5)
+
+This document defines the functional and technical design of the Cerebrum Expert Advisor.
+
+## 1. Vision: Hybrid "Brain / Muscle" Architecture
+
+The architecture is based on a strict separation of responsibilities:
+*   **BRAIN (Python / Cerebrum.exe)**:
+    *   Processes Big Data (10 years of history).
+    *   Runs complex models (XGBoost, LSTM...).
+    *   Generates the strategic decision (Signal + Confidence).
+*   **MUSCLE (MQL5 / Cerebrum.mq5)**:
+    *   Ultra-fast execution (ms).
+    *   Passive reading of Brain orders.
+    *   Tactical position management (Stop Loss, Take Profit, Trailing).
+
+## 2. Roles and Responsibilities (Business Modules)
+
+The EA is divided into 4 distinct functional modules:
+
+### A. The "Listener" (Sensor)
+*   **Task**: Scan the `Common/Files/Cerebrum/Signals/` folder at high frequency (1s Timer).
+*   **Responsibility**: Instantly detect any new JSON file (`{SYMBOL}_{TF}_latest.json`).
+*   **Filter**: Ignore obsolete signals (> 10 minutes) to avoid "Lag Trading".
+
+### B. The "Decoder" (Interpreter)
+*   **Task**: Read and parse the JSON.
+*   **Responsibility**: Extract critical data:
+    *   `Signal` (BUY/SELL/NEUTRAL)
+    *   `Confidence` (0.0 - 1.0)
+    *   `Features` (ATR, Noble Safe Levels) for Stop placement.
+*   **Security**: Verify that `risk_check.is_valid == true` (Coming from Python).
+
+### C. The "Gatekeeper" (Risk Guardian)
+*   **Task**: Validate execution BEFORE sending to broker.
+*   **Production Rules**:
+    1.  **Spread Check**: Do not trade if Spread > X pips.
+    2.  **Trading Hours**: Avoid roll-overs (23h-00h).
+    3.  **Money Management**: Calculate lot size dynamically (e.g., 1% of capital) based on Stop Loss distance (ATR).
+
+### D. The "Executor" (Armed Arm)
+*   **Task**: Manage MT5 orders.
+*   **Logic**:
+    *   **Entry**: Open at market immediately.
+    *   **Exit**: 
+        *   Close on reverse signal (Reverse).
+        *   Close on Stop Loss (Calculated via ATR transmitted by Python).
+        *   Close on "NEUTRAL" signal (Optional, configurable).
+
+## 3. Operational Flow (Workflow)
+
+```mermaid
+sequenceDiagram
+    participant P as Python (Brain)
+    participant F as JSON File
+    participant E as EA (Muscle)
+    participant M as Market (MT5)
+
+    P->>F: Writes Signal (BUY, Conf: 0.85)
+    loop Every 1s
+        E->>F: Check Update?
+    end
+    E->>E: Read JSON
+    E->>E: Gatekeeper Check (Spread, Risk)
+    alt Valid Signal
+        E->>M: OrderSend(BUY)
+        M-->>E: Ticket #12345
+    else Invalid Signal
+        E->>E: Log Rejection
+    end
+```
+
+## 4. Technical Specifications (JSON Input)
+
+The format expected by the EA (final audited version):
+
+```json
+{
+  "symbol": "EURUSD",
+  "timeframe": "1h",
+  "signal": "SELL",
+  "confidence": 0.56,
+  "timestamp": "2025-12-21T21:00:00.123456",
+  "features": {
+     "atr": 0.0015,         // For SL calculation
+     "close": 1.0500        // For price verification
+  },
+  "risk_check": {
+     "is_valid": true
+  }
+}
+```
+
+## 5. User Interface (HUD)
+
+The EA will display an information panel directly on the MT5 chart:
+*   **AI Status**: 🟢 ONLINE / 🔴 OFFLINE
+*   **Current Signal**: SELL (Conf: 56%)
+*   **Last Update**: 12s ago
+*   **Session Performance**: Daily PnL.
+
+---
+
+## 6. EA Manager Configuration Reference
+
+The EA Manager widget in Cerebrum allows you to configure all trading parameters. Settings are stored in `ea_config.json` and automatically synced to MT5.
+
+### 📦 ORDER (Order Management)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `volume` | Decimal | 0.1 | **Lot size** for each trade (0.01 = micro, 0.1 = mini, 1.0 = standard) |
+| `type` | Select | MARKET | **Order type**: `MARKET` (immediate) or `PENDING` (delayed) |
+| `direction` | Select | AUTO | **Direction**: `AUTO` (follows AI signal), `BUY_ONLY`, `SELL_ONLY` |
+| `price` | Decimal | 0.0 | **Entry price** (only for PENDING orders) |
+| `sl` | Integer | 0 | **Stop Loss** in points (0 = no fixed SL, uses trailing) |
+| `tp` | Integer | 20 | **Take Profit** in points (profit target) |
+| `trailing` | Integer | 30 | **Trailing Stop** in points (dynamic follow distance) |
+| `max_spread` | Integer | 50 | **Maximum spread** allowed to open a trade (quality filter) |
+| `comment` | String | "Cerebrum FX AI" | **Comment** attached to orders (visible in MT5) |
+| `magic` | Integer | 123456 | **Magic Number** unique identifier for this strategy |
+
+### 📍 POSITION (Position Management)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `allow_modif` | Boolean | true | **Allow modifications**: Can the EA modify SL/TP of open positions? |
+| `partial_close` | Integer | 0 | **Partial close**: % of volume to close when TP reached (0 = disabled) |
+| `auto_be` | Integer | 15 | **Auto break-even**: At X points profit, move SL to entry price |
+| `reverse` | Boolean | false | **Reverse signals**: If true, BUY becomes SELL and vice-versa |
+| `multi_pos` | Boolean | false | **Multiple positions**: Allow multiple simultaneous positions on EUR/USD? |
+
+### ⚠️ RISK (Risk Management)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `risk_per_trade` | Decimal | 1.0 | **Risk per trade** as % of capital (1.0 = 1% of account) |
+| `dynamic_lot` | Boolean | false | **Dynamic lot**: Automatically calculate volume based on risk |
+| `max_dd` | Decimal | 5.0 | **Maximum drawdown**: Stop trading if loss exceeds X% of capital |
+| `stop_after_loss` | Integer | 3 | **Stop after X losses**: Pause after N consecutive losing trades |
+| `equity_protect` | Integer | 0 | **Equity protection**: Close all if equity drops below this amount (0 = disabled) |
+| `max_pos` | Integer | 1 | **Max positions**: Maximum number of simultaneous trades |
+| `max_vol` | Decimal | 10.0 | **Max volume**: Maximum lot size allowed (safety limit) |
+| `session_filter_enabled` | Boolean | true | **Session filter**: Only trade during active market hours |
+
+### 🏢 PROP FIRM CONFIG (Prop Firm Mode)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `enabled` | Boolean | true | **Enable Prop Firm mode**: Strict rules for FTMO/MyForexFunds challenges |
+| `max_daily_loss_pct` | Decimal | 5.0 | **Max daily loss**: % (standard prop firm rule) |
+| `max_total_drawdown_pct` | Decimal | 10.0 | **Max total drawdown**: % (absolute prop firm limit) |
+| `risk_per_trade_pct` | Decimal | 1.0 | **Risk per trade**: % of capital (conservative for prop firm) |
+| `profit_target_pct` | Decimal | 10.0 | **Profit target**: % to reach (typical phase 1 target) |
+| `news_filter_enabled` | Boolean | true | **News filter**: Avoid trading during high-impact economic announcements |
+| `neutral_stop_pts` | Integer | 50 | **Neutral stop**: Points where a trade is considered "neutral" (no gain/loss) |
+
+### 📈 TRAILING CONFIG (Adaptive Trailing Stop)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `adaptive_enabled` | Boolean | true | **Adaptive trailing**: Automatically adjust distance based on conditions |
+| `step` | Integer | 5 | **Trailing step**: Minimum increment to move SL (in points) |
+| `adaptive_start` | Integer | 20 | **Adaptive start**: Minimum profit points before activating trailing |
+| `adaptive_deep` | Integer | 200 | **Adaptive depth**: Max distance before tightening the trailing |
+| `adaptive_min` | Integer | 10 | **Minimum trailing**: Minimum SL distance from current price |
+
+### 💡 Important Notes
+
+- **1 point** = 0.00001 for EUR/USD (5 decimal places)
+- **10 points** ≈ 1 pip for EUR/USD
+- Settings are synchronized with the MT5 EA via `ea_config.json`
+- Changes take effect on the next EA tick (within 1 second)

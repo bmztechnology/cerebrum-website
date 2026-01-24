@@ -1,0 +1,177 @@
+.section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 32px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.master {
+    border-color: rgba(0, 212, 255, 0.2);
+}
+
+.master:hover {
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 8px 40px rgba(0, 212, 255, 0.15);
+}
+
+.standard {
+    border-color: rgba(124, 58, 237, 0.2);
+}
+
+.standard:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 8px 40px rgba(124, 58, 237, 0.15);
+}
+
+.manual {
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+.manual:hover {
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 8px 40px rgba(245, 158, 11, 0.15);
+}
+
+.badge,
+.badgeSecondary,
+.badgeTertiary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.badge {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--accent-primary);
+}
+
+.badgeSecondary {
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    color: var(--accent-secondary);
+}
+
+.badgeTertiary {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #f59e0b;
+}
+
+.badgeIcon {
+    font-size: 16px;
+}
+
+.cardTitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature:last-child {
+    border-bottom: none;
+}
+
+.checkIcon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-tertiary);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.cardFooter {
+    padding-top: 16px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.target {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 30px;
+    }
+}

@@ -1,0 +1,50 @@
+# Installation
+
+## Prerequisites
+
+Before installing Cerebrum Forex, make sure you have:
+
+- **Python 3.10+** installed
+- **MetaTrader 5** installed and configured with an account (demo or real)
+- **Windows 10/11** (required for MT5)
+
+## Installation via Setup
+
+1. Download the `CerebrumSetup_1.0.0.exe` file
+2. Run the installer
+3. Follow the on-screen instructions
+4. Launch Cerebrum Forex from the Start menu
+
+## Developer Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/bmz-technology/cerebrum-forex.git
+cd cerebrum-forex
+
+# Create a virtual environment (recommended)
+python -m venv venv
+venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch the application
+python main.py
+```
+
+## MetaTrader 5 Configuration
+
+1. Open MetaTrader 5
+2. Ensure algorithmic trading is enabled:
+   - `Tools` → `Options` → `Expert Advisors`
+   - Check "Allow algorithmic trading"
+3. In Cerebrum, go to `Settings` and configure the MT5 path if necessary
+
+## Verifying the Installation
+
+Once the application is launched:
+
+1. Verify that the MT5 connection indicator is green ✅
+2. Go to the `Extraction` tab and click `Smart Extract`
+3. OHLC data should start downloading

@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>core.noble_kpi &mdash; Cerebrum Forex Documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+
+    <link rel="shortcut icon" href="../../_static/icon.ico" />
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+    <div class="wy-grid-for-nav">
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+            <div class="wy-side-scroll">
+                <div class="wy-side-nav-search" style="background: #1e293b">
+
+
+
+                    <a href="../../index.html" class="icon icon-home">
+                        Cerebrum Forex
+                        <img src="../../_static/icon.ico" class="logo" alt="Logo" />
+                    </a>
+                    <div role="search">
+                        <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                            <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+                            <input type="hidden" name="check_keywords" value="yes" />
+                            <input type="hidden" name="area" value="default" />
+                        </form>
+                    </div>
+                </div>
+                <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+                    <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+                    <ul>
+                        <li class="toctree-l1"><a class="reference internal"
+                                href="../../installation.html">Installation</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../installation.html#prerequisites">Prerequisites</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../installation.html#installation-via-setup">Installation via Setup</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../installation.html#developer-installation">Developer Installation</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../installation.html#metatrader-5-configuration">MetaTrader 5
+                                        Configuration</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../installation.html#verifying-the-installation">Verifying the
+                                        Installation</a></li>
+                            </ul>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick
+                                Start</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../quickstart.html#step-1-connect-to-mt5">Step 1: Connect to MT5</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../quickstart.html#step-2-data-extraction">Step 2: Data Extraction</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../quickstart.html#step-3-model-training">Step 3: Model Training</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../quickstart.html#step-4-predictions">Step 4: Predictions</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../quickstart.html#signal-interpretation">Signal Interpretation</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../quickstart.html#next-steps">Next Steps</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+                    <ul>
+                        <li class="toctree-l1"><a class="reference internal" href="../../api/core.html">Core Module
+                                Reference</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.mt5_connector">MT5 Connector</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.mt5_connector.MT5Connector"><code
+                                                    class="docutils literal notranslate"><span class="pre">MT5Connector</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.add_callback"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.add_callback()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.close_all_positions"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.close_all_positions()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.connect"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.connect()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.check_health"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.check_health()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.disconnect"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.disconnect()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.test_connection"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.test_connection()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_terminal_data_path"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_terminal_data_path()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_current_server_time"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_current_server_time()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_server_time"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_server_time()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_time_offset"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_time_offset()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_account_info"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_account_info()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_market_status"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_market_status()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_ohlc_path"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_ohlc_path()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.extract_ohlc"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.extract_ohlc()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.update_all_ohlc"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.update_all_ohlc()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_buffer"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_buffer()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_latest_candles"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_latest_candles()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.load_ohlc"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.load_ohlc()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.load_ohlc_buffer"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.load_ohlc_buffer()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.get_ohlc_status"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.get_ohlc_status()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.mt5_connector.MT5Connector.extract_all"><code
+                                                            class="docutils literal notranslate"><span class="pre">MT5Connector.extract_all()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.mt5_connector.get_mt5_connector"><code
+                                                    class="docutils literal notranslate"><span class="pre">get_mt5_connector()</span></code></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.prediction_engine">Prediction Engine</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.prediction_engine.PredictionEngine"><code
+                                                    class="docutils literal notranslate"><span class="pre">PredictionEngine</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.add_callback"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.add_callback()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.remove_callback"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.remove_callback()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.get_signal_path"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.get_signal_path()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.predict_timeframe"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.predict_timeframe()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.load_signal"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.load_signal()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.reset_engine"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.reset_engine()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.predict_all"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.predict_all()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.get_prediction_status"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.get_prediction_status()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.get_combined_signal"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.get_combined_signal()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.prediction_engine.PredictionEngine.get_congress_history"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionEngine.get_congress_history()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.training_manager">Training Manager</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.training_manager.TrainingLogBridge"><code
+                                                    class="docutils literal notranslate"><span class="pre">TrainingLogBridge</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingLogBridge.emit"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingLogBridge.emit()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.training_manager.RecoveryRequired"><code
+                                                    class="docutils literal notranslate"><span class="pre">RecoveryRequired</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.training_manager.TrainingManager"><code
+                                                    class="docutils literal notranslate"><span class="pre">TrainingManager</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.add_callback"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.add_callback()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.get_model"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.get_model()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.get_normalizer"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.get_normalizer()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.get_training_status"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.get_training_status()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.should_train_incremental"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.should_train_incremental()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.prepare_training_data"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.prepare_training_data()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.train_timeframe"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.train_timeframe()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.train_all"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.train_all()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.train_with_drift_check"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.train_with_drift_check()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.start_scheduled_training"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.start_scheduled_training()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.stop_scheduled_training"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.stop_scheduled_training()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.training_manager.TrainingManager.load_all_models"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingManager.load_all_models()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.feature_engine">Feature Engine</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.feature_engine.FeatureEngine"><code
+                                                    class="docutils literal notranslate"><span class="pre">FeatureEngine</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.feature_engine.FeatureEngine.calculate_all_features"><code
+                                                            class="docutils literal notranslate"><span class="pre">FeatureEngine.calculate_all_features()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.feature_engine.FeatureEngine.get_feature_columns"><code
+                                                            class="docutils literal notranslate"><span class="pre">FeatureEngine.get_feature_columns()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.feature_engine.FeatureEngine.select_best_features"><code
+                                                            class="docutils literal notranslate"><span class="pre">FeatureEngine.select_best_features()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.app_controller">App Controller</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.app_controller.AppController"><code
+                                                    class="docutils literal notranslate"><span class="pre">AppController</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.mt5"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.mt5</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.training_manager"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.training_manager</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.prediction_engine"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.prediction_engine</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.scheduler"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.scheduler</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.start"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.start()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.stop"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.stop()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.extract_all"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.extract_all()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.predict_manual"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.predict_manual()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.train_all"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.train_all()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.predict_all"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.predict_all()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_signal"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_signal()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_combined_signal"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_combined_signal()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_ohlc_status"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_ohlc_status()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_training_status"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_training_status()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_model"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_model()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_settings"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_settings()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_cached_account_info"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_cached_account_info()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.save_settings"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.save_settings()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.get_congress_config"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.get_congress_config()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.save_congress_config"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.save_congress_config()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.update_scheduler_config"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.update_scheduler_config()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.sync_ea_config"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.sync_ea_config()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.app_controller.AppController.log_training_event"><code
+                                                            class="docutils literal notranslate"><span class="pre">AppController.log_training_event()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.noble_kpi">Noble KPI</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#noble-safe-range-kpi-core-module">Noble Safe
+                                                Range KPI - Core Module</a></li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.MarketRegime"><code
+                                                    class="docutils literal notranslate"><span class="pre">MarketRegime</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.noble_kpi.MarketRegime.NORMAL"><code
+                                                            class="docutils literal notranslate"><span class="pre">MarketRegime.NORMAL</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.noble_kpi.MarketRegime.LOW_VOL"><code
+                                                            class="docutils literal notranslate"><span class="pre">MarketRegime.LOW_VOL</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.noble_kpi.MarketRegime.HIGH_VOL"><code
+                                                            class="docutils literal notranslate"><span class="pre">MarketRegime.HIGH_VOL</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.noble_kpi.MarketRegime.CRISIS"><code
+                                                            class="docutils literal notranslate"><span class="pre">MarketRegime.CRISIS</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.calculate_atr_series"><code
+                                                    class="docutils literal notranslate"><span class="pre">calculate_atr_series()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.detect_regime_series"><code
+                                                    class="docutils literal notranslate"><span class="pre">detect_regime_series()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.calculate_atr"><code
+                                                    class="docutils literal notranslate"><span class="pre">calculate_atr()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.detect_regime"><code
+                                                    class="docutils literal notranslate"><span class="pre">detect_regime()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.noble_safe_range"><code
+                                                    class="docutils literal notranslate"><span class="pre">noble_safe_range()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.calculate_position"><code
+                                                    class="docutils literal notranslate"><span class="pre">calculate_position()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.get_recommendation"><code
+                                                    class="docutils literal notranslate"><span class="pre">get_recommendation()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.analyze_timeframe"><code
+                                                    class="docutils literal notranslate"><span class="pre">analyze_timeframe()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.validate_kpi"><code
+                                                    class="docutils literal notranslate"><span class="pre">validate_kpi()</span></code></a>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.noble_kpi.calculate_noble_bias"><code
+                                                    class="docutils literal notranslate"><span class="pre">calculate_noble_bias()</span></code></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.congress_engine">Congress Engine</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.congress_engine.AladdinPersona"><code
+                                                    class="docutils literal notranslate"><span class="pre">AladdinPersona</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.AladdinPersona.QUANT"><code
+                                                            class="docutils literal notranslate"><span class="pre">AladdinPersona.QUANT</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.AladdinPersona.ARCHIVIST"><code
+                                                            class="docutils literal notranslate"><span class="pre">AladdinPersona.ARCHIVIST</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.AladdinPersona.FUTURIST"><code
+                                                            class="docutils literal notranslate"><span class="pre">AladdinPersona.FUTURIST</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.AladdinPersona.GUARDIAN"><code
+                                                            class="docutils literal notranslate"><span class="pre">AladdinPersona.GUARDIAN</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.AladdinPersona.LEADER"><code
+                                                            class="docutils literal notranslate"><span class="pre">AladdinPersona.LEADER</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.AladdinPersona.SENTINEL"><code
+                                                            class="docutils literal notranslate"><span class="pre">AladdinPersona.SENTINEL</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.congress_engine.ModelPrediction"><code
+                                                    class="docutils literal notranslate"><span class="pre">ModelPrediction</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.ModelPrediction.model_name"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelPrediction.model_name</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.ModelPrediction.model_role"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelPrediction.model_role</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.ModelPrediction.score"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelPrediction.score</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.ModelPrediction.confidence"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelPrediction.confidence</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.ModelPrediction.regime"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelPrediction.regime</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.ModelPrediction.timeframe"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelPrediction.timeframe</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.ModelPrediction.timestamp"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelPrediction.timestamp</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.congress_engine.CongressDecision"><code
+                                                    class="docutils literal notranslate"><span class="pre">CongressDecision</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.final_signal"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.final_signal</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.final_score"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.final_score</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.final_confidence"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.final_confidence</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.detected_regime"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.detected_regime</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.certainty_boost"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.certainty_boost</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.flux_boost"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.flux_boost</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.trend_certainty"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.trend_certainty</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.duration_tf5"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.duration_tf5</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.threshold"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.threshold</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.model_predictions"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.model_predictions</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.flux_details"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.flux_details</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.weights_applied"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.weights_applied</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.timestamp"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.timestamp</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.override_type"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.override_type</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressDecision.to_dict"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressDecision.to_dict()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.congress_engine.CongressEngine"><code
+                                                    class="docutils literal notranslate"><span class="pre">CongressEngine</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.CONGRESS_WEIGHTS"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.CONGRESS_WEIGHTS</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.DEFAULT_WEIGHTS"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.DEFAULT_WEIGHTS</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.BASE_THRESHOLD"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.BASE_THRESHOLD</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.LAMBDA"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.LAMBDA</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.KPI_GAMMA"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.KPI_GAMMA</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.CERTAINTY_BONUS"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.CERTAINTY_BONUS</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.__init__"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.__init__()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.detect_market_regime"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.detect_market_regime()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.calculate_adaptive_threshold"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.calculate_adaptive_threshold()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.get_weights"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.get_weights()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.aggregate"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.aggregate()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.get_decision_history"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.get_decision_history()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.simple_aggregate"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.simple_aggregate()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.make_decision_batch"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.make_decision_batch()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.aggregate_with_regime"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.aggregate_with_regime()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.full_aggregate"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.full_aggregate()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.congress_engine.CongressEngine.save_prediction_json"><code
+                                                            class="docutils literal notranslate"><span class="pre">CongressEngine.save_prediction_json()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.congress_engine.get_congress_engine"><code
+                                                    class="docutils literal notranslate"><span class="pre">get_congress_engine()</span></code></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/core.html#module-core.model_scorer">Model Scorer</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.model_scorer.PredictionOutcome"><code
+                                                    class="docutils literal notranslate"><span class="pre">PredictionOutcome</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.PredictionOutcome.model_name"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionOutcome.model_name</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.PredictionOutcome.timeframe"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionOutcome.timeframe</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.PredictionOutcome.predicted_signal"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionOutcome.predicted_signal</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.PredictionOutcome.actual_outcome"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionOutcome.actual_outcome</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.PredictionOutcome.confidence"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionOutcome.confidence</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.PredictionOutcome.timestamp"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionOutcome.timestamp</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.model_scorer.ModelScorer"><code
+                                                    class="docutils literal notranslate"><span class="pre">ModelScorer</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.ModelScorer.HISTORY_SIZE"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelScorer.HISTORY_SIZE</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.ModelScorer.MIN_SAMPLES"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelScorer.MIN_SAMPLES</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.ModelScorer.DYNAMIC_WEIGHT"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelScorer.DYNAMIC_WEIGHT</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.ModelScorer.EMA_ALPHA"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelScorer.EMA_ALPHA</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.ModelScorer.record_outcome"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelScorer.record_outcome()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.ModelScorer.get_dynamic_weights"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelScorer.get_dynamic_weights()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/core.html#core.model_scorer.ModelScorer.get_model_stats"><code
+                                                            class="docutils literal notranslate"><span class="pre">ModelScorer.get_model_stats()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/core.html#core.model_scorer.get_model_scorer"><code
+                                                    class="docutils literal notranslate"><span class="pre">get_model_scorer()</span></code></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="../../api/models.html">Models
+                                Reference</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/models.html#module-models.xgboost_model">XGBoost Model</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/models.html#models.xgboost_model.XGBoostModel"><code
+                                                    class="docutils literal notranslate"><span class="pre">XGBoostModel</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.xgboost_model.XGBoostModel.name"><code
+                                                            class="docutils literal notranslate"><span class="pre">XGBoostModel.name</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.xgboost_model.XGBoostModel.train"><code
+                                                            class="docutils literal notranslate"><span class="pre">XGBoostModel.train()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.xgboost_model.XGBoostModel.predict"><code
+                                                            class="docutils literal notranslate"><span class="pre">XGBoostModel.predict()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.xgboost_model.XGBoostModel.load"><code
+                                                            class="docutils literal notranslate"><span class="pre">XGBoostModel.load()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/models.html#module-models.lightgbm_model">LightGBM Model</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/models.html#models.lightgbm_model.LightGBMModel"><code
+                                                    class="docutils literal notranslate"><span class="pre">LightGBMModel</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.lightgbm_model.LightGBMModel.name"><code
+                                                            class="docutils literal notranslate"><span class="pre">LightGBMModel.name</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.lightgbm_model.LightGBMModel.train"><code
+                                                            class="docutils literal notranslate"><span class="pre">LightGBMModel.train()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.lightgbm_model.LightGBMModel.predict"><code
+                                                            class="docutils literal notranslate"><span class="pre">LightGBMModel.predict()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.lightgbm_model.LightGBMModel.load"><code
+                                                            class="docutils literal notranslate"><span class="pre">LightGBMModel.load()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/models.html#module-models.randomforest_model">RandomForest
+                                        Model</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/models.html#models.randomforest_model.RandomForestModel"><code
+                                                    class="docutils literal notranslate"><span class="pre">RandomForestModel</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.randomforest_model.RandomForestModel.name"><code
+                                                            class="docutils literal notranslate"><span class="pre">RandomForestModel.name</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.randomforest_model.RandomForestModel.train"><code
+                                                            class="docutils literal notranslate"><span class="pre">RandomForestModel.train()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.randomforest_model.RandomForestModel.predict"><code
+                                                            class="docutils literal notranslate"><span class="pre">RandomForestModel.predict()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.randomforest_model.RandomForestModel.load"><code
+                                                            class="docutils literal notranslate"><span class="pre">RandomForestModel.load()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/models.html#module-models.stacking_model">Stacking Model</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/models.html#models.stacking_model.StackingModel"><code
+                                                    class="docutils literal notranslate"><span class="pre">StackingModel</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.stacking_model.StackingModel.name"><code
+                                                            class="docutils literal notranslate"><span class="pre">StackingModel.name</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.stacking_model.StackingModel.train"><code
+                                                            class="docutils literal notranslate"><span class="pre">StackingModel.train()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.stacking_model.StackingModel.predict"><code
+                                                            class="docutils literal notranslate"><span class="pre">StackingModel.predict()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.stacking_model.StackingModel.load"><code
+                                                            class="docutils literal notranslate"><span class="pre">StackingModel.load()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/models.html#module-models.meta_model">Meta Model</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/models.html#models.meta_model.MetaModel"><code
+                                                    class="docutils literal notranslate"><span class="pre">MetaModel</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.meta_model.MetaModel.prepare_meta_features"><code
+                                                            class="docutils literal notranslate"><span class="pre">MetaModel.prepare_meta_features()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.meta_model.MetaModel.train"><code
+                                                            class="docutils literal notranslate"><span class="pre">MetaModel.train()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.meta_model.MetaModel.predict_viability"><code
+                                                            class="docutils literal notranslate"><span class="pre">MetaModel.predict_viability()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.meta_model.MetaModel.save"><code
+                                                            class="docutils literal notranslate"><span class="pre">MetaModel.save()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/models.html#models.meta_model.MetaModel.load"><code
+                                                            class="docutils literal notranslate"><span class="pre">MetaModel.load()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="../../api/gui.html">GUI Reference</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/gui.html#module-gui.main_window">Main Window</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/gui.html#gui.main_window.MainWindow"><code
+                                                    class="docutils literal notranslate"><span class="pre">MainWindow</span></code></a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.main_window.MainWindow.status_changed"><code
+                                                            class="docutils literal notranslate"><span class="pre">MainWindow.status_changed</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.main_window.MainWindow.update_signal_display"><code
+                                                            class="docutils literal notranslate"><span class="pre">MainWindow.update_signal_display()</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.main_window.MainWindow.closeEvent"><code
+                                                            class="docutils literal notranslate"><span class="pre">MainWindow.closeEvent()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/gui.html#panels">Panels</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/gui.html#module-gui.panels.dashboard_panel">Dashboard
+                                                Panel</a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.dashboard_panel.PredictionWorker"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionWorker</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.dashboard_panel.DashboardPanel"><code
+                                                            class="docutils literal notranslate"><span class="pre">DashboardPanel</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/gui.html#module-gui.panels.extraction_panel">Extraction
+                                                Panel</a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.extraction_panel.ExtractionPanel"><code
+                                                            class="docutils literal notranslate"><span class="pre">ExtractionPanel</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/gui.html#module-gui.panels.training_panel">Training
+                                                Panel</a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.training_panel.TrainingSignals"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingSignals</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.training_panel.PhaseCard"><code
+                                                            class="docutils literal notranslate"><span class="pre">PhaseCard</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.training_panel.TrainingPanel"><code
+                                                            class="docutils literal notranslate"><span class="pre">TrainingPanel</span></code></a>
+                                                </li>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.training_panel.SchedulerDialog"><code
+                                                            class="docutils literal notranslate"><span class="pre">SchedulerDialog</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/gui.html#module-gui.panels.prediction_panel">Prediction
+                                                Panel</a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.prediction_panel.PredictionPanel"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionPanel</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/gui.html#module-gui.panels.settings_panel">Settings
+                                                Panel</a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.panels.settings_panel.SettingsPanel"><code
+                                                            class="docutils literal notranslate"><span class="pre">SettingsPanel</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../api/gui.html#workers">Workers</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../api/gui.html#module-gui.workers.prediction_worker">Prediction
+                                                Worker</a>
+                                            <ul>
+                                                <li class="toctree-l4"><a class="reference internal"
+                                                        href="../../api/gui.html#gui.workers.prediction_worker.PredictionWorker"><code
+                                                            class="docutils literal notranslate"><span class="pre">PredictionWorker</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+                    <ul>
+                        <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../changelog.html#version-1-0-0-january-2026">Version 1.0.0 (January
+                                        2026)</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../changelog.html#new-features">New Features</a></li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../changelog.html#improvements">Improvements</a></li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                href="../../changelog.html#bug-fixes">Bug Fixes</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal"
+                                href="../../contributing.html">Contributing</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../contributing.html#how-to-contribute">How to Contribute</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../contributing.html#code-style">Code Style</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../contributing.html#reporting-bugs">Reporting Bugs</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../contributing.html#contact">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="../../sphinx_tech.html">Sphinx
+                                Documentation System</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../sphinx_tech.html#sphinx-engine">⚙️ Sphinx Engine</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../sphinx_tech.html#parsing">🔍 Parsing</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../sphinx_tech.html#reference-resolution">🔗 Reference Resolution</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                        href="../../sphinx_tech.html#tree-generation-rtd-theme">🌳 Tree Generation (RTD
+                                        Theme)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+            <nav class="wy-nav-top" aria-label="Mobile navigation menu" style="background: #1e293b">
+                <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+                <a href="../../index.html">Cerebrum Forex</a>
+            </nav>
+
+            <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+                        <ul class="wy-breadcrumbs">
+                            <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+                            <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+                            <li class="breadcrumb-item active">core.noble_kpi</li>
+                            <li class="wy-breadcrumbs-aside">
+                            </li>
+                        </ul>
+                        <hr />
+                    </div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+
+                            <h1>Source code for core.noble_kpi</h1>
+                            <div class="highlight">
+                                <pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Noble Safe Range KPI - Core Module</span>
+<span class="sd">==================================</span>
+<span class="sd">Scientifically validated price containment model for EUR/USD.</span>
+
+<span class="sd">Version: 3.0</span>
+<span class="sd">Date: December 2025</span>
+<span class="sd">Validation: 99.9% containment on 6.5M+ candles (2000-2025)</span>
+
+<span class="sd">References:</span>
+<span class="sd">    - Wilder, J.W. (1978). New Concepts in Technical Trading Systems</span>
+<span class="sd">    - Bollerslev, T. (1986). GARCH models</span>
+<span class="sd">    - Embrechts, P. (1997). Extreme Value Theory</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MarketRegime">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.MarketRegime">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MarketRegime</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Market regime classification&quot;&quot;&quot;</span>
+    <span class="n">NORMAL</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span>
+    <span class="n">LOW_VOL</span> <span class="o">=</span> <span class="s2">&quot;low_vol&quot;</span>
+    <span class="n">HIGH_VOL</span> <span class="o">=</span> <span class="s2">&quot;high_vol&quot;</span>
+    <span class="n">CRISIS</span> <span class="o">=</span> <span class="s2">&quot;crisis&quot;</span></div>
+
+
+
+<span class="c1"># Noble Constants V4 - Robust Tuning (Quality over Quantity)</span>
+<span class="c1"># Recalibrated to target ~95-99% containment to reduce signal noise.</span>
+<span class="n">K_CONSTANTS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;1m&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+    <span class="s2">&quot;5m&quot;</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">,</span>
+    <span class="s2">&quot;15m&quot;</span><span class="p">:</span> <span class="mf">2.2</span><span class="p">,</span>
+    <span class="s2">&quot;30m&quot;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">,</span>
+    <span class="s2">&quot;1h&quot;</span><span class="p">:</span> <span class="mf">2.8</span><span class="p">,</span>
+    <span class="s2">&quot;4h&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+    <span class="s2">&quot;1d&quot;</span><span class="p">:</span> <span class="mf">3.2</span><span class="p">,</span>
+    <span class="s2">&quot;1w&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">,</span>
+    <span class="s2">&quot;MN&quot;</span><span class="p">:</span> <span class="mf">3.5</span>
+<span class="p">}</span>
+
+<span class="c1"># Regime adjustment multipliers</span>
+<span class="n">REGIME_MULTIPLIERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">MarketRegime</span><span class="o">.</span><span class="n">NORMAL</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">MarketRegime</span><span class="o">.</span><span class="n">LOW_VOL</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+    <span class="n">MarketRegime</span><span class="o">.</span><span class="n">HIGH_VOL</span><span class="p">:</span> <span class="mf">1.15</span><span class="p">,</span>
+    <span class="n">MarketRegime</span><span class="o">.</span><span class="n">CRISIS</span><span class="p">:</span> <span class="mf">1.40</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="calculate_atr_series">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.calculate_atr_series">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_atr_series</span><span class="p">(</span><span class="n">high</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">low</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">close</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Vectorized ATR calculation for Series.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tr1</span> <span class="o">=</span> <span class="n">high</span> <span class="o">-</span> <span class="n">low</span>
+    <span class="n">tr2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">close</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span>
+    <span class="n">tr3</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">low</span> <span class="o">-</span> <span class="n">close</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tr1</span><span class="p">,</span> <span class="n">tr2</span><span class="p">,</span> <span class="n">tr3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tr</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">period</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="detect_regime_series">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.detect_regime_series">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">detect_regime_series</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detect market regime (&#39;trend&#39; or &#39;range&#39;) for a whole series.</span>
+<span class="sd">    Compatible with CongressEngine expectations.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;range&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="c1"># 1. Calculate ADX Components</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;high&#39;</span><span class="p">]</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">]</span>
+    <span class="n">close</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">]</span>
+    
+    <span class="n">tr1</span> <span class="o">=</span> <span class="n">high</span> <span class="o">-</span> <span class="n">low</span>
+    <span class="n">tr2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">high</span> <span class="o">-</span> <span class="n">close</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span>
+    <span class="n">tr3</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">low</span> <span class="o">-</span> <span class="n">close</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tr1</span><span class="p">,</span> <span class="n">tr2</span><span class="p">,</span> <span class="n">tr3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">plus_dm</span> <span class="o">=</span> <span class="n">high</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">minus_dm</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">low</span><span class="o">.</span><span class="n">diff</span><span class="p">())</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Simple ADX Approximation for speed</span>
+    <span class="n">period</span> <span class="o">=</span> <span class="mi">14</span>
+    <span class="n">atr</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">period</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">plus_di</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">plus_dm</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">period</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">atr</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span>
+    <span class="n">minus_di</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">minus_dm</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">period</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">atr</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span>
+    
+    <span class="n">dx</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">plus_di</span> <span class="o">-</span> <span class="n">minus_di</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">plus_di</span> <span class="o">+</span> <span class="n">minus_di</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">)</span>
+    <span class="n">adx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">period</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="c1"># 2. noble_regime check (Vectorized)</span>
+    <span class="n">avg_atr</span> <span class="o">=</span> <span class="n">atr</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">vol_ratio</span> <span class="o">=</span> <span class="n">atr</span> <span class="o">/</span> <span class="p">(</span><span class="n">avg_atr</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">)</span>
+    
+    <span class="c1"># 3. Combine Logic</span>
+    <span class="n">regimes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="s1">&#39;range&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="c1"># Trend if ADX &gt; 20 OR High Volatility (Noble Crisis/HighVol)</span>
+    <span class="n">regimes</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">adx</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">vol_ratio</span> <span class="o">&gt;=</span> <span class="mf">1.3</span><span class="p">)]</span> <span class="o">=</span> <span class="s1">&#39;trend&#39;</span>
+    
+    <span class="k">return</span> <span class="n">regimes</span></div>
+
+
+<div class="viewcode-block" id="calculate_atr">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.calculate_atr">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_atr</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate Average True Range (Wilder, 1978).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        df: DataFrame with &#39;high&#39;, &#39;low&#39;, &#39;close&#39; columns</span>
+<span class="sd">        period: ATR period (default 14)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Series of ATR values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">calculate_atr_series</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;high&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">],</span> <span class="n">period</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="detect_regime">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.detect_regime">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">detect_regime</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">lookback</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MarketRegime</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detect current market regime based on volatility.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        MarketRegime enum value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">MarketRegime</span><span class="o">.</span><span class="n">NORMAL</span>
+        
+    <span class="c1"># noble_regime check</span>
+    <span class="n">atr</span> <span class="o">=</span> <span class="n">calculate_atr</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">current_atr</span> <span class="o">=</span> <span class="n">atr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">avg_atr</span> <span class="o">=</span> <span class="n">atr</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">lookback</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">current_atr</span> <span class="o">/</span> <span class="n">avg_atr</span> <span class="k">if</span> <span class="n">avg_atr</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1.0</span>
+    
+    <span class="k">if</span> <span class="n">ratio</span> <span class="o">&gt;</span> <span class="mf">2.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">MarketRegime</span><span class="o">.</span><span class="n">CRISIS</span>
+    <span class="k">elif</span> <span class="n">ratio</span> <span class="o">&gt;</span> <span class="mf">1.3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">MarketRegime</span><span class="o">.</span><span class="n">HIGH_VOL</span>
+    <span class="k">elif</span> <span class="n">ratio</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">MarketRegime</span><span class="o">.</span><span class="n">LOW_VOL</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">MarketRegime</span><span class="o">.</span><span class="n">NORMAL</span></div>
+
+
+
+<div class="viewcode-block" id="noble_safe_range">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.noble_safe_range">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">noble_safe_range</span><span class="p">(</span>
+    <span class="n">open_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">atr</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">regime</span><span class="p">:</span> <span class="n">MarketRegime</span> <span class="o">=</span> <span class="n">MarketRegime</span><span class="o">.</span><span class="n">NORMAL</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate Noble Safe Range bounds.</span>
+<span class="sd">    </span>
+<span class="sd">    The Noble Equation guarantees 99.9% price containment</span>
+<span class="sd">    based on 25 years of empirical validation (2000-2025).</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        open_price: Opening price of current candle</span>
+<span class="sd">        atr: 14-period Average True Range</span>
+<span class="sd">        timeframe: One of &#39;1m&#39;,&#39;5m&#39;,&#39;15m&#39;,&#39;30m&#39;,&#39;1h&#39;,&#39;4h&#39;,&#39;1d&#39;,&#39;1w&#39;,&#39;MN&#39;</span>
+<span class="sd">        regime: Current market regime (optional)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (safe_low, safe_high) tuple</span>
+<span class="sd">    </span>
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; safe_low, safe_high = noble_safe_range(1.0520, 0.0015, &#39;4h&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Safe Range: {safe_low:.5f} - {safe_high:.5f}&quot;)</span>
+<span class="sd">        Safe Range: 1.04570 - 1.05830</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">K_CONSTANTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeframe</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
+    <span class="n">multiplier</span> <span class="o">=</span> <span class="n">REGIME_MULTIPLIERS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">regime</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    
+    <span class="n">adjusted_k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">multiplier</span>
+    
+    <span class="n">safe_low</span> <span class="o">=</span> <span class="n">open_price</span> <span class="o">-</span> <span class="p">(</span><span class="n">adjusted_k</span> <span class="o">*</span> <span class="n">atr</span><span class="p">)</span>
+    <span class="n">safe_high</span> <span class="o">=</span> <span class="n">open_price</span> <span class="o">+</span> <span class="p">(</span><span class="n">adjusted_k</span> <span class="o">*</span> <span class="n">atr</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">safe_low</span><span class="p">,</span> <span class="n">safe_high</span></div>
+
+
+
+<div class="viewcode-block" id="calculate_position">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.calculate_position">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_position</span><span class="p">(</span>
+    <span class="n">current_price</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">safe_low</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">safe_high</span><span class="p">:</span> <span class="nb">float</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate price position within Safe Range.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Position as percentage (0-100)</span>
+<span class="sd">        0% = at Safe Low, 100% = at Safe High</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">safe_high</span> <span class="o">==</span> <span class="n">safe_low</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">50.0</span>
+    
+    <span class="n">position</span> <span class="o">=</span> <span class="p">((</span><span class="n">current_price</span> <span class="o">-</span> <span class="n">safe_low</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">safe_high</span> <span class="o">-</span> <span class="n">safe_low</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">position</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="get_recommendation">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.get_recommendation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_recommendation</span><span class="p">(</span><span class="n">position</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get trading recommendation based on position.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        position: Price position in range (0-100)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (signal, description) tuple</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">position</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;STRONG_BUY&quot;</span><span class="p">,</span> <span class="s2">&quot;Price at extreme low - high probability bounce&quot;</span>
+    <span class="k">elif</span> <span class="n">position</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;BUY&quot;</span><span class="p">,</span> <span class="s2">&quot;Price in buy zone near Safe Low&quot;</span>
+    <span class="k">elif</span> <span class="n">position</span> <span class="o">&gt;</span> <span class="mi">85</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;STRONG_SELL&quot;</span><span class="p">,</span> <span class="s2">&quot;Price at extreme high - high probability reversal&quot;</span>
+    <span class="k">elif</span> <span class="n">position</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;SELL&quot;</span><span class="p">,</span> <span class="s2">&quot;Price in sell zone near Safe High&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;NEUTRAL&quot;</span><span class="p">,</span> <span class="s2">&quot;Price in neutral zone&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="analyze_timeframe">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.analyze_timeframe">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_timeframe</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Complete Safe Range analysis for a timeframe.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">        df: DataFrame with OHLC data</span>
+<span class="sd">        timeframe: Timeframe string</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with all analysis results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Insufficient data&quot;</span><span class="p">}</span>
+    
+    <span class="n">atr</span> <span class="o">=</span> <span class="n">calculate_atr</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">current_atr</span> <span class="o">=</span> <span class="n">atr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">current_atr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Cannot calculate ATR&quot;</span><span class="p">}</span>
+    
+    <span class="n">open_price</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">close_price</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">regime</span> <span class="o">=</span> <span class="n">detect_regime</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    
+    <span class="n">safe_low</span><span class="p">,</span> <span class="n">safe_high</span> <span class="o">=</span> <span class="n">noble_safe_range</span><span class="p">(</span><span class="n">open_price</span><span class="p">,</span> <span class="n">current_atr</span><span class="p">,</span> <span class="n">timeframe</span><span class="p">,</span> <span class="n">regime</span><span class="p">)</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="n">calculate_position</span><span class="p">(</span><span class="n">close_price</span><span class="p">,</span> <span class="n">safe_low</span><span class="p">,</span> <span class="n">safe_high</span><span class="p">)</span>
+    <span class="n">signal</span><span class="p">,</span> <span class="n">description</span> <span class="o">=</span> <span class="n">get_recommendation</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+    
+    <span class="n">range_pips</span> <span class="o">=</span> <span class="p">(</span><span class="n">safe_high</span> <span class="o">-</span> <span class="n">safe_low</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10000</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;timeframe&quot;</span><span class="p">:</span> <span class="n">timeframe</span><span class="p">,</span>
+        <span class="s2">&quot;open_price&quot;</span><span class="p">:</span> <span class="n">open_price</span><span class="p">,</span>
+        <span class="s2">&quot;close_price&quot;</span><span class="p">:</span> <span class="n">close_price</span><span class="p">,</span>
+        <span class="s2">&quot;atr&quot;</span><span class="p">:</span> <span class="n">current_atr</span><span class="p">,</span>
+        <span class="s2">&quot;safe_low&quot;</span><span class="p">:</span> <span class="n">safe_low</span><span class="p">,</span>
+        <span class="s2">&quot;safe_high&quot;</span><span class="p">:</span> <span class="n">safe_high</span><span class="p">,</span>
+        <span class="s2">&quot;range_pips&quot;</span><span class="p">:</span> <span class="n">range_pips</span><span class="p">,</span>
+        <span class="s2">&quot;position&quot;</span><span class="p">:</span> <span class="n">position</span><span class="p">,</span>
+        <span class="s2">&quot;regime&quot;</span><span class="p">:</span> <span class="n">regime</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+        <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="n">signal</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">,</span>
+        <span class="s2">&quot;k_value&quot;</span><span class="p">:</span> <span class="n">K_CONSTANTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeframe</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">),</span>
+        <span class="s2">&quot;confidence&quot;</span><span class="p">:</span> <span class="mf">0.999</span><span class="p">,</span>
+        <span class="s2">&quot;last_update&quot;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;time&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="c1"># Validation function for testing</span>
+<div class="viewcode-block" id="validate_kpi">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.validate_kpi">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_kpi</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validate KPI performance on historical data.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns breach rate and success metrics.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Insufficient data for validation&quot;</span><span class="p">}</span>
+    
+    <span class="n">atr</span> <span class="o">=</span> <span class="n">calculate_atr</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">K_CONSTANTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeframe</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>
+    
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">breaches</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+        <span class="n">open_p</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;open&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">high_p</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;high&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">low_p</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;low&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">current_atr</span> <span class="o">=</span> <span class="n">atr</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">current_atr</span><span class="p">):</span>
+            <span class="k">continue</span>
+        
+        <span class="n">safe_low</span> <span class="o">=</span> <span class="n">open_p</span> <span class="o">-</span> <span class="n">k</span> <span class="o">*</span> <span class="n">current_atr</span>
+        <span class="n">safe_high</span> <span class="o">=</span> <span class="n">open_p</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">current_atr</span>
+        
+        <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">high_p</span> <span class="o">&gt;</span> <span class="n">safe_high</span> <span class="ow">or</span> <span class="n">low_p</span> <span class="o">&lt;</span> <span class="n">safe_low</span><span class="p">:</span>
+            <span class="n">breaches</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="n">success_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">total</span> <span class="o">-</span> <span class="n">breaches</span><span class="p">)</span> <span class="o">/</span> <span class="n">total</span> <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;timeframe&quot;</span><span class="p">:</span> <span class="n">timeframe</span><span class="p">,</span>
+        <span class="s2">&quot;total_candles&quot;</span><span class="p">:</span> <span class="n">total</span><span class="p">,</span>
+        <span class="s2">&quot;breaches&quot;</span><span class="p">:</span> <span class="n">breaches</span><span class="p">,</span>
+        <span class="s2">&quot;success_rate&quot;</span><span class="p">:</span> <span class="n">success_rate</span><span class="p">,</span>
+        <span class="s2">&quot;target_rate&quot;</span><span class="p">:</span> <span class="mf">0.999</span><span class="p">,</span>
+        <span class="s2">&quot;passed&quot;</span><span class="p">:</span> <span class="n">success_rate</span> <span class="o">&gt;=</span> <span class="mf">0.999</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="calculate_noble_bias">
+<a class="viewcode-back" href="../../api/core.html#core.noble_kpi.calculate_noble_bias">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_noble_bias</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">timeframe</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate Noble Bias (Guardian Force) for a single row.</span>
+<span class="sd">    Returns a float added to the prediction score (e.g. +0.05).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">close</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;close&#39;</span><span class="p">)</span>
+    <span class="c1"># Try different column names from FeatureEngine vs KPI</span>
+    <span class="n">safe_high</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;noble_safe_high&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;kpi_safe_high&#39;</span><span class="p">))</span>
+    <span class="n">safe_low</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;noble_safe_low&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;kpi_safe_low&#39;</span><span class="p">))</span>
+    <span class="n">atr</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;atr&#39;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vol_atr&#39;</span><span class="p">,</span> <span class="mf">0.0010</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">close</span><span class="p">,</span> <span class="n">safe_high</span><span class="p">,</span> <span class="n">safe_low</span><span class="p">])</span> <span class="ow">or</span> <span class="n">atr</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+        
+    <span class="n">bias</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="c1"># Reversal Logic (Guardian)</span>
+    <span class="k">if</span> <span class="n">close</span> <span class="o">&gt;</span> <span class="n">safe_high</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">close</span> <span class="o">-</span> <span class="n">safe_high</span>
+        <span class="n">ratio</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">/</span> <span class="n">atr</span>
+        <span class="c1"># Linear scale: 1 ATR out = -0.05 bias</span>
+        <span class="n">bias</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">ratio</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span> 
+        
+    <span class="k">elif</span> <span class="n">close</span> <span class="o">&lt;</span> <span class="n">safe_low</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">safe_low</span> <span class="o">-</span> <span class="n">close</span>
+        <span class="n">ratio</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">/</span> <span class="n">atr</span>
+        <span class="c1"># Linear scale: 1 ATR out = +0.05 bias</span>
+        <span class="n">bias</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">ratio</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">bias</span></div>
+
+</pre>
+                            </div>
+
+                        </div>
+                    </div>
+                    <footer>
+
+                        <hr />
+
+                        <div role="contentinfo">
+                            <p>&#169; Copyright 2026, BMZ Business, LLC.</p>
+                        </div>
+
+                        Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+                        <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+                        provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+                    </footer>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+
+</html>

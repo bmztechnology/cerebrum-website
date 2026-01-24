@@ -1,0 +1,103 @@
+{
+    "es": {
+        "meta": {
+            "title": "Cerebrum Forex - Solución de Trading con IA",
+            "description": "Solución de trading híbrida que combina IA y Expert Advisor MT5 para trading EUR/USD de precisión."
+        },
+        "nav": {
+            "home": "Inicio",
+            "features": "Características",
+            "tools": "Herramientas",
+            "faq": "FAQ",
+            "download": "Descargar",
+            "docs": "Documentación"
+        },
+        "hero": {
+            "tagline": "El Futuro del Trading Forex",
+            "title": "Cerebrum Forex",
+            "subtitle": "Solución Híbrida IA + EA",
+            "description": "Scalping de precisión impulsado por inteligencia artificial y ejecución MT5 de grado profesional.",
+            "cta": "Descargar Ahora",
+            "ctaPrice": "xxx $"
+        },
+        "architecture": {
+            "title": "Arquitectura Inteligente",
+            "subtitle": "Separación clara entre detección IA y ejecución EA",
+            "ai": {
+                "title": "Cerebro IA",
+                "description": "Modelos de machine learning analizan patrones del mercado, generan señales BUY/SELL con niveles de confianza."
+            },
+            "ea": {
+                "title": "Expert Advisor MT5",
+                "description": "Ejecución ultra-rápida de órdenes, gestión estricta del riesgo, compatible con prop firms."
+            }
+        },
+        "profiles": {
+            "title": "Modos de Trading",
+            "subtitle": "Tres modos de ejecución adaptados a su estilo de trading",
+            "master": {
+                "title": "Modo Autónomo",
+                "mode": "100% Auto",
+                "target": "Traders Profesionales",
+                "features": [
+                    "Configure indicadores vía la pestaña Indicators (EMA, RSI, ATR...)",
+                    "Ajuste sus estrategias en Settings > Logic Tuning",
+                    "Control total del EA Manager (Risk, Trailing, Prop Firm)",
+                    "Entrada automática y salida automática vía Expert Advisor"
+                ]
+            },
+            "standard": {
+                "title": "Modo Asistido",
+                "mode": "Semi-Auto",
+                "target": "Todos los Niveles",
+                "features": [
+                    "Parámetros optimizados por defecto o personalizar vía EA Manager",
+                    "Señales IA mostradas en tiempo real en el Signal Panel",
+                    "Entrada automática y salida manual para trading controlado",
+                    "Aprenda de las recomendaciones IA manteniendo el control"
+                ]
+            },
+            "manual": {
+                "title": "Modo Manual",
+                "mode": "100% Manual",
+                "target": "Traders Independientes",
+                "features": [
+                    "Parámetros por defecto (sin configuración necesaria)",
+                    "Use el Signal Panel y Dashboard como herramientas de info",
+                    "Entrada manual y salida manual - independencia total",
+                    "Opere según su propio análisis técnico"
+                ]
+            }
+        },
+        "visuals": {
+            "title": "Visualización Inteligente",
+            "subtitle": "Señales en tiempo real directamente en tus gráficos",
+            "features": [
+                "Señales BUY/SELL/NEUTRAL codificadas por color",
+                "Indicadores de nivel de confianza",
+                "Overlays de zonas de entrada óptimas",
+                "Detección de micro-tendencias"
+            ]
+        },
+        "screenshots": {
+            "title": "Véalo en Acción",
+            "subtitle": "Interfaz profesional diseñada para trading de precisión"
+        },
+        "download": {
+            "title": "Comienza Hoy",
+            "subtitle": "Descarga Cerebrum Forex y transforma tu trading",
+            "button": "Descargar Ahora",
+            "price": "xxx $",
+            "via": "Pago seguro vía Gumroad"
+        },
+        "legal": {
+            "title": "Aviso Legal",
+            "text": "Cerebrum Forex es software de automatización de trading. Sin garantía de rendimiento. Parámetros avanzados reservados para usuarios experimentados. El rendimiento pasado no garantiza resultados futuros."
+        },
+        "footer": {
+            "product": "Cerebrum Forex",
+            "tagline": "Solución de Trading con IA",
+            "rights": "Todos los derechos reservados."
+        }
+    }
+}

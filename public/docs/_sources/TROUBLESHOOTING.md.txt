@@ -1,0 +1,40 @@
+# Cerebrum Troubleshooting Guide 🛠️
+
+If the **Test Center** reports errors or the application fails to start, follow these solutions.
+
+## 🔴 CORE SYSTEM FAULTS
+**Symptoms:** App crashes on launch, "ImportError", or "Module incorrectly configured".
+
+*   **Solution 1: Install Dependencies**
+    Open a terminal in the project folder and run:
+    ```bash
+    pip install -r requirements.txt
+    ```
+*   **Solution 2: Check Python Version**
+    Ensure you are using Python 3.10 or 3.11.
+
+## 🔴 DATA INTEGRITY FAULTS
+**Symptoms:** "Missing OHLC", "FileNotFoundError", or Empty Charts.
+
+*   **Solution:**
+    1. Go to the **📊 Extraction** tab.
+    2. Click **"Extract All Timeframes"**.
+    3. Ensure MetaTrader 5 (MT5) is open and logged in.
+
+## 🔴 AI MODEL FAULTS
+**Symptoms:** "Model Missing", "Prediction Failed", or "NEUTRAL" signals forever.
+
+*   **Solution:**
+    1. Go to the **🧠 Training** tab.
+    2. Click **"Train All Models"**.
+    3. Wait for the process to complete (this creates the `.pkl` files).
+
+## 🔴 VISUAL/UI ISSUES
+**Symptoms:** Charts look cut off, buttons don't click.
+
+*   **Solution:**
+    *   Restart the application.
+    *   Reset the Window Layout (if option available).
+
+---
+*For further assistance, check the `logs/cerebrum.log` file.*

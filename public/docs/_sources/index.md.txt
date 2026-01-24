@@ -1,0 +1,91 @@
+# Cerebrum Forex Documentation
+
+```{image} ../resources/icon.ico
+:alt: Cerebrum Forex Logo
+:width: 100px
+:align: center
+```
+
+**Cerebrum Forex** is an AI-powered Forex trading platform specialized in EUR/USD pair with advanced machine learning models.
+
+---
+
+## 🚀 Key Features
+
+- **OHLC Extraction**: Direct connection to MetaTrader 5 for historical data extraction
+- **AI Training**: XGBoost, LightGBM, RandomForest, CatBoost and Stacking models
+- **Real-Time Predictions**: Trading signals with multi-model consensus
+- **Technical Analysis**: Over 50 indicators calculated automatically
+- **Noble KPI**: Proprietary risk management system
+
+---
+
+## 📚 Table of Contents
+
+```{toctree}
+:maxdepth: 2
+:caption: User Guide
+
+installation
+quickstart
+user_manual
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: API Reference
+
+api/core
+api/models
+api/gui
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Resources
+
+changelog
+contributing
+sphinx_tech
+```
+
+---
+
+## 🔧 Quick Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/bmz-technology/cerebrum-forex.git
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch the application
+python main.py
+```
+
+---
+
+## 📊 Architecture
+
+```
+Cerebrum/
+├── core/           # Core engines (MT5, Training, Prediction)
+├── models/         # ML models (XGBoost, LightGBM, etc.)
+├── gui/            # PyQt6 interface
+├── config/         # Configuration and settings
+├── database/       # SQLite management
+└── docs/           # This documentation
+```
+
+---
+
+## 📝 Useful Links
+
+- [GitHub Repository](https://github.com/bmz-technology/cerebrum-forex)
+- [MetaTrader 5](https://www.metatrader5.com/)
+- [XGBoost Documentation](https://xgboost.readthedocs.io/)
+
+---
+
+*Documentation generated with [Sphinx](https://www.sphinx-doc.org/) and [Read the Docs](https://sphinx-rtd-theme.readthedocs.io/) theme.*

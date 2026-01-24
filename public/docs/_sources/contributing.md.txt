@@ -1,0 +1,30 @@
+# Contributing
+
+Thank you for your interest in contributing to Cerebrum Forex!
+
+## How to Contribute
+
+1. **Fork** the repository
+2. Create a **branch** for your feature (`git checkout -b feature/my-feature`)
+3. **Commit** your changes (`git commit -am 'Add my feature'`)
+4. **Push** to the branch (`git push origin feature/my-feature`)
+5. Open a **Pull Request**
+
+## Code Style
+
+- Follow PEP 8 conventions
+- Use Google-style docstrings
+- Add unit tests if possible
+
+## Reporting Bugs
+
+Use the GitHub issues system with:
+- A clear description of the problem
+- Steps to reproduce
+- Error logs (if available)
+- Your configuration (Windows, Python, MT5)
+
+## Contact
+
+- Email: support@bmz-technology.com
+- GitHub: https://github.com/bmz-technology/cerebrum-forex

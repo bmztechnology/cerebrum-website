@@ -1,0 +1,27 @@
+# Sphinx Documentation System
+
+This section details the internal workings of the documentation engine used for Cerebrum Forex.
+
+## ⚙️ Sphinx Engine
+The project uses **Sphinx**, the industry standard for Python documentation. It transforms source files (Markdown/ReST) into a rich, navigable static website.
+
+## 🔍 Parsing
+Syntax parsing is handled by the **MyST-Parser** extension.
+1. **Reading**: The engine scans `.md` files from the `docs/` folder.
+2. **Identification**: It detects code blocks, GitHub-style alerts, and specific directives (like `{toctree}`).
+3. **Conversion**: The content is transformed into an internal data structure called the *Docutils Document Tree*.
+
+## 🔗 Reference Resolution
+A crucial phase where Sphinx links different parts of the project:
+*   **Intersphinx**: Enables automatic links to official documentation for Python, NumPy, and Pandas.
+*   **Autodoc**: Analyzes Python source code (`core/`, `models/`, etc.) to dynamically extract docstrings and generate the API reference.
+*   **Cross-referencing**: Resolves internal links between files to ensure no references are broken.
+
+## 🌳 Tree Generation (RTD Theme)
+The documentation tree is structured via the `{toctree}` directive in `index.md`. 
+*   **Structure**: Organized into User Guide, API Reference, and Resources.
+*   **Theme**: Uses `sphinx_rtd_theme` (Read the Docs) for a sticky sidebar navigation and powerful integrated search.
+*   **Rendering**: The engine applies HTML templates and custom CSS (defined in `conf.py`) to produce the final output in `_build/html/`.
+
+---
+*Note: This documentation is auto-generated with each project update.*

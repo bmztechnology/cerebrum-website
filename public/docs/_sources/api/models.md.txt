@@ -1,0 +1,48 @@
+# Models Reference
+
+This section documents the machine learning models used by Cerebrum Forex.
+
+## XGBoost Model
+
+```{eval-rst}
+.. automodule:: models.xgboost_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## LightGBM Model
+
+```{eval-rst}
+.. automodule:: models.lightgbm_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## RandomForest Model
+
+```{eval-rst}
+.. automodule:: models.randomforest_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Stacking Model
+
+```{eval-rst}
+.. automodule:: models.stacking_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Meta Model
+
+```{eval-rst}
+.. automodule:: models.meta_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```

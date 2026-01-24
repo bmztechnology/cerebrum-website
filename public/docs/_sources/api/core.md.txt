@@ -1,0 +1,75 @@
+# Core Module Reference
+
+This section documents the core modules of Cerebrum Forex.
+
+## MT5 Connector
+
+```{eval-rst}
+.. automodule:: core.mt5_connector
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Prediction Engine
+
+```{eval-rst}
+.. automodule:: core.prediction_engine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Training Manager
+
+```{eval-rst}
+.. automodule:: core.training_manager
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Feature Engine
+
+```{eval-rst}
+.. automodule:: core.feature_engine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## App Controller
+
+```{eval-rst}
+.. automodule:: core.app_controller
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Noble KPI
+
+```{eval-rst}
+.. automodule:: core.noble_kpi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Congress Engine
+
+```{eval-rst}
+.. automodule:: core.congress_engine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+## Model Scorer
+
+```{eval-rst}
+.. automodule:: core.model_scorer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```

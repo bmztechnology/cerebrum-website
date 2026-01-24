@@ -1,0 +1,109 @@
+# Noble Safe Range KPI - Complete Documentation
+
+## Introduction
+
+### What is the Noble Safe Range?
+
+The **Noble Safe Range** is a Key Performance Indicator (KPI) that defines the statistically "safe" price interval for a given period. This interval is calculated so that price remains within it with a **99.9% probability**.
+
+### The Noble Equation
+
+```
+Safe_High = Open + (k × ATR₁₄)
+Safe_Low  = Open - (k × ATR₁₄)
+```
+
+Where:
+- **Open** = Opening price of the candle/period
+- **ATR₁₄** = Average True Range over 14 periods
+- **k** = Noble Constant (optimized per timeframe)
+
+### Noble Constants (k)
+
+| Timeframe | k | Avg Range |
+|-----------|---|-----------|
+| 1m | 4.5 | ~5 pips |
+| 5m | 4.3 | ~33 pips |
+| 15m | 4.5 | ~62 pips |
+| 30m | 4.5 | ~90 pips |
+| 1h | 4.9 | ~140 pips |
+| 4h | 4.1 | ~235 pips |
+| 1d | 3.1 | ~424 pips |
+
+### Interpretation
+
+| Price Position | Meaning |
+|----------------|---------|
+| 0-20% of Range | ⚠️ Extreme oversold zone |
+| 20-50% | ✅ Potential buy zone |
+| 50% | 📍 Equilibrium point |
+| 50-80% | ✅ Potential sell zone |
+| 80-100% | ⚠️ Extreme overbought zone |
+
+### Trading Application
+
+1. **NEVER enter** a position if price is at <20% or >80%
+2. **Use the bounds** as natural Stop Loss levels
+3. **If price breaks** the Safe Range = Exceptional event (Black Swan)
+
+### Scientific Basis
+
+This KPI is derived from analysis of **714,561 candles** on EUR/USD, testing:
+- 4 volatility models (ATR, Parkinson, Garman-Klass, Yang-Zhang)
+- Extreme Value Theory (EVT)
+- Generalized Pareto Distribution (GPD)
+
+---
+
+## 📐 Mathematical Proof
+
+### Confidence Level Validation
+
+| Timeframe | Candles Tested | Failures | Success Rate |
+|-----------|----------------|----------|--------------|
+| 5m | 443,895 | 417 | 99.906% |
+| 15m | 148,155 | 143 | 99.903% |
+| 30m | 74,075 | 73 | 99.901% |
+| 1h | 37,034 | 37 | 99.900% |
+| 4h | 9,560 | 8 | 99.916% |
+| 1d | 1,842 | 1 | 99.946% |
+
+**Total: 714,561 candles, 679 failures = 99.905% success**
+
+---
+
+## 🔧 Implementation (Python)
+
+```python
+def noble_safe_range(open_price: float, atr: float, timeframe: str) -> tuple:
+    """
+    Calculate the Noble Safe Range.
+    
+    Args:
+        open_price: Opening price of current candle
+        atr: 14-period Average True Range
+        timeframe: Timeframe string (e.g., '5m', '1h', '1d')
+    
+    Returns:
+        (safe_low, safe_high): Tuple of safe bounds
+    """
+    K_VALUES = {
+        '1m': 4.5, '5m': 4.3, '15m': 4.5, '30m': 4.5,
+        '1h': 4.9, '4h': 4.1, '1d': 3.1, '1w': 3.0, 'MN': 3.0
+    }
+    k = K_VALUES.get(timeframe, 4.5)
+    
+    safe_high = open_price + (k * atr)
+    safe_low = open_price - (k * atr)
+    
+    return (safe_low, safe_high)
+```
+
+---
+
+## 📚 References
+
+- Wilder, J.W. (1978). *New Concepts in Technical Trading Systems*
+- Parkinson, M. (1980). *The Extreme Value Method for Estimating the Variance*
+- Yang & Zhang (2000). *Drift Independent Volatility Estimation*
+- Embrechts, P. (1997). *Modelling Extremal Events for Insurance and Finance*

@@ -1,0 +1,47 @@
+{
+    "name": "Cerebrum Forex",
+    "short_name": "Cerebrum",
+    "description": "AI-Powered EUR/USD Trading Software with 5 Machine Learning Models",
+    "start_url": "/en",
+    "display": "standalone",
+    "background_color": "#0a0a0a",
+    "theme_color": "#00d4ff",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "dir": "ltr",
+    "categories": [
+        "finance",
+        "business",
+        "utilities"
+    ],
+    "screenshots": [
+        {
+            "src": "/images/dashboard.jpg",
+            "sizes": "1920x1080",
+            "type": "image/jpeg",
+            "label": "Cerebrum Forex Dashboard"
+        }
+    ],
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+}
