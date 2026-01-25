@@ -30,6 +30,7 @@ export default function Navbar({ locale }) {
         { key: 'features', href: `/${locale}#features` },
         { key: 'tools', href: `/${locale}#tools` },
         { key: 'faq', href: `/${locale}#faq` },
+        { key: 'contact', href: `/${locale}#contact` },
         { key: 'download', href: `/${locale}#download` },
         { key: 'docs', href: '/docs/index.html' }
     ];

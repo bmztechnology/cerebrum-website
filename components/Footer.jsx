@@ -15,6 +15,7 @@ export default function Footer() {
         { key: 'home', href: `/${locale}` },
         { key: 'features', href: `/${locale}#architecture` },
         { key: 'tools', href: `/${locale}#tools` },
+        { key: 'contact', href: `/${locale}#contact` },
         { key: 'download', href: `/${locale}#download` }
     ];
 

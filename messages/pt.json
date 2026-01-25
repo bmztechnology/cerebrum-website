@@ -10,6 +10,7 @@
             "tools": "Ferramentas",
             "faq": "FAQ",
             "download": "Download",
+            "contact": "Contato",
             "docs": "Documentação"
         },
         "hero": {
@@ -98,6 +99,18 @@
             "product": "Cerebrum Forex",
             "tagline": "Solução de Trading com IA",
             "rights": "Todos os direitos reservados."
+        },
+        "contactForm": {
+            "title": "Contate-nos",
+            "subtitle": "Tem alguma pergunta? Adoraríamos ouvir de você.",
+            "name": "Seu Nome",
+            "email": "Seu Email",
+            "subject": "Assunto (Opcional)",
+            "message": "Sua Mensagem",
+            "send": "Enviar Mensagem",
+            "sending": "Enviando...",
+            "success": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+            "error": "Falha ao enviar a mensagem. Tente novamente."
         }
     }
 }

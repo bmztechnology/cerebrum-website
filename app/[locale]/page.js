@@ -10,6 +10,7 @@ import PositionCalculator from '../../components/PositionCalculator';
 import Visuals from '../../components/Visuals';
 import TradingTools from '../../components/TradingTools';
 import FAQ from '../../components/FAQ';
+import ContactForm from '../../components/ContactForm';
 import Download from '../../components/Download';
 
 export default function HomePage() {
@@ -44,6 +45,9 @@ export default function HomePage() {
 
             {/* FAQ - SEO + AI Discoverability */}
             <FAQ />
+
+            {/* Contact Form - Email Support */}
+            <ContactForm />
 
             {/* Download CTA */}
             <Download />
