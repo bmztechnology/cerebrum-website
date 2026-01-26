@@ -62,7 +62,7 @@ export default function Hero() {
                     </p>
 
                     <div className={styles.actions}>
-                        <Link href={`/${locale}#download`} className={styles.ctaPrimary}>
+                        <Link href={`/${locale}/pricing`} className={styles.ctaPrimary}>
                             <span>{t('hero.cta')}</span>
                             <svg className={styles.arrow} viewBox="0 0 24 24" width="20" height="20">
                                 <path fill="currentColor" d="M5 12h14m-6-6l6 6-6 6" />

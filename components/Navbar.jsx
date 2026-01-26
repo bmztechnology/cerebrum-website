@@ -31,7 +31,7 @@ export default function Navbar({ locale }) {
         { key: 'tools', href: `/${locale}#tools` },
         { key: 'faq', href: `/${locale}#faq` },
         { key: 'contact', href: `/${locale}#contact` },
-        { key: 'download', href: `/${locale}#download` },
+        { key: 'download', href: `/${locale}/pricing` },
         { key: 'docs', href: '/docs/index.html' }
     ];
 

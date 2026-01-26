@@ -22,7 +22,7 @@ export default function Download() {
                             <span className={styles.secure}>{t('download.via')}</span>
                         </div>
 
-                        <a href="https://gumroad.com" target="_blank" rel="noopener noreferrer" className={styles.downloadBtn}>
+                        <a href={`/${locale}/pricing`} className={styles.downloadBtn}>
                             <span className={styles.btnIcon}>📥</span>
                             {t('download.button')}
                         </a>
