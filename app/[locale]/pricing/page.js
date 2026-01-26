@@ -1,18 +1,19 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 
 export default function PricingPage() {
-    const t = useTranslations("pricing");
+    const { locale } = useParams();
+    const t = useTranslations();
 
     const plans = [
         {
             id: "monthly",
-            title: t("monthly.title"),
-            price: t("monthly.price"),
-            period: t("monthly.period"),
-            cta: t("monthly.cta"),
+            title: t(`${locale}.pricing.monthly.title`),
+            price: t(`${locale}.pricing.monthly.price`),
+            period: t(`${locale}.pricing.monthly.period`),
+            cta: t(`${locale}.pricing.monthly.cta`),
             features: [
                 "Full AI Signal Access",
                 "MT5 Master EA Included",
@@ -24,10 +25,10 @@ export default function PricingPage() {
         },
         {
             id: "yearly",
-            title: t("yearly.title"),
-            price: t("yearly.price"),
-            period: t("yearly.period"),
-            cta: t("yearly.cta"),
+            title: t(`${locale}.pricing.yearly.title`),
+            price: t(`${locale}.pricing.yearly.price`),
+            period: t(`${locale}.pricing.yearly.period`),
+            cta: t(`${locale}.pricing.yearly.cta`),
             features: [
                 "Everything in Monthly",
                 "Priority Support",
@@ -54,8 +55,8 @@ export default function PricingPage() {
     return (
         <div className="py-20 px-6 max-w-7xl mx-auto text-white">
             <div className="text-center mb-16">
-                <h1 className="text-5xl font-bold mb-4 gradient-text">{t("title")}</h1>
-                <p className="text-xl text-gray-400">{t("subtitle")}</p>
+                <h1 className="text-5xl font-bold mb-4 gradient-text">{t(`${locale}.pricing.title`)}</h1>
+                <p className="text-xl text-gray-400">{t(`${locale}.pricing.subtitle`)}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
