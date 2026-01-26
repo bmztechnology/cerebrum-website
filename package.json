@@ -2,17 +2,27 @@
   "name": "cerebrum-web",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.11.1",
+    "@libsql/client": "^0.17.0",
+    "drizzle-orm": "^0.45.1",
     "next": "16.1.4",
+    "next-auth": "^5.0.0-beta.30",
     "next-intl": "^4.7.0",
     "nodemailer": "^7.0.12",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.8.0"
+    "resend": "^6.8.0",
+    "stripe": "^20.2.0"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.8"
   }
 }
