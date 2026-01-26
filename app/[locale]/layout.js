@@ -97,7 +97,10 @@ export async function generateMetadata({ params }) {
 export default async function LocaleLayout({ children, params }) {
     const { locale } = await params;
 
+    console.log(`[LocaleLayout] Rendering for locale: ${locale} (Available: ${locales.join(', ')})`);
+
     if (!locales.includes(locale)) {
+        console.warn(`[LocaleLayout] Locale ${locale} not found in config, triggering notFound()`);
         notFound();
     }
 

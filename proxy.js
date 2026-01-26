@@ -7,7 +7,11 @@ const intlMiddleware = createMiddleware({
     localePrefix: 'always'
 });
 
-export const proxy = intlMiddleware;
+// Next.js 16 Proxy Function
+export async function proxy(request) {
+    console.log(`[Proxy] Request: ${request.nextUrl.pathname}`);
+    return intlMiddleware(request);
+}
 
 export const config = {
     // Match all pathnames except for
