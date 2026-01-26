@@ -111,6 +111,35 @@
       "sending": "Sending...",
       "success": "Message sent successfully! We'll get back to you soon.",
       "error": "Failed to send message. Please try again."
+    },
+    "pricing": {
+      "title": "Plans & Pricing",
+      "subtitle": "Choose the best plan for your trading journey",
+      "monthly": {
+        "title": "Monthly Subscription",
+        "price": "49$",
+        "period": "/ month",
+        "cta": "Get Started",
+        "features": [
+          "Full AI Signal Access",
+          "MT5 Master EA Included",
+          "All Trading Modes",
+          "Email Support",
+          "Regular Updates"
+        ]
+      },
+      "yearly": {
+        "title": "Yearly Subscription",
+        "price": "399$",
+        "period": "/ year",
+        "cta": "Save with Yearly",
+        "features": [
+          "Everything in Monthly",
+          "Priority Support",
+          "Early Access to Beta Features",
+          "2 Months Free Savings"
+        ]
+      }
     }
   }
 }
