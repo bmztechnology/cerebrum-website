@@ -72,7 +72,7 @@ export default function Footer() {
                             {quickLinks.map((link) => (
                                 <li key={link.key}>
                                     <Link href={link.href} className={styles.link}>
-                                        {t(`${locale}.nav.${link.key}`)}
+                                        {t(`nav.${link.key}`)}
                                     </Link>
                                 </li>
                             ))}
@@ -115,13 +115,13 @@ export default function Footer() {
 
                 {/* Legal Disclaimer */}
                 <div className={styles.disclaimer}>
-                    <p>{t(`${locale}.legal.text`)}</p>
+                    <p>{t('legal.text')}</p>
                 </div>
 
                 {/* Bottom Bar */}
                 <div className={styles.bottom}>
                     <p className={styles.copyright}>
-                        © {year} Cerebrum Forex. {t(`${locale}.footer.rights`)}
+                        © {year} Cerebrum Forex. {t('footer.rights')}
                     </p>
                     <div className={styles.bottomLinks}>
                         <span className={styles.bottomLink}>Privacy Policy</span>

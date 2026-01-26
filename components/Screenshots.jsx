@@ -24,8 +24,8 @@ export default function Screenshots() {
         <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>{t(`${locale}.screenshots.title`)}</h2>
-                    <p className={styles.subtitle}>{t(`${locale}.screenshots.subtitle`)}</p>
+                    <h2 className={styles.title}>{t('screenshots.title')}</h2>
+                    <p className={styles.subtitle}>{t('screenshots.subtitle')}</p>
                 </div>
 
                 <div className={styles.gallery}>

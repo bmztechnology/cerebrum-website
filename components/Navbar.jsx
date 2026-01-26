@@ -57,7 +57,7 @@ export default function Navbar({ locale }) {
                             className={styles.navLink}
                             onClick={() => setIsMenuOpen(false)}
                         >
-                            {t(`${locale}.nav.${item.key}`)}
+                            {t(`nav.${item.key}`)}
                         </Link>
                     ))}
                 </div>
@@ -90,8 +90,8 @@ export default function Navbar({ locale }) {
                         )}
                     </div>
 
-                    <Link href={`/${locale}#download`} className={styles.ctaButton}>
-                        {t(`${locale}.nav.download`)}
+                    <Link href={`/${locale}#architecture`} className={styles.ctaSecondary}>
+                        {t('nav.features')}
                     </Link>
 
                     <button

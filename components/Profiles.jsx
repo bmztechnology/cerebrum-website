@@ -8,16 +8,16 @@ export default function Profiles() {
     const { locale } = useParams();
     const t = useTranslations();
 
-    const masterFeatures = t.raw(`${locale}.profiles.master.features`);
-    const standardFeatures = t.raw(`${locale}.profiles.standard.features`);
-    const manualFeatures = t.raw(`${locale}.profiles.manual.features`);
+    const masterFeatures = t.raw(`profiles.master.features`);
+    const standardFeatures = t.raw(`profiles.standard.features`);
+    const manualFeatures = t.raw(`profiles.manual.features`);
 
     return (
         <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>{t(`${locale}.profiles.title`)}</h2>
-                    <p className={styles.subtitle}>{t(`${locale}.profiles.subtitle`)}</p>
+                    <h2 className={styles.title}>{t(`profiles.title`)}</h2>
+                    <p className={styles.subtitle}>{t(`profiles.subtitle`)}</p>
                 </div>
 
                 <div className={styles.grid}>

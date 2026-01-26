@@ -49,21 +49,21 @@ export default function Hero() {
                 <div className={styles.content}>
                     <span className={styles.tagline}>
                         <span className={styles.taglineIcon}>⚡</span>
-                        {t(`${locale}.hero.tagline`)}
+                        {t('hero.tagline')}
                     </span>
 
                     <h1 className={styles.title}>
-                        <span className={styles.titleMain}>{t(`${locale}.hero.title`)}</span>
-                        <span className={styles.titleSub}>{t(`${locale}.hero.subtitle`)}</span>
+                        <span className={styles.titleMain}>{t('hero.title')}</span>
+                        <span className={styles.titleSub}>{t('hero.subtitle')}</span>
                     </h1>
 
                     <p className={styles.description}>
-                        {t(`${locale}.hero.description`)}
+                        {t('hero.description')}
                     </p>
 
                     <div className={styles.actions}>
                         <Link href={`/${locale}#download`} className={styles.ctaPrimary}>
-                            <span>{t(`${locale}.hero.cta`)}</span>
+                            <span>{t('hero.cta')}</span>
                             <svg className={styles.arrow} viewBox="0 0 24 24" width="20" height="20">
                                 <path fill="currentColor" d="M5 12h14m-6-6l6 6-6 6" />
                             </svg>

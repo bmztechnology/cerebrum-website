@@ -8,14 +8,14 @@ export default function Visuals() {
     const { locale } = useParams();
     const t = useTranslations();
 
-    const features = t.raw(`${locale}.visuals.features`);
+    const features = t.raw('visuals.features');
 
     return (
         <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>{t(`${locale}.visuals.title`)}</h2>
-                    <p className={styles.subtitle}>{t(`${locale}.visuals.subtitle`)}</p>
+                    <h2 className={styles.title}>{t('visuals.title')}</h2>
+                    <p className={styles.subtitle}>{t('visuals.subtitle')}</p>
                 </div>
 
                 <div className={styles.grid}>

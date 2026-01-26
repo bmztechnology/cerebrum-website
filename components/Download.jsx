@@ -14,17 +14,17 @@ export default function Download() {
                 <div className={styles.card}>
                     <div className={styles.glow}></div>
                     <div className={styles.content}>
-                        <h2 className={styles.title}>{t(`${locale}.download.title`)}</h2>
-                        <p className={styles.subtitle}>{t(`${locale}.download.subtitle`)}</p>
+                        <h2 className={styles.title}>{t('download.title')}</h2>
+                        <p className={styles.subtitle}>{t('download.subtitle')}</p>
 
-                        <a
-                            href="#download"
-                            className={styles.button}
-                        >
-                            <span className={styles.buttonText}>{t(`${locale}.download.button`)}</span>
-                            <svg className={styles.arrow} viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="currentColor" d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                        <div className={styles.pricing}>
+                            <span className={styles.price}>{t('download.price')}</span>
+                            <span className={styles.secure}>{t('download.via')}</span>
+                        </div>
+
+                        <a href="https://gumroad.com" target="_blank" rel="noopener noreferrer" className={styles.downloadBtn}>
+                            <span className={styles.btnIcon}>📥</span>
+                            {t('download.button')}
                         </a>
                     </div>
                 </div>

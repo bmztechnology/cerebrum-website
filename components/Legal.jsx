@@ -13,8 +13,8 @@ export default function Legal() {
             <div className={styles.container}>
                 <div className={styles.card}>
                     <div className={styles.icon}>⚠️</div>
-                    <h3 className={styles.title}>{t(`${locale}.legal.title`)}</h3>
-                    <p className={styles.text}>{t(`${locale}.legal.text`)}</p>
+                    <h3 className={styles.title}>{t('legal.title')}</h3>
+                    <p className={styles.text}>{t('legal.text')}</p>
                 </div>
             </div>
         </section>
