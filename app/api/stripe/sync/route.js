@@ -1,5 +1,5 @@
 import { stripe } from "@/lib/stripe";
-import { auth } from "@/auth";
+import { auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
 import { users } from "@/lib/schema";
 import { eq } from "drizzle-orm";
@@ -7,15 +7,26 @@ import { NextResponse } from "next/server";
 
 export async function GET(req) {
     try {
-        const session = await auth();
+        const { userId } = await auth();
 
-        if (!session?.user?.email) {
+        if (!userId) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 
+        // Fetch user from DB to get email (Clerk session doesn't always expose it directly in server auth() without extra steps)
+        const dbUser = await db.query.users.findFirst({
+            where: eq(users.id, userId),
+        });
+
+        if (!dbUser?.email) {
+            return NextResponse.json({ error: "Email not found" }, { status: 400 });
+        }
+
+        const userEmail = dbUser.email;
+
         // 1. Find customer by email
         const customers = await stripe.customers.list({
-            email: session.user.email,
+            email: userEmail,
             limit: 1,
             expand: ['data.subscriptions']
         });
@@ -37,7 +48,7 @@ export async function GET(req) {
                     subscriptionStatus: activeSub.status,
                     expiresAt: new Date(activeSub.current_period_end * 1000),
                 })
-                .where(eq(users.email, session.user.email));
+                .where(eq(users.email, userEmail));
 
             return NextResponse.json({
                 status: "synced",
