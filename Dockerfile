@@ -13,12 +13,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Dummy environment variables to satisfy Clerk/Stripe during build-time static analysis
-ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_dummy
-ENV CLERK_SECRET_KEY=sk_test_dummy
-ENV STRIPE_SECRET_KEY=sk_test_dummy
-ENV TURSO_DATABASE_URL=libsql://dummy
-ENV TURSO_AUTH_TOKEN=dummy
+# ENV vars removed. Real keys must be set in Cloud Run Console.
 
 RUN npm run build
 
