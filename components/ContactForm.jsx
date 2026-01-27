@@ -18,16 +18,16 @@ export default function ContactForm() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const t = {
-        title: t_intl(`${locale}.contactForm.title`),
-        subtitle: t_intl(`${locale}.contactForm.subtitle`),
-        name: t_intl(`${locale}.contactForm.name`),
-        email: t_intl(`${locale}.contactForm.email`),
-        subject: t_intl(`${locale}.contactForm.subject`),
-        message: t_intl(`${locale}.contactForm.message`),
-        send: t_intl(`${locale}.contactForm.send`),
-        sending: t_intl(`${locale}.contactForm.sending`),
-        success: t_intl(`${locale}.contactForm.success`),
-        error: t_intl(`${locale}.contactForm.error`),
+        title: t_intl(`contactForm.title`),
+        subtitle: t_intl(`contactForm.subtitle`),
+        name: t_intl(`contactForm.name`),
+        email: t_intl(`contactForm.email`),
+        subject: t_intl(`contactForm.subject`),
+        message: t_intl(`contactForm.message`),
+        send: t_intl(`contactForm.send`),
+        sending: t_intl(`contactForm.sending`),
+        success: t_intl(`contactForm.success`),
+        error: t_intl(`contactForm.error`),
     };
 
     const handleChange = (e) => {

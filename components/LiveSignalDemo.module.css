@@ -1,0 +1,266 @@
+.container {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(24px, 3vw, 36px);
+}
+
+.demoBox {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 2px;
+    /* For border gradient effect if needed */
+    position: relative;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.liveIndicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent-danger);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse 2s infinite;
+}
+
+.liveDot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-danger);
+    border-radius: 50%;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+    padding: 24px;
+}
+
+/* Left Side: Signal Card */
+.signalCard {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 280px;
+    position: relative;
+}
+
+.pair {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.signalType {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    font-family: var(--font-display);
+    text-shadow: 0 0 20px currentColor;
+}
+
+.buy {
+    color: var(--accent-tertiary);
+    text-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+}
+
+.sell {
+    color: var(--accent-danger);
+    text-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
+}
+
+.neutral {
+    color: var(--text-secondary);
+}
+
+.confidence {
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.confidenceLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.progressBar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+.modelsGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+.model {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.modelDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    transition: background 0.3s;
+}
+
+.model.active .modelDot {
+    background: var(--accent-primary);
+    box-shadow: 0 0 8px var(--accent-primary);
+}
+
+/* Right Side: Log */
+.logContainer {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    border: 1px solid var(--glass-border);
+    max-height: 280px;
+    overflow-y: hidden;
+    font-family: monospace;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logTitle {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.logEntries {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logEntry {
+    display: grid;
+    grid-template-columns: 50px 1fr 60px;
+    gap: 12px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    animation: slideIn 0.3s ease-out;
+    border-left: 2px solid transparent;
+}
+
+.logEntry.log-buy {
+    border-left-color: var(--accent-tertiary);
+}
+
+.logEntry.log-sell {
+    border-left-color: var(--accent-danger);
+}
+
+.logTime {
+    color: var(--text-muted);
+}
+
+.logAction {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.logProfit {
+    text-align: right;
+    color: var(--accent-tertiary);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .demoBox {
+        margin: 0 16px;
+    }
+}

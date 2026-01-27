@@ -46,8 +46,7 @@ export default function Footer() {
                             </span>
                         </div>
                         <p className={styles.brandDescription}>
-                            AI-powered hybrid trading solution for precision EUR/USD scalping.
-                            Combining machine learning with professional MT5 execution.
+                            {t('footer.description')}
                         </p>
                         <div className={styles.stats}>
                             <div className={styles.stat}>
@@ -67,7 +66,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className={styles.linksColumn}>
-                        <h4 className={styles.columnTitle}>Quick Links</h4>
+                        <h4 className={styles.columnTitle}>{t('footer.quickLinks')}</h4>
                         <ul className={styles.linksList}>
                             {quickLinks.map((link) => (
                                 <li key={link.key}>
@@ -76,12 +75,13 @@ export default function Footer() {
                                     </Link>
                                 </li>
                             ))}
+                            <li><a href="/docs/index.html" target="_blank" className={styles.link}>{t('nav.docs')}</a></li>
                         </ul>
                     </div>
 
                     {/* Resources */}
                     <div className={styles.linksColumn}>
-                        <h4 className={styles.columnTitle}>Resources</h4>
+                        <h4 className={styles.columnTitle}>{t('footer.resources')}</h4>
                         <ul className={styles.linksList}>
                             {resources.map((link, index) => (
                                 <li key={index}>
@@ -95,18 +95,18 @@ export default function Footer() {
 
                     {/* Trading Info */}
                     <div className={styles.linksColumn}>
-                        <h4 className={styles.columnTitle}>Trading</h4>
+                        <h4 className={styles.columnTitle}>{t('footer.trading')}</h4>
                         <ul className={styles.linksList}>
                             <li className={styles.infoItem}>
-                                <span className={styles.infoLabel}>Platform</span>
+                                <span className={styles.infoLabel}>{t('footer.platform')}</span>
                                 <span className={styles.infoValue}>MetaTrader 5</span>
                             </li>
                             <li className={styles.infoItem}>
-                                <span className={styles.infoLabel}>Pair</span>
+                                <span className={styles.infoLabel}>{t('footer.pair')}</span>
                                 <span className={styles.infoValue}>EUR/USD</span>
                             </li>
                             <li className={styles.infoItem}>
-                                <span className={styles.infoLabel}>Compatibility</span>
+                                <span className={styles.infoLabel}>{t('footer.compatibility')}</span>
                                 <span className={styles.infoValue}>Real, Demo, Prop Firms</span>
                             </li>
                         </ul>
@@ -124,9 +124,9 @@ export default function Footer() {
                         © {year} Cerebrum Forex. {t('footer.rights')}
                     </p>
                     <div className={styles.bottomLinks}>
-                        <span className={styles.bottomLink}>Privacy Policy</span>
+                        <span className={styles.bottomLink}>{t('footer.privacy')}</span>
                         <span className={styles.bottomDivider}>•</span>
-                        <span className={styles.bottomLink}>Terms of Service</span>
+                        <span className={styles.bottomLink}>{t('footer.terms')}</span>
                     </div>
                 </div>
             </div>

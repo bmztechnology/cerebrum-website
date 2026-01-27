@@ -5,7 +5,7 @@
     right: 0;
     z-index: 1000;
     padding: 16px 0;
-    background: rgba(10, 10, 15, 0.8);
+    background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -18,13 +18,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 72px;
+    /* Fixed height for better alignment */
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logoImage {
@@ -49,13 +52,13 @@
 
 .navLinks {
     display: flex;
-    gap: 32px;
+    gap: 20px;
 }
 
 .navLink {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     transition: color var(--transition-fast);
     position: relative;
@@ -78,6 +81,10 @@
 
 .navLink:hover::after {
     width: 100%;
+}
+
+.navLink:active {
+    transform: none;
 }
 
 .actions {
@@ -172,8 +179,63 @@
 }
 
 .ctaButton:hover {
-    transform: translateY(-2px);
     box-shadow: var(--shadow-glow);
+}
+
+.loginBtn {
+    padding: 8px 16px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.loginBtn:hover {
+    background: var(--bg-glass-hover);
+    border-color: var(--accent-primary);
+}
+
+.userActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dashboardBtn {
+    padding: 8px 16px;
+    background: var(--gradient-primary);
+    color: var(--bg-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.dashboardBtn:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+}
+
+.logoutBtn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 13px;
+    padding: 4px;
+    transition: color var(--transition-fast);
+}
+
+.logoutBtn:hover {
+    color: var(--accent-danger);
 }
 
 .menuToggle {
@@ -227,5 +289,19 @@
 
     .ctaButton {
         display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .logoText {
+        display: none;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .actions {
+        gap: 8px;
     }
 }

@@ -17,14 +17,9 @@ export default function Download() {
                         <h2 className={styles.title}>{t('download.title')}</h2>
                         <p className={styles.subtitle}>{t('download.subtitle')}</p>
 
-                        <div className={styles.pricing}>
-                            <span className={styles.price}>{t('download.price')}</span>
-                            <span className={styles.secure}>{t('download.via')}</span>
-                        </div>
-
-                        <a href={`/${locale}/pricing`} className={styles.downloadBtn}>
-                            <span className={styles.btnIcon}>📥</span>
-                            {t('download.button')}
+                        <a href={`/${locale}/pricing`} className={styles.button}>
+                            <span className={styles.buttonText}>{t('download.button')}</span>
+                            <span className={styles.arrow}>→</span>
                         </a>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
 import Hero from '../../components/Hero';
 import MarketStatus from '../../components/MarketStatus';
+import LiveSignalDemo from '../../components/LiveSignalDemo';
 import Features from '../../components/Features';
 import Architecture from '../../components/Architecture';
 import Profiles from '../../components/Profiles';
@@ -21,6 +22,9 @@ export default function HomePage() {
 
             {/* Live Market Status - Trader Utility */}
             <MarketStatus />
+
+            {/* AI Core Live Simulation */}
+            <LiveSignalDemo />
 
             {/* Features Grid - SEO Content */}
             <Features />

@@ -91,8 +91,45 @@ export async function generateMetadata({ params }) {
         },
         category: 'finance',
         classification: 'Trading Software',
+        icons: {
+            icon: [
+                { url: '/favicon.ico', sizes: 'any' },
+                { url: '/icon.svg', type: 'image/svg+xml' },
+            ],
+            apple: '/apple-touch-icon.png',
+        },
+        manifest: '/manifest.json',
+        appleWebApp: {
+            capable: true,
+            statusBarStyle: 'black-translucent',
+            title: 'Cerebrum Forex',
+        },
+        formatDetection: {
+            telephone: false,
+        },
+        themeColor: '#00d4ff',
     };
 }
+
+import { Providers } from '../../components/Providers';
+
+import '../globals.css';
+
+import Script from 'next/script';
+import { Inter, Orbitron } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
+
+const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-primary',
+});
+
+const orbitron = Orbitron({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-display',
+});
 
 export default async function LocaleLayout({ children, params }) {
     const { locale } = await params;
@@ -107,35 +144,36 @@ export default async function LocaleLayout({ children, params }) {
     const messages = await getMessages();
 
     return (
-        <html lang={locale}>
-            <head>
-                {/* Preconnect for performance */}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-                {/* Favicon */}
-                <link rel="icon" href="/favicon.ico" sizes="any" />
-                <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-                {/* PWA Manifest */}
-                <link rel="manifest" href="/manifest.json" />
-                <meta name="theme-color" content="#00d4ff" />
-
-                {/* Additional SEO */}
-                <meta name="format-detection" content="telephone=no" />
-                <meta name="mobile-web-app-capable" content="yes" />
-                <meta name="apple-mobile-web-app-capable" content="yes" />
-                <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-            </head>
-            <body>
-                <NextIntlClientProvider messages={messages}>
-                    <SchemaOrg locale={locale} />
-                    <Navbar locale={locale} />
-                    <main>{children}</main>
-                    <Footer locale={locale} />
-                </NextIntlClientProvider>
-            </body>
-        </html>
+        <ClerkProvider>
+            <html lang={locale} className={`${inter.variable} ${orbitron.variable}`}>
+                <body>
+                    <noscript>
+                        <iframe
+                            src="https://www.googletagmanager.com/ns.html?id=GTM-M54W5N47"
+                            height="0"
+                            width="0"
+                            style={{ display: 'none', visibility: 'hidden' }}
+                        />
+                    </noscript>
+                    <Script id="gtm" strategy="afterInteractive">
+                        {`
+                            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-M54W5N47');
+                        `}
+                    </Script>
+                    <NextIntlClientProvider messages={messages} locale={locale}>
+                        <Providers>
+                            <SchemaOrg locale={locale} />
+                            <Navbar locale={locale} />
+                            <main>{children}</main>
+                            <Footer locale={locale} />
+                        </Providers>
+                    </NextIntlClientProvider>
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }

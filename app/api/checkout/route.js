@@ -1,29 +1,34 @@
 import { stripe } from "@/lib/stripe";
-import { auth } from "@/auth";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
     try {
-        const session = await auth();
-        const { priceId } = await req.json();
+        const { userId } = await auth();
+        const user = await currentUser();
+        const { priceId, locale } = await req.json();
 
-        if (!session?.user) {
+        if (!userId || !user) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
 
+        const email = user.emailAddresses?.[0]?.emailAddress;
+
+        const effectiveLocale = locale || 'en';
+
         const checkoutSession = await stripe.checkout.sessions.create({
             mode: "subscription",
-            customer_email: session.user.email,
+            customer_email: email,
             line_items: [
                 {
                     price: priceId,
                     quantity: 1,
                 },
             ],
-            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?success=true`,
-            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/pricing?canceled=true`,
+            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${effectiveLocale}/dashboard?success=true&session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/${effectiveLocale}/pricing?canceled=true`,
             metadata: {
-                userId: session.user.id,
+                userId: userId,
             },
         });
 

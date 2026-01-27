@@ -69,7 +69,7 @@ export default function Hero() {
                             </svg>
                         </Link>
                         <Link href={`/${locale}#architecture`} className={styles.ctaSecondary}>
-                            {t(`${locale}.nav.features`)}
+                            {t(`nav.features`)}
                         </Link>
                     </div>
 

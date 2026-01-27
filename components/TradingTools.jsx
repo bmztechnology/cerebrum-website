@@ -1,7 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './TradingTools.module.css';
 
 const translations = {
@@ -68,6 +68,52 @@ const breakingNews = [
     { time: '1 hour ago', title: 'US Treasury yields decline on softer inflation data', source: 'CNBC' }
 ];
 
+// Helper component for TradingView Widgets
+function TradingViewWidget({ type, locale }) {
+    const container = useRef();
+
+    useEffect(() => {
+        if (!container.current) return;
+
+        // Clear previous script if any
+        container.current.innerHTML = '<div class="tradingview-widget-container__widget"></div>';
+
+        const script = document.createElement("script");
+        script.src = type === 'calendar'
+            ? "https://s3.tradingview.com/external-embedding/embed-widget-events.js"
+            : "https://s3.tradingview.com/external-embedding/embed-widget-timeline.js";
+        script.async = true;
+
+        const config = type === 'calendar' ? {
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "width": "100%",
+            "height": "100%",
+            "locale": locale === 'fr' ? 'fr' : locale === 'es' ? 'es' : locale === 'pt' ? 'br' : 'en',
+            "importanceFilter": "0,1",
+            "currencyFilter": "USD,EUR"
+        } : {
+            "feedMode": "symbol",
+            "symbol": "FX:EURUSD",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "displayMode": "regular",
+            "width": "100%",
+            "height": "100%",
+            "locale": locale === 'fr' ? 'fr' : locale === 'es' ? 'es' : locale === 'pt' ? 'br' : 'en'
+        };
+
+        script.innerHTML = JSON.stringify(config);
+        container.current.appendChild(script);
+    }, [type, locale]);
+
+    return (
+        <div className="tradingview-widget-container" ref={container} style={{ height: '100%', width: '100%' }}>
+            <div className="tradingview-widget-container__widget"></div>
+        </div>
+    );
+}
+
 export default function TradingTools() {
     const { locale } = useParams();
     const t = translations[locale] || translations.en;
@@ -116,51 +162,15 @@ export default function TradingTools() {
 
                     {/* Economic Calendar */}
                     {activeTab === 'calendar' && (
-                        <div className={styles.calendar}>
-                            <div className={styles.calendarHeader}>
-                                <span className={styles.calendarCol}>Time</span>
-                                <span className={styles.calendarCol}>Currency</span>
-                                <span className={styles.calendarCol}>Event</span>
-                                <span className={styles.calendarCol}>Impact</span>
-                                <span className={styles.calendarCol}>Forecast</span>
-                                <span className={styles.calendarCol}>Previous</span>
-                            </div>
-                            {economicEvents.map((event, index) => (
-                                <div key={index} className={styles.calendarRow}>
-                                    <span className={styles.calendarCol}>{event.time}</span>
-                                    <span className={styles.calendarCol}>
-                                        <span className={styles.currency}>{event.currency}</span>
-                                    </span>
-                                    <span className={`${styles.calendarCol} ${styles.eventName}`}>{event.event}</span>
-                                    <span className={styles.calendarCol}>
-                                        <span className={`${styles.impact} ${styles[event.impact]}`}>
-                                            {event.impact === 'high' ? '🔴' : event.impact === 'medium' ? '🟠' : '⚪'}
-                                        </span>
-                                    </span>
-                                    <span className={styles.calendarCol}>{event.forecast}</span>
-                                    <span className={styles.calendarCol}>{event.previous}</span>
-                                </div>
-                            ))}
-                            <div className={styles.legend}>
-                                <span className={styles.legendItem}>🔴 {t.high}</span>
-                                <span className={styles.legendItem}>🟠 {t.medium}</span>
-                                <span className={styles.legendItem}>⚪ {t.low}</span>
-                            </div>
+                        <div className={styles.widgetContainer}>
+                            <TradingViewWidget type="calendar" locale={locale} />
                         </div>
                     )}
 
                     {/* Breaking News */}
                     {activeTab === 'news' && (
-                        <div className={styles.newsFeed}>
-                            {breakingNews.map((news, index) => (
-                                <div key={index} className={styles.newsItem}>
-                                    <div className={styles.newsHeader}>
-                                        <span className={styles.newsTime}>{news.time}</span>
-                                        <span className={styles.newsSource}>{news.source}</span>
-                                    </div>
-                                    <p className={styles.newsTitle}>{news.title}</p>
-                                </div>
-                            ))}
+                        <div className={styles.widgetContainer}>
+                            <TradingViewWidget type="news" locale={locale} />
                         </div>
                     )}
                 </div>

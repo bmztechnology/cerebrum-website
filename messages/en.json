@@ -5,12 +5,19 @@
   },
   "nav": {
     "home": "Home",
+    "academy": "Academy",
     "features": "Features",
     "tools": "Trading Tools",
     "faq": "FAQ",
     "download": "Download",
     "contact": "Contact",
-    "docs": "Documentation"
+    "docs": "Documentation",
+    "dashboard": "Dashboard"
+  },
+  "academy": {
+    "title": "Cerebrum Academy",
+    "subtitle": "Master the art of AI-Enhanced Trading.",
+    "startBtn": "Start Learning"
   },
   "hero": {
     "tagline": "The Future of Forex Trading",
@@ -18,7 +25,7 @@
     "subtitle": "Hybrid AI + EA Trading Solution",
     "description": "Precision scalping powered by artificial intelligence and professional-grade MT5 execution.",
     "cta": "Download Now",
-    "ctaPrice": "xxx $"
+    "ctaPrice": "29 $"
   },
   "architecture": {
     "title": "Smart Architecture",
@@ -87,7 +94,7 @@
     "title": "Get Started Today",
     "subtitle": "Download Cerebrum Forex and transform your trading",
     "button": "Download Now",
-    "price": "xxx $",
+    "price": "29 $",
     "via": "Secure payment via Gumroad"
   },
   "legal": {
@@ -97,7 +104,16 @@
   "footer": {
     "product": "Cerebrum Forex",
     "tagline": "AI-Powered Trading Solution",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "description": "AI-powered hybrid trading solution for precision EUR/USD scalping. Combining machine learning with professional MT5 execution.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "trading": "Trading",
+    "platform": "Platform",
+    "pair": "Pair",
+    "compatibility": "Compatibility",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   },
   "contactForm": {
     "title": "Contact Us",
@@ -116,7 +132,7 @@
     "subtitle": "Choose the best plan for your trading journey",
     "monthly": {
       "title": "Monthly Subscription",
-      "price": "49$",
+      "price": "29$",
       "period": "/ month",
       "cta": "Get Started",
       "features": [
@@ -129,7 +145,7 @@
     },
     "yearly": {
       "title": "Yearly Subscription",
-      "price": "399$",
+      "price": "290$",
       "period": "/ year",
       "cta": "Save with Yearly",
       "features": [
@@ -139,5 +155,49 @@
         "2 Months Free Savings"
       ]
     }
+  },
+  "auth": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to manage your subscription",
+    "google": "Continue with Google",
+    "github": "Continue with GitHub",
+    "divider": "Or with your email",
+    "emailPlaceholder": "your@email.com",
+    "submit": "Send Magic Link",
+    "footer": "We'll send a secure login link to your inbox."
+  },
+  "dashboard": {
+    "title": "User Dashboard",
+    "welcome": "Welcome back,",
+    "status": "Subscription Status:",
+    "active": "Active",
+    "inactive": "Inactive",
+    "canceled": "Canceled",
+    "trialing": "Trialing",
+    "downloadTitle": "Download Software",
+    "downloadDesc": "Download the latest version of Cerebrum Forex Expert Advisor for MT5.",
+    "downloadBtn": "Download EA (.ex5)",
+    "docsLink": "View Documentation",
+    "noSubscription": "You don't have an active subscription yet.",
+    "pricingBtn": "Browse Plans",
+    "manageSubscription": "Manage Subscription",
+    "licenseTitle": "License Key",
+    "licenseDesc": "Your unique key to activate the Expert Advisor.",
+    "profileTitle": "User Profile",
+    "editBtn": "Edit Profile",
+    "labelName": "Full Name",
+    "labelEmail": "Email Address",
+    "labelPhone": "Phone Number",
+    "labelCountry": "Country",
+    "cancelBtn": "Cancel",
+    "saveBtn": "Save Changes"
+  },
+  "liveDemo": {
+    "headerTitle": "CEREBRUM AI CORE v1.2",
+    "liveIndicator": "LIVE SIMULATION",
+    "pair": "EUR/USD • M5 Timeframe",
+    "confidence": "AI Confidence",
+    "recentActivity": "Recent Activity",
+    "analyzing": "Analyzing..."
   }
 }

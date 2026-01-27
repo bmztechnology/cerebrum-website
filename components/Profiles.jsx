@@ -25,9 +25,9 @@ export default function Profiles() {
                     <div className={`${styles.card} ${styles.master}`}>
                         <div className={styles.badge}>
                             <span className={styles.badgeIcon}>⚡</span>
-                            {t(`${locale}.profiles.master.mode`)}
+                            {t(`profiles.master.mode`)}
                         </div>
-                        <h3 className={styles.cardTitle}>{t(`${locale}.profiles.master.title`)}</h3>
+                        <h3 className={styles.cardTitle}>{t(`profiles.master.title`)}</h3>
                         <ul className={styles.features}>
                             {masterFeatures.map((feature, index) => (
                                 <li key={index} className={styles.feature}>
@@ -37,7 +37,7 @@ export default function Profiles() {
                             ))}
                         </ul>
                         <div className={styles.cardFooter}>
-                            <span className={styles.target}>{t(`${locale}.profiles.master.target`)}</span>
+                            <span className={styles.target}>{t(`profiles.master.target`)}</span>
                         </div>
                     </div>
 
@@ -45,9 +45,9 @@ export default function Profiles() {
                     <div className={`${styles.card} ${styles.standard}`}>
                         <div className={styles.badgeSecondary}>
                             <span className={styles.badgeIcon}>🎯</span>
-                            {t(`${locale}.profiles.standard.mode`)}
+                            {t(`profiles.standard.mode`)}
                         </div>
-                        <h3 className={styles.cardTitle}>{t(`${locale}.profiles.standard.title`)}</h3>
+                        <h3 className={styles.cardTitle}>{t(`profiles.standard.title`)}</h3>
                         <ul className={styles.features}>
                             {standardFeatures.map((feature, index) => (
                                 <li key={index} className={styles.feature}>
@@ -57,7 +57,7 @@ export default function Profiles() {
                             ))}
                         </ul>
                         <div className={styles.cardFooter}>
-                            <span className={styles.target}>{t(`${locale}.profiles.standard.target`)}</span>
+                            <span className={styles.target}>{t(`profiles.standard.target`)}</span>
                         </div>
                     </div>
 
@@ -65,9 +65,9 @@ export default function Profiles() {
                     <div className={`${styles.card} ${styles.manual}`}>
                         <div className={styles.badgeTertiary}>
                             <span className={styles.badgeIcon}>🖐️</span>
-                            {t(`${locale}.profiles.manual.mode`)}
+                            {t(`profiles.manual.mode`)}
                         </div>
-                        <h3 className={styles.cardTitle}>{t(`${locale}.profiles.manual.title`)}</h3>
+                        <h3 className={styles.cardTitle}>{t(`profiles.manual.title`)}</h3>
                         <ul className={styles.features}>
                             {manualFeatures.map((feature, index) => (
                                 <li key={index} className={styles.feature}>
@@ -77,7 +77,7 @@ export default function Profiles() {
                             ))}
                         </ul>
                         <div className={styles.cardFooter}>
-                            <span className={styles.target}>{t(`${locale}.profiles.manual.target`)}</span>
+                            <span className={styles.target}>{t(`profiles.manual.target`)}</span>
                         </div>
                     </div>
                 </div>

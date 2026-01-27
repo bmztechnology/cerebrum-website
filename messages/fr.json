@@ -5,12 +5,19 @@
     },
     "nav": {
         "home": "Accueil",
+        "academy": "Académie",
         "features": "Fonctionnalités",
         "tools": "Outils de Trading",
         "faq": "FAQ",
         "download": "Télécharger",
         "contact": "Contact",
-        "docs": "Documentation"
+        "docs": "Documentation",
+        "dashboard": "Tableau de Bord"
+    },
+    "academy": {
+        "title": "Académie Cerebrum",
+        "subtitle": "Maîtrisez l'art du trading assisté par IA.",
+        "startBtn": "Commencer"
     },
     "hero": {
         "tagline": "Le Futur du Trading Forex",
@@ -18,7 +25,7 @@
         "subtitle": "Solution de Trading Hybride IA + EA",
         "description": "Scalping de précision propulsé par l'intelligence artificielle et une exécution MT5 de niveau professionnel.",
         "cta": "Télécharger Maintenant",
-        "ctaPrice": "xxx $"
+        "ctaPrice": "29 $"
     },
     "architecture": {
         "title": "Architecture Intelligente",
@@ -87,7 +94,7 @@
         "title": "Commencez Aujourd'hui",
         "subtitle": "Téléchargez Cerebrum Forex et transformez votre trading",
         "button": "Télécharger Maintenant",
-        "price": "xxx $",
+        "price": "29 $",
         "via": "Paiement sécurisé via Gumroad"
     },
     "legal": {
@@ -97,7 +104,16 @@
     "footer": {
         "product": "Cerebrum Forex",
         "tagline": "Solution de Trading par IA",
-        "rights": "Tous droits réservés."
+        "rights": "Tous droits réservés.",
+        "description": "Solution de trading hybride propulsée par l'intelligence artificielle pour un scalping de précision sur l'EUR/USD. Combinant le machine learning avec une exécution MT5 professionnelle.",
+        "quickLinks": "Liens Rapides",
+        "resources": "Ressources",
+        "trading": "Trading",
+        "platform": "Plateforme",
+        "pair": "Paire",
+        "compatibility": "Compatibilité",
+        "privacy": "Politique de Confidentialité",
+        "terms": "Conditions d'Utilisation"
     },
     "contactForm": {
         "title": "Contactez-nous",
@@ -116,7 +132,7 @@
         "subtitle": "Choisissez le meilleur plan pour votre parcours de trading",
         "monthly": {
             "title": "Abonnement Mensuel",
-            "price": "49$",
+            "price": "29$",
             "period": "/ mois",
             "cta": "Commencer",
             "features": [
@@ -129,7 +145,7 @@
         },
         "yearly": {
             "title": "Abonnement Annuel",
-            "price": "399$",
+            "price": "290$",
             "period": "/ an",
             "cta": "Économisez avec l'annuel",
             "features": [
@@ -139,5 +155,41 @@
                 "2 mois offerts"
             ]
         }
+    },
+    "auth": {
+        "title": "Connexion",
+        "subtitle": "Connectez-vous pour gérer votre abonnement",
+        "google": "Continuer avec Google",
+        "github": "Continuer avec GitHub",
+        "divider": "Ou avec votre email",
+        "emailPlaceholder": "votre@email.com",
+        "submit": "Recevoir un lien magique",
+        "footer": "Un email vous sera envoyé pour vous connecter sans mot de passe."
+    },
+    "dashboard": {
+        "title": "Tableau de Bord",
+        "welcome": "Bienvenue,",
+        "status": "Statut de l'abonnement :",
+        "active": "Actif",
+        "inactive": "Inactif",
+        "canceled": "Annulé",
+        "trialing": "Essai en cours",
+        "downloadTitle": "Télécharger le Logiciel",
+        "downloadDesc": "Téléchargez la dernière version de Cerebrum Forex Expert Advisor pour MT5.",
+        "downloadBtn": "Télécharger EA (.ex5)",
+        "docsLink": "Consulter la Documentation",
+        "noSubscription": "Vous n'avez pas encore d'abonnement actif.",
+        "pricingBtn": "Voir les Plans",
+        "manageSubscription": "Gérer mon abonnement",
+        "licenseTitle": "Clé de Licence",
+        "licenseDesc": "Votre clé unique pour activer l'Expert Advisor.",
+        "profileTitle": "Profil Utilisateur",
+        "editBtn": "Modifier",
+        "labelName": "Nom Complet",
+        "labelEmail": "Adresse Email",
+        "labelPhone": "Numéro de Téléphone",
+        "labelCountry": "Pays",
+        "cancelBtn": "Annuler",
+        "saveBtn": "Enregistrer"
     }
 }

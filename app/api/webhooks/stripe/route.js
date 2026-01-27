@@ -1,9 +1,8 @@
 import { stripe } from "@/lib/stripe";
-import { db } from "@/lib/db";
-import { users } from "@/lib/schema";
-import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
+import { sendWelcomeEmail } from "@/lib/email";
+import { syncUserAfterPayment } from "@/lib/user-sync";
 
 export async function POST(req) {
     const body = await req.text();
@@ -18,42 +17,48 @@ export async function POST(req) {
             process.env.STRIPE_WEBHOOK_SECRET
         );
     } catch (error) {
-        return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
+        console.error("Webhook signature verification failed:", error.message);
+        return NextResponse.json({ error: "Webhook Error" }, { status: 400 });
     }
 
     const session = event.data.object;
+    const userId = session.metadata?.userId;
 
     if (event.type === "checkout.session.completed") {
-        const subscription = await stripe.subscriptions.retrieve(session.subscription);
+        console.log(`[STRIPE] Payment completed for session: ${session.id}`);
 
-        await db.update(users)
-            .set({
-                stripeCustomerId: session.customer,
-                subscriptionId: session.subscription,
-                subscriptionStatus: "active",
-                expiresAt: new Date(subscription.current_period_end * 1000),
-            })
-            .where(eq(users.email, session.customer_details.email));
+        const customerEmail = session.customer_details?.email;
+        const customerName = session.customer_details?.name || "Trader";
+
+        try {
+            // Retrieve full subscription to get current_period_end
+            let subscription = session.subscription;
+            if (subscription && typeof subscription === 'string') {
+                subscription = await stripe.subscriptions.retrieve(subscription);
+            }
+
+            // 1. Sync User State (Clerk + Local DB)
+            // Use subscription ID as license key if available, otherwise session ID
+            const licenseKey = subscription ? subscription.id : session.id;
+
+            if (userId && subscription) {
+                await syncUserAfterPayment(userId, session, subscription);
+                console.log(`[WEBHOOK] User ${userId} fully synced.`);
+            } else {
+                console.warn(`[WEBHOOK] Missing userId (${userId}) or subscription (${subscription?.id}). Skipping full sync.`);
+            }
+
+            // 2. Send Welcome Email
+            if (customerEmail) {
+                const emailSent = await sendWelcomeEmail(customerEmail, customerName, licenseKey);
+                if (emailSent) console.log(`[EMAIL] Welcome email sent to ${customerEmail}`);
+            }
+        } catch (err) {
+            console.error("[WEBHOOK] Processing failed:", err);
+            // Don't fail the webhook response, we want to acknowledge receipt
+        }
     }
 
-    if (event.type === "invoice.payment_succeeded") {
-        const subscription = await stripe.subscriptions.retrieve(session.subscription);
 
-        await db.update(users)
-            .set({
-                subscriptionStatus: "active",
-                expiresAt: new Date(subscription.current_period_end * 1000),
-            })
-            .where(eq(users.subscriptionId, session.subscription));
-    }
-
-    if (event.type === "customer.subscription.deleted") {
-        await db.update(users)
-            .set({
-                subscriptionStatus: "canceled",
-            })
-            .where(eq(users.subscriptionId, session.id));
-    }
-
-    return new NextResponse(null, { status: 200 });
+    return NextResponse.json({ received: true });
 }

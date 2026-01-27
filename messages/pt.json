@@ -1,116 +1,183 @@
 {
-    "pt": {
-        "meta": {
-            "title": "Cerebrum Forex - Solução de Trading com IA",
-            "description": "Solução de trading híbrida combinando IA e Expert Advisor MT5 para trading EUR/USD de precisão."
+    "meta": {
+        "title": "Cerebrum Forex - Solução de Trading com IA",
+        "description": "Solução de trading híbrida combinando IA e Expert Advisor MT5 para trading EUR/USD de precisão."
+    },
+    "nav": {
+        "home": "Início",
+        "academy": "Academia",
+        "features": "Recursos",
+        "tools": "Ferramentas",
+        "faq": "FAQ",
+        "download": "Download",
+        "contact": "Contato",
+        "docs": "Documentação",
+        "dashboard": "Painel de Controle"
+    },
+    "academy": {
+        "title": "Academia Cerebrum",
+        "subtitle": "Domine a arte do trading assistido por IA.",
+        "startBtn": "Começar"
+    },
+    "hero": {
+        "tagline": "O Futuro do Trading Forex",
+        "title": "Cerebrum Forex",
+        "subtitle": "Solução Híbrida IA + EA",
+        "description": "Scalping de precisão alimentado por inteligência artificial e execução MT5 de nível profissional.",
+        "cta": "Baixar Agora",
+        "ctaPrice": "29 $"
+    },
+    "architecture": {
+        "title": "Arquitetura Inteligente",
+        "subtitle": "Separação clara entre detecção IA e execução EA",
+        "ai": {
+            "title": "Cérebro IA",
+            "description": "Modelos de machine learning analisam padrões de mercado, geram sinais BUY/SELL com níveis de confiança."
         },
-        "nav": {
-            "home": "Início",
-            "features": "Recursos",
-            "tools": "Ferramentas",
-            "faq": "FAQ",
-            "download": "Download",
-            "contact": "Contato",
-            "docs": "Documentação"
-        },
-        "hero": {
-            "tagline": "O Futuro do Trading Forex",
-            "title": "Cerebrum Forex",
-            "subtitle": "Solução Híbrida IA + EA",
-            "description": "Scalping de precisão alimentado por inteligência artificial e execução MT5 de nível profissional.",
-            "cta": "Baixar Agora",
-            "ctaPrice": "xxx $"
-        },
-        "architecture": {
-            "title": "Arquitetura Inteligente",
-            "subtitle": "Separação clara entre detecção IA e execução EA",
-            "ai": {
-                "title": "Cérebro IA",
-                "description": "Modelos de machine learning analisam padrões de mercado, geram sinais BUY/SELL com níveis de confiança."
-            },
-            "ea": {
-                "title": "Expert Advisor MT5",
-                "description": "Execução ultra-rápida de ordens, gestão rigorosa de risco, compatível com prop firms."
-            }
-        },
-        "profiles": {
-            "title": "Modos de Trading",
-            "subtitle": "Três modos de execução adaptados ao seu estilo de trading",
-            "master": {
-                "title": "Modo Autônomo",
-                "mode": "100% Auto",
-                "target": "Traders Profissionais",
-                "features": [
-                    "Configure indicadores via aba Indicators (EMA, RSI, ATR...)",
-                    "Ajuste suas estratégias em Settings > Logic Tuning",
-                    "Controle total do EA Manager (Risk, Trailing, Prop Firm)",
-                    "Entrada automática e saída automática via Expert Advisor"
-                ]
-            },
-            "standard": {
-                "title": "Modo Assistido",
-                "mode": "Semi-Auto",
-                "target": "Todos os Níveis",
-                "features": [
-                    "Parâmetros otimizados por padrão ou personalizar via EA Manager",
-                    "Sinais IA exibidos em tempo real no Signal Panel",
-                    "Entrada automática e saída manual para trading controlado",
-                    "Aprenda com as recomendações IA mantendo o controle"
-                ]
-            },
-            "manual": {
-                "title": "Modo Manual",
-                "mode": "100% Manual",
-                "target": "Traders Independentes",
-                "features": [
-                    "Parâmetros padrão (nenhuma configuração necessária)",
-                    "Use o Signal Panel e Dashboard como ferramentas de info",
-                    "Entrada manual e saída manual - independência total",
-                    "Opere segundo sua própria análise técnica"
-                ]
-            }
-        },
-        "visuals": {
-            "title": "Visualização Inteligente",
-            "subtitle": "Sinais em tempo real diretamente nos seus gráficos",
+        "ea": {
+            "title": "Expert Advisor MT5",
+            "description": "Execução ultra-rápida de ordens, gestão rigorosa de risco, compatível com prop firms."
+        }
+    },
+    "profiles": {
+        "title": "Modos de Trading",
+        "subtitle": "Três modos de execução adaptados ao seu estilo de trading",
+        "master": {
+            "title": "Modo Autônomo",
+            "mode": "100% Auto",
+            "target": "Traders Profissionais",
             "features": [
-                "Sinais BUY/SELL/NEUTRAL codificados por cor",
-                "Indicadores de nível de confiança",
-                "Overlays de zonas de entrada ideais",
-                "Detecção de micro-tendências"
+                "Configure indicadores via aba Indicators (EMA, RSI, ATR...)",
+                "Ajuste suas estratégias em Settings > Logic Tuning",
+                "Controle total do EA Manager (Risk, Trailing, Prop Firm)",
+                "Entrada automática e saída automática via Expert Advisor"
             ]
         },
-        "screenshots": {
-            "title": "Veja em Ação",
-            "subtitle": "Interface profissional projetada para trading de precisão"
+        "standard": {
+            "title": "Modo Assistido",
+            "mode": "Semi-Auto",
+            "target": "Todos os Níveis",
+            "features": [
+                "Parâmetros otimizados por padrão ou personalizar via EA Manager",
+                "Sinais IA exibidos em tempo real no Signal Panel",
+                "Entrada automática e saída manual para trading controlado",
+                "Aprenda com as recomendações IA mantendo o controle"
+            ]
         },
-        "download": {
-            "title": "Comece Hoje",
-            "subtitle": "Baixe Cerebrum Forex e transforme seu trading",
-            "button": "Baixar Agora",
-            "price": "xxx $",
-            "via": "Pagamento seguro via Gumroad"
-        },
-        "legal": {
-            "title": "Aviso Legal",
-            "text": "Cerebrum Forex é software de automação de trading. Sem garantia de desempenho. Parâmetros avançados reservados para usuários experientes. Desempenho passado não garante resultados futuros."
-        },
-        "footer": {
-            "product": "Cerebrum Forex",
-            "tagline": "Solução de Trading com IA",
-            "rights": "Todos os direitos reservados."
-        },
-        "contactForm": {
-            "title": "Contate-nos",
-            "subtitle": "Tem alguma pergunta? Adoraríamos ouvir de você.",
-            "name": "Seu Nome",
-            "email": "Seu Email",
-            "subject": "Assunto (Opcional)",
-            "message": "Sua Mensagem",
-            "send": "Enviar Mensagem",
-            "sending": "Enviando...",
-            "success": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
-            "error": "Falha ao enviar a mensagem. Tente novamente."
+        "manual": {
+            "title": "Modo Manual",
+            "mode": "100% Manual",
+            "target": "Traders Independentes",
+            "features": [
+                "Parâmetros padrão (nenhuma configuração necessária)",
+                "Use o Signal Panel e Dashboard como ferramentas de info",
+                "Entrada manual e saída manual - independência total",
+                "Opere segundo sua própria análise técnica"
+            ]
         }
+    },
+    "visuals": {
+        "title": "Visualização Inteligente",
+        "subtitle": "Sinais em tempo real diretamente nos seus gráficos",
+        "features": [
+            "Sinais BUY/SELL/NEUTRAL codificados por cor",
+            "Indicadores de nível de confiança",
+            "Overlays de zonas de entrada ideais",
+            "Detecção de micro-tendências"
+        ]
+    },
+    "screenshots": {
+        "title": "Veja em Ação",
+        "subtitle": "Interface profissional projetada para trading de precisão"
+    },
+    "download": {
+        "title": "Comece Hoje",
+        "subtitle": "Baixe Cerebrum Forex e transforme seu trading",
+        "button": "Baixar Agora",
+        "price": "29 $",
+        "via": "Pagamento seguro via Gumroad"
+    },
+    "legal": {
+        "title": "Aviso Legal",
+        "text": "Cerebrum Forex é software de automação de trading. Sem garantia de desempenho. Parâmetros avançados reservados para usuários experientes. Desempenho passado não garante resultados futuros."
+    },
+    "footer": {
+        "product": "Cerebrum Forex",
+        "tagline": "Solução de Trading com IA",
+        "rights": "Todos os direitos reservados."
+    },
+    "contactForm": {
+        "title": "Contate-nos",
+        "subtitle": "Tem alguma pergunta? Adoraríamos ouvir de você.",
+        "name": "Seu Nome",
+        "email": "Seu Email",
+        "subject": "Assunto (Opcional)",
+        "message": "Sua Mensagem",
+        "send": "Enviar Mensagem",
+        "sending": "Enviando...",
+        "success": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+        "error": "Falha ao enviar a mensagem. Tente novamente."
+    },
+    "pricing": {
+        "title": "Planos e Preços",
+        "subtitle": "Escolha o melhor plano para sua jornada de trading",
+        "monthly": {
+            "title": "Assinatura Mensal",
+            "price": "29$",
+            "period": "/ mês",
+            "cta": "Começar",
+            "features": [
+                "Acesso total aos sinais IA",
+                "Master EA MT5 incluído",
+                "Todos os modos de trading",
+                "Suporte por email",
+                "Atualizações regulares"
+            ]
+        },
+        "yearly": {
+            "title": "Assinatura Anual",
+            "price": "290$",
+            "period": "/ ano",
+            "cta": "Economize com a Anual",
+            "features": [
+                "Tudo do Mensal",
+                "Suporte proprietário",
+                "Acesso antecipado a recursos beta",
+                "2 meses grátis"
+            ]
+        }
+    },
+    "auth": {
+        "title": "Bem-vindo de volta",
+        "subtitle": "Faça login para gerenciar sua assinatura",
+        "google": "Continuar com Google",
+        "github": "Continuar com GitHub",
+        "divider": "Ou com seu e-mail",
+        "emailPlaceholder": "seu@email.com",
+        "submit": "Enviar link mágico",
+        "footer": "Enviaremos um link de login seguro para sua caixa de entrada."
+    },
+    "dashboard": {
+        "title": "Painel de Controle",
+        "welcome": "Bem-vindo de volta,",
+        "status": "Status da assinatura:",
+        "active": "Ativo",
+        "inactive": "Inativo",
+        "canceled": "Cancelado",
+        "trialing": "Em teste",
+        "downloadTitle": "Baixar Software",
+        "downloadDesc": "Baixe a versão mais recente do Cerebrum Forex Expert Advisor para MT5.",
+        "downloadBtn": "Baixar EA (.ex5)",
+        "docsLink": "Ver Documentação",
+        "noSubscription": "Você ainda não tem uma assinatura ativa.",
+        "pricingBtn": "Ver Planos",
+        "profileTitle": "Perfil de Usuário",
+        "editBtn": "Editar",
+        "labelName": "Nome Completo",
+        "labelEmail": "Email",
+        "labelPhone": "Telefone",
+        "labelCountry": "País",
+        "cancelBtn": "Cancelar",
+        "saveBtn": "Salvar Alterações"
     }
 }

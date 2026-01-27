@@ -1,11 +1,28 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
+import styles from "./Pricing.module.css";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
 
 export default function PricingPage() {
     const { locale } = useParams();
+    const { isSignedIn, isLoaded } = useUser();
+    const router = useRouter();
     const t = useTranslations("pricing");
+    const searchParams = useSearchParams();
+    const [showCanceled, setShowCanceled] = useState(false);
+
+    useEffect(() => {
+        if (searchParams.get("canceled") === "true") {
+            setShowCanceled(true);
+            const timer = setTimeout(() => setShowCanceled(false), 8000);
+            return () => clearTimeout(timer);
+        }
+    }, [searchParams]);
 
     const plans = [
         {
@@ -41,57 +58,93 @@ export default function PricingPage() {
     ];
 
     const handleCheckout = async (priceId) => {
-        const res = await fetch("/api/checkout", {
-            method: "POST",
-            body: JSON.stringify({ priceId }),
-            headers: { "Content-Type": "application/json" },
-        });
-        const data = await res.json();
-        if (data.url) {
-            window.location.href = data.url;
+        if (!isLoaded) return;
+
+        if (!isSignedIn) {
+            router.push(`/${locale}/auth/login?callbackUrl=/${locale}/pricing`);
+            return;
+        }
+
+        try {
+            const res = await fetch("/api/checkout", {
+                method: "POST",
+                body: JSON.stringify({ priceId, locale }),
+                headers: { "Content-Type": "application/json" },
+            });
+            const data = await res.json();
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                console.error("Checkout error:", data);
+            }
+        } catch (error) {
+            console.error("Fetch error:", error);
         }
     };
 
     return (
-        <div className="py-20 px-6 max-w-7xl mx-auto text-white">
-            <div className="text-center mb-16">
-                <h1 className="text-5xl font-bold mb-4 gradient-text">{t("title")}</h1>
-                <p className="text-xl text-gray-400">{t("subtitle")}</p>
+        <div className={styles.pricingPage}>
+            <div className={styles.backgroundEffects}>
+                <div className={styles.glowOrb1}></div>
+                <div className={styles.glowOrb2}></div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {plans.map((plan) => (
-                    <div
-                        key={plan.id}
-                        className={`p-8 rounded-3xl border ${plan.featured
-                            ? "border-orange-500 bg-orange-500/10"
-                            : "border-white/10 bg-white/5"
-                            } transition-all hover:scale-105 flex flex-col`}
-                    >
-                        <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
-                        <div className="flex items-baseline mb-6">
-                            <span className="text-4xl font-bold">{plan.price}</span>
-                            <span className="text-gray-400 ml-2">{plan.period}</span>
-                        </div>
-                        <ul className="space-y-4 mb-8 flex-grow">
-                            {plan.features.map((feature, i) => (
-                                <li key={i} className="flex items-center text-gray-300">
-                                    <span className="text-orange-500 mr-2">✓</span>
-                                    {feature}
-                                </li>
-                            ))}
-                        </ul>
-                        <button
-                            onClick={() => handleCheckout(plan.priceId)}
-                            className={`w-full py-4 rounded-xl font-bold transition-all ${plan.featured
-                                ? "bg-orange-500 hover:bg-orange-600 text-black"
-                                : "bg-white/10 hover:bg-white/20"
-                                }`}
-                        >
-                            {plan.cta}
-                        </button>
+            <div className={styles.container}>
+                {showCanceled && (
+                    <div style={{
+                        background: 'rgba(239, 68, 68, 0.1)',
+                        border: '1px solid #ef4444',
+                        color: '#ef4444',
+                        padding: '16px',
+                        borderRadius: '12px',
+                        marginBottom: '32px',
+                        textAlign: 'center',
+                        fontWeight: '600',
+                        animation: 'fadeInUp 0.5s ease-out'
+                    }}>
+                        ❌ {locale === 'fr' ? 'Le paiement a été annulé.' :
+                            locale === 'es' ? 'El pago fue cancelado.' :
+                                locale === 'pt' ? 'O pagamento foi cancelado.' :
+                                    'Payment was canceled.'}
                     </div>
-                ))}
+                )}
+                <div className={styles.header}>
+                    <h1 className={`${styles.title} gradient-text`}>{t("title")}</h1>
+                    <p className={styles.subtitle}>{t("subtitle")}</p>
+                </div>
+
+                <div className={styles.grid}>
+                    {plans.map((plan) => (
+                        <div
+                            key={plan.id}
+                            className={`${styles.card} ${plan.featured ? styles.featuredCard : ""}`}
+                        >
+                            <div className={styles.cardHeader}>
+                                <h3 className={styles.planTitle}>{plan.title}</h3>
+                                <div className={styles.priceWrapper}>
+                                    <span className={styles.price}>{plan.price}</span>
+                                    <span className={styles.period}>{plan.period}</span>
+                                </div>
+                            </div>
+
+                            <ul className={styles.featuresList}>
+                                {plan.features.map((feature, i) => (
+                                    <li key={i} className={styles.featureItem}>
+                                        <span className={styles.checkIcon}>✓</span>
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button
+                                onClick={() => handleCheckout(plan.priceId)}
+                                className={`${styles.ctaButton} ${plan.featured ? styles.ctaFeatured : ""}`}
+                            >
+                                {plan.cta}
+                            </button>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

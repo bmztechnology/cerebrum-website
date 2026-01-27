@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -20,19 +20,23 @@ const localeNames = {
     pt: 'Português'
 };
 
+import { useUser, SignOutButton } from "@clerk/nextjs";
+
 export default function Navbar({ locale }) {
+    const { isSignedIn, isLoaded } = useUser();
     const t = useTranslations();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLangOpen, setIsLangOpen] = useState(false);
 
     const navItems = [
         { key: 'home', href: `/${locale}` },
+        { key: 'academy', href: `/${locale}/academy/courses` },
         { key: 'features', href: `/${locale}#features` },
         { key: 'tools', href: `/${locale}#tools` },
-        { key: 'faq', href: `/${locale}#faq` },
-        { key: 'contact', href: `/${locale}#contact` },
         { key: 'download', href: `/${locale}/pricing` },
-        { key: 'docs', href: '/docs/index.html' }
+        { key: 'faq', href: `/${locale}#faq` },
+        { key: 'docs', href: '/docs/index.html', external: true },
+        { key: 'contact', href: `/${locale}#contact` }
     ];
 
     return (
@@ -51,14 +55,25 @@ export default function Navbar({ locale }) {
 
                 <div className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
                     {navItems.map((item) => (
-                        <Link
-                            key={item.key}
-                            href={item.href}
-                            className={styles.navLink}
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            {t(`nav.${item.key}`)}
-                        </Link>
+                        item.external ? (
+                            <a
+                                key={item.key}
+                                href={item.href}
+                                className={styles.navLink}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {t(`nav.${item.key}`)}
+                            </a>
+                        ) : (
+                            <Link
+                                key={item.key}
+                                href={item.href}
+                                className={styles.navLink}
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {t(`nav.${item.key}`)}
+                            </Link>
+                        )
                     ))}
                 </div>
 
@@ -90,9 +105,26 @@ export default function Navbar({ locale }) {
                         )}
                     </div>
 
-                    <Link href={`/${locale}#architecture`} className={styles.ctaSecondary}>
-                        {t('nav.features')}
-                    </Link>
+                    <div className={styles.authActions}>
+                        {isLoaded && isSignedIn ? (
+                            <div className={styles.userActions}>
+                                <Link href={`/${locale}/dashboard`} className={styles.dashboardBtn}>
+                                    Dashboard
+                                </Link>
+                                <SignOutButton>
+                                    <button className={styles.logoutBtn}>
+                                        Logout
+                                    </button>
+                                </SignOutButton>
+                            </div>
+                        ) : isLoaded ? (
+                            <Link href={`/${locale}/auth/login`} className={styles.loginBtn}>
+                                Login
+                            </Link>
+                        ) : (
+                            <div className={styles.skeleton}></div>
+                        )}
+                    </div>
 
                     <button
                         className={styles.menuToggle}

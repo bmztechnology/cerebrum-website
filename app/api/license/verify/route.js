@@ -1,67 +1,72 @@
-import { db } from "@/lib/db";
-import { users } from "@/lib/schema";
-import { eq } from "drizzle-orm";
+import { stripe } from "@/lib/stripe";
 import { NextResponse } from "next/server";
-
-// Basic in-memory rate limiting
-const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const MAX_REQUESTS = 10;
 
 export async function POST(req) {
     try {
-        const ip = req.headers.get("x-forwarded-for") || "anonymous";
-        const now = Date.now();
+        const body = await req.json();
+        // Support both naming conventions just in case
+        const licenseKey = body.licenseKey || body.license_key;
+        const hwid = body.hwid;
 
-        const userData = rateLimitMap.get(ip) || { count: 0, start: now };
-
-        if (now - userData.start > RATE_LIMIT_WINDOW) {
-            userData.count = 1;
-            userData.start = now;
-        } else {
-            userData.count++;
+        if (!licenseKey) {
+            return NextResponse.json({ valid: false, message: "Missing license key" }, { status: 400 });
         }
 
-        rateLimitMap.set(ip, userData);
+        console.log(`[LICENSE] Verifying: ${licenseKey}, HWID: ${hwid || 'N/A'}`);
 
-        if (userData.count > MAX_REQUESTS) {
-            return NextResponse.json({ error: "Too many requests. Please try again in a minute." }, { status: 429 });
+        // 1. Retrieve Subscription directly from Stripe
+        let subscription;
+        try {
+            subscription = await stripe.subscriptions.retrieve(licenseKey);
+        } catch (error) {
+            console.warn(`[LICENSE] Invalid Key: ${licenseKey}`);
+            return NextResponse.json({ valid: false, message: "Invalid License Key" }, { status: 404 });
         }
 
-        const { email } = await req.json();
+        // 2. Check Status
+        // Active or Trialing = Valid
+        const isValidStatus = ["active", "trialing"].includes(subscription.status);
 
-        if (!email) {
-            return NextResponse.json({ error: "Email is required" }, { status: 400 });
-        }
-
-        const user = await db.query.users.findFirst({
-            where: eq(users.email, email),
-        });
-
-        if (!user) {
+        if (!isValidStatus) {
+            console.warn(`[LICENSE] Inactive Subscription: ${subscription.status}`);
             return NextResponse.json({
-                status: "inactive",
-                message: "User not found"
-            }, { status: 404 });
-        }
-
-        const isActive = user.subscriptionStatus === "active" || user.subscriptionStatus === "trialing";
-
-        // Check if subscription has expired
-        if (user.expiresAt && new Date() > new Date(user.expiresAt)) {
-            return NextResponse.json({
-                status: "expired",
-                message: "Subscription expired"
+                valid: false,
+                message: "Subscription inactive",
+                status: subscription.status
             });
         }
 
+        // 3. HWID Lock (Strict Mode)
+        if (hwid) {
+            const currentLock = subscription.metadata?.cerebrum_hwid;
+
+            if (currentLock && currentLock !== hwid) {
+                console.warn(`[LICENSE] HWID Mismatch! Locked: ${currentLock}, Incoming: ${hwid}`);
+                return NextResponse.json({
+                    valid: false,
+                    message: "License already used on another machine (HWID mismatch).",
+                    code: "HWID_CONFLICT"
+                }, { status: 403 });
+            }
+
+            if (!currentLock) {
+                console.log(`[LICENSE] Binding License to HWID: ${hwid}`);
+                await stripe.subscriptions.update(licenseKey, {
+                    metadata: { cerebrum_hwid: hwid }
+                });
+            }
+        }
+
+        // 4. Success
         return NextResponse.json({
-            status: isActive ? "active" : "inactive",
-            email: user.email,
-            expires_at: user.expiresAt,
+            valid: true,
+            status: "active",
+            expiry: subscription.current_period_end,
+            plan: subscription.plan?.nickname || "Pro"
         });
+
     } catch (error) {
-        console.error("License verification error:", error);
-        return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+        console.error("[LICENSE] Error:", error);
+        return NextResponse.json({ valid: false, message: "Internal Server Error" }, { status: 500 });
     }
 }
