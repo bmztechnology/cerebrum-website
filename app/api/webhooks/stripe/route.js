@@ -1,6 +1,8 @@
 import { stripe } from "@/lib/stripe";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
+
+export const dynamic = 'force-dynamic';
 import { sendWelcomeEmail } from "@/lib/email";
 import { syncUserAfterPayment } from "@/lib/user-sync";
 
