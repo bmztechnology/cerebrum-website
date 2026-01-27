@@ -33,7 +33,7 @@ export default function Navbar({ locale }) {
         { key: 'academy', href: `/${locale}/academy/courses` },
         { key: 'features', href: `/${locale}#features` },
         { key: 'tools', href: `/${locale}#tools` },
-        { key: 'download', href: `/${locale}/pricing` },
+        { key: 'download', href: `/${locale}/download` },
         { key: 'faq', href: `/${locale}#faq` },
         { key: 'docs', href: '/docs/index.html', external: true },
         { key: 'contact', href: `/${locale}#contact` }

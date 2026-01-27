@@ -91,11 +91,17 @@
         "subtitle": "Interfaz profesional diseñada para trading de precisión"
     },
     "download": {
-        "title": "Comienza Hoy",
-        "subtitle": "Descarga Cerebrum Forex y transforma tu trading",
-        "button": "Descargar Ahora",
-        "price": "29 $",
-        "via": "Pago seguro vía Gumroad"
+        "title": "Descargar Cerebrum Forex",
+        "subtitle": "El asistente de trading IA más avanzado del mundo. Ejecución precisa, gestión de riesgos automatizada.",
+        "downloadBtn": "Descargar para Windows",
+        "requirements": "Requiere MetaTrader 5 (MT5) instalado.",
+        "installTitle": "Guía de Instalación",
+        "step1Title": "Ejecutar el Instalador",
+        "step1Desc": "Doble clic en CerebrumSetup.exe y siga el asistente.",
+        "step2Title": "Ingresar Clave de Licencia",
+        "step2Desc": "Use la clave enviada a su email o encontrada en su Dashboard.",
+        "step3Title": "Empezar a Operar",
+        "step3Desc": "Inicie MT5 y adjunte Cerebrum a su gráfico EUR/USD."
     },
     "legal": {
         "title": "Aviso Legal",
