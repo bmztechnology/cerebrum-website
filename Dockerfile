@@ -12,9 +12,14 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# We don't want to copy .env.local to the image if it contains secrets
-# but Next.js might need it for build time values if used.
-# For Cloud Run, secrets should ideally be injected via env vars or Secret Manager.
+
+# Dummy environment variables to satisfy Clerk/Stripe during build-time static analysis
+ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_dummy
+ENV CLERK_SECRET_KEY=sk_test_dummy
+ENV STRIPE_SECRET_KEY=sk_test_dummy
+ENV TURSO_DATABASE_URL=libsql://dummy
+ENV TURSO_AUTH_TOKEN=dummy
+
 RUN npm run build
 
 # Stage 3: Runner
