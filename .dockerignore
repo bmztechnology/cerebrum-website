@@ -7,6 +7,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .DS_Store
-Dockerfile
-.dockerignore
+# README.md removed from ignore if needed, but let's just clear the Dockerfile part
 README.md
