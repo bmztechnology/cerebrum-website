@@ -17,8 +17,8 @@ export default function Download() {
                         <h2 className={styles.title}>{t('download.title')}</h2>
                         <p className={styles.subtitle}>{t('download.subtitle')}</p>
 
-                        <a href={`/${locale}/pricing`} className={styles.button}>
-                            <span className={styles.buttonText}>{t('download.button')}</span>
+                        <a href={`/${locale}/download`} className={styles.button}>
+                            <span className={styles.buttonText}>{t('download.downloadBtn')}</span>
                             <span className={styles.arrow}>→</span>
                         </a>
                     </div>
