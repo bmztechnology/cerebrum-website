@@ -13,8 +13,8 @@
     position: relative;
     z-index: 999;
     width: 100%;
-    background: linear-gradient(90deg, #0056b3 0%, #00d4ff 100%);
-    box-shadow: 0 4px 20px rgba(0, 86, 179, 0.3);
+    background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
 }
 
 .disclaimerContent {
