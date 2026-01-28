@@ -91,7 +91,7 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                                 {t(subscriptionStatus) || subscriptionStatus}
                             </span>
                             {isSubActive ? (
-                                <button onClick={onManageSubscription} className={styles.linkBtn}>Manage</button>
+                                <button onClick={onManageSubscription} className={styles.linkBtn}>{t("manageSubscription")}</button>
                             ) : (
                                 <a href="/pricing" className={styles.linkBtn}>Upgrade</a>
                             )}
