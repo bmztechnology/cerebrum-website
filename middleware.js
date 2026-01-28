@@ -25,13 +25,23 @@ export default clerkMiddleware(async (auth, req) => {
             } else {
                 return new Response("Unauthorized", {
                     status: 401,
-                    headers: { "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"' },
+                    headers: {
+                        "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"',
+                        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+                        "Pragma": "no-cache",
+                        "Expires": "0"
+                    },
                 });
             }
         } else {
             return new Response("Unauthorized", {
                 status: 401,
-                headers: { "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"' },
+                headers: {
+                    "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"',
+                    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+                    "Pragma": "no-cache",
+                    "Expires": "0"
+                },
             });
         }
     }
