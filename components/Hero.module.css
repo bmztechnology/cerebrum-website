@@ -13,8 +13,8 @@
     position: relative;
     z-index: 999;
     width: 100%;
-    background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
-    box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+    background: linear-gradient(90deg, #f59e0b 0%, #ea580c 100%);
+    box-shadow: 0 4px 20px rgba(234, 88, 12, 0.3);
 }
 
 .disclaimerContent {
@@ -35,7 +35,7 @@
 }
 
 .disclaimerText {
-    font-size: 9px;
+    font-size: 10px;
     color: #ffffff;
     /* Improved Contrast: White text on orange bg */
     margin: 0;
@@ -51,7 +51,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     color: #ffffff;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;

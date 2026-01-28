@@ -8,7 +8,7 @@ import styles from './Hero.module.css';
 
 const disclaimerTexts = {
     en: { text1: "Cerebrum Forex is a software platform that assists traders. It has no access to your account, funds, or bank. Our market interface is", mt5: "MetaTrader 5", btn: "Understood" },
-    fr: { text1: "Cerebrum Forex est une plateforme logicielle (V2-RED-9PX). Elle n'a aucun accès à votre compte, vos fonds ou votre banque. Notre interface avec le marché est", mt5: "MetaTrader 5", btn: "Compris" },
+    fr: { text1: "Cerebrum Forex est une plateforme logicielle qui aide les traders. Elle n'a aucun accès à votre compte, vos fonds ou votre banque. Notre interface avec le marché est", mt5: "MetaTrader 5", btn: "Compris" },
     es: { text1: "Cerebrum Forex es una plataforma de software que asiste a traders. No tiene acceso a su cuenta, fondos o banco. Nuestra interfaz con el mercado es", mt5: "MetaTrader 5", btn: "Entendido" },
     pt: { text1: "Cerebrum Forex é uma plataforma de software que auxilia traders. Não tem acesso à sua conta, fundos ou banco. Nossa interface com o mercado é o", mt5: "MetaTrader 5", btn: "Entendido" }
 };
