@@ -5,7 +5,8 @@ import { locales, defaultLocale } from "./i18n/config";
 const intlMiddleware = createMiddleware({
     locales,
     defaultLocale,
-    localePrefix: "always"
+    localePrefix: "always",
+    localeDetection: false
 });
 
 const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
