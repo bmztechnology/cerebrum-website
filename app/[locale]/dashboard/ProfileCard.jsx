@@ -107,7 +107,7 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                                     <span className={styles.copyIcon}>📋</span>
                                 </div>
                                 <button
-                                    className="text-xs text-blue-400 hover:text-blue-300 underline text-left mt-1"
+                                    className={styles.resetBtn}
                                     onClick={async () => {
                                         if (confirm("Reset License Lock? This allows you to switch computers.")) {
                                             const res = await fetch('/api/license/reset', { method: 'POST' });

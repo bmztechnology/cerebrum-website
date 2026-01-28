@@ -495,3 +495,22 @@
         gap: 24px;
     }
 }
+
+.resetBtn {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    font-size: 11px;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: left;
+    margin-top: 4px;
+    padding: 0;
+    transition: opacity 0.2s;
+    font-weight: 600;
+}
+
+.resetBtn:hover {
+    opacity: 0.8;
+    color: #f87171;
+}
