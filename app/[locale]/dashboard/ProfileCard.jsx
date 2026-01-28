@@ -111,8 +111,9 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                                     onClick={async () => {
                                         if (confirm("Reset License Lock? This allows you to switch computers.")) {
                                             const res = await fetch('/api/license/reset', { method: 'POST' });
+                                            const data = await res.json();
                                             if (res.ok) alert("License Reset! You can now login on your new PC.");
-                                            else alert("Error resetting license.");
+                                            else alert(data.error || "Error resetting license.");
                                         }
                                     }}
                                 >

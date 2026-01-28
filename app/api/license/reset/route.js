@@ -32,13 +32,18 @@ export async function POST(req) {
             await stripe.subscriptions.update(dbUser.licenseKey, {
                 metadata: { cerebrum_hwid: "" }
             });
+            console.log(`[LICENSE] Successfully cleared HWID for ${dbUser.licenseKey}`);
         } catch (stripeError) {
-            // SOFT FAIL: If key is from Test but env is Live (or vice versa), ignore the error.
-            if (stripeError.code === 'resource_missing') {
-                console.warn(`[LICENSE] Mismatch: License Key ${dbUser.licenseKey} not found in current Stripe Env. Skipping metadata update.`);
-                // We proceed to return success so the user UI doesn't show "Error".
+            console.error(`[LICENSE] Stripe Update Failed for ${dbUser.licenseKey}:`, stripeError.message);
+
+            // SOFT FAIL: If key is not found or other non-critical Stripe errors
+            const isNotFoundError = stripeError.code === 'resource_missing' || stripeError.status === 404;
+            const isInvalidRequest = stripeError.type === 'StripeInvalidRequestError';
+
+            if (isNotFoundError || isInvalidRequest) {
+                console.warn(`[LICENSE] Proceeding with soft-fail for reset. Key might be from different env or already deleted.`);
             } else {
-                throw stripeError; // Re-throw real errors
+                throw stripeError; // Re-throw critical errors (network, auth, etc.)
             }
         }
 
@@ -46,6 +51,9 @@ export async function POST(req) {
 
     } catch (error) {
         console.error("License Reset Error:", error);
-        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+        return NextResponse.json({
+            error: "Failed to reset license.",
+            details: error.message
+        }, { status: 500 });
     }
 }
