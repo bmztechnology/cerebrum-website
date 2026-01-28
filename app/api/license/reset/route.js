@@ -52,7 +52,7 @@ export async function POST(req) {
     } catch (error) {
         console.error("License Reset Error:", error);
         return NextResponse.json({
-            error: "Failed to reset license.",
+            error: "Failed to reset license. [V-DEBUG-LATEST]",
             details: error.message
         }, { status: 500 });
     }
