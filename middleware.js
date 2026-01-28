@@ -12,39 +12,39 @@ const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
     // OPTIONAL: Basic Auth for "Maintenance Mode" or "Staging"
-    const sitePassword = process.env.SITE_PASSWORD;
-    if (sitePassword) {
-        const basicAuth = req.headers.get("authorization");
+    // const sitePassword = process.env.SITE_PASSWORD;
+    // if (sitePassword) {
+    //     const basicAuth = req.headers.get("authorization");
 
-        if (basicAuth) {
-            const authValue = basicAuth.split(" ")[1];
-            const [user, pwd] = atob(authValue).split(":");
+    //     if (basicAuth) {
+    //         const authValue = basicAuth.split(" ")[1];
+    //         const [user, pwd] = atob(authValue).split(":");
 
-            if (user === "admin" && pwd === sitePassword) {
-                // Password valid, proceed normally
-            } else {
-                return new Response("Unauthorized", {
-                    status: 401,
-                    headers: {
-                        "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"',
-                        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-                        "Pragma": "no-cache",
-                        "Expires": "0"
-                    },
-                });
-            }
-        } else {
-            return new Response("Unauthorized", {
-                status: 401,
-                headers: {
-                    "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"',
-                    "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-                    "Pragma": "no-cache",
-                    "Expires": "0"
-                },
-            });
-        }
-    }
+    //         if (user === "admin" && pwd === sitePassword) {
+    //             // Password valid, proceed normally
+    //         } else {
+    //             return new Response("Unauthorized", {
+    //                 status: 401,
+    //                 headers: {
+    //                     "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"',
+    //                     "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    //                     "Pragma": "no-cache",
+    //                     "Expires": "0"
+    //                 },
+    //             });
+    //         }
+    //     } else {
+    //         return new Response("Unauthorized", {
+    //             status: 401,
+    //             headers: {
+    //                 "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"',
+    //                 "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    //                 "Pragma": "no-cache",
+    //                 "Expires": "0"
+    //             },
+    //         });
+    //     }
+    // }
 
     if (isProtectedRoute(req)) {
         await auth.protect();
