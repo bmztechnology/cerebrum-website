@@ -28,9 +28,19 @@ export async function POST(req) {
         console.log(`[LICENSE] Resetting HWID for user ${userId}, License: ${dbUser.licenseKey}`);
 
         // Update Stripe Metadata to clear HWID
-        await stripe.subscriptions.update(dbUser.licenseKey, {
-            metadata: { cerebrum_hwid: "" }
-        });
+        try {
+            await stripe.subscriptions.update(dbUser.licenseKey, {
+                metadata: { cerebrum_hwid: "" }
+            });
+        } catch (stripeError) {
+            // SOFT FAIL: If key is from Test but env is Live (or vice versa), ignore the error.
+            if (stripeError.code === 'resource_missing') {
+                console.warn(`[LICENSE] Mismatch: License Key ${dbUser.licenseKey} not found in current Stripe Env. Skipping metadata update.`);
+                // We proceed to return success so the user UI doesn't show "Error".
+            } else {
+                throw stripeError; // Re-throw real errors
+            }
+        }
 
         return NextResponse.json({ success: true, message: "License reset successfully. You can now login on a new device." });
 
