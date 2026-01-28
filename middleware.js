@@ -25,13 +25,13 @@ export default clerkMiddleware(async (auth, req) => {
             } else {
                 return new Response("Unauthorized", {
                     status: 401,
-                    headers: { "WWW-Authenticate": 'Basic realm="Secure Area"' },
+                    headers: { "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"' },
                 });
             }
         } else {
             return new Response("Unauthorized", {
                 status: 401,
-                headers: { "WWW-Authenticate": 'Basic realm="Secure Area"' },
+                headers: { "WWW-Authenticate": 'Basic realm="Cerebrum Staging Area"' },
             });
         }
     }
