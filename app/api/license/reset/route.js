@@ -20,8 +20,15 @@ export async function POST(req) {
         if (!dbUser || !dbUser.licenseKey) {
             // Attempt Self-Healing: Check Clerk Metadata
             try {
+                console.log(`[LICENSE-DEBUG] local DB missing license for ${userId}. Checks Clerk...`);
+                // const client = await clerkClient(); // Attempt to await if it's a promise in this version?
+                // Let's stick to the pattern used in user-sync.js: clerkClient().users...
                 const clerkUser = await clerkClient().users.getUser(userId);
+
+                console.log(`[LICENSE-DEBUG] Clerk User Metadata:`, JSON.stringify(clerkUser.publicMetadata, null, 2));
+
                 const clerkLicense = clerkUser.publicMetadata?.licenseKey;
+                console.log(`[LICENSE-DEBUG] Found License in Clerk: ${clerkLicense}`);
 
                 if (clerkLicense) {
                     console.log(`[LICENSE] Self-healing: Found license ${clerkLicense} in Clerk for user ${userId}. Updating DB.`);
@@ -41,11 +48,12 @@ export async function POST(req) {
                         dbUser.licenseKey = clerkLicense;
                     }
                 } else {
+                    console.warn(`[LICENSE-DEBUG] License NOT found in Clerk metadata.`);
                     return NextResponse.json({ error: "No license found" }, { status: 404 });
                 }
             } catch (err) {
                 console.error("Self-healing failed:", err);
-                return NextResponse.json({ error: "No license found" }, { status: 404 });
+                return NextResponse.json({ error: "No license found: " + err.message }, { status: 404 });
             }
         }
 
