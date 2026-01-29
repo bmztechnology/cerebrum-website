@@ -12,6 +12,7 @@ import Visuals from '../../components/Visuals';
 import TradingTools from '../../components/TradingTools';
 import FAQ from '../../components/FAQ';
 import ContactForm from '../../components/ContactForm';
+import Pricing from '../../components/Pricing';
 import Download from '../../components/Download';
 
 export default function HomePage() {
@@ -52,6 +53,9 @@ export default function HomePage() {
 
             {/* Contact Form - Email Support */}
             <ContactForm />
+
+            {/* Pricing Plans */}
+            <Pricing />
 
             {/* Download CTA */}
             <Download />

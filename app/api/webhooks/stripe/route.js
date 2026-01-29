@@ -5,6 +5,10 @@ import { NextResponse } from "next/server";
 export const dynamic = 'force-dynamic';
 import { sendWelcomeEmail } from "@/lib/email";
 import { syncUserAfterPayment } from "@/lib/user-sync";
+import { db } from "@/lib/db";
+import { users } from "@/lib/schema";
+import { eq } from "drizzle-orm";
+import { clerkClient } from "@clerk/nextjs/server";
 
 export async function POST(req) {
     const body = await req.text();
@@ -23,12 +27,12 @@ export async function POST(req) {
         return NextResponse.json({ error: "Webhook Error" }, { status: 400 });
     }
 
-    const session = event.data.object;
-    const userId = session.metadata?.userId;
-
+    // Handle CHECKOUT SESSION COMPLETED
     if (event.type === "checkout.session.completed") {
+        const session = event.data.object;
         console.log(`[STRIPE] Payment completed for session: ${session.id}`);
 
+        const userId = session.metadata?.userId;
         const customerEmail = session.customer_details?.email;
         const customerName = session.customer_details?.name || "Trader";
 
@@ -40,7 +44,6 @@ export async function POST(req) {
             }
 
             // 1. Sync User State (Clerk + Local DB)
-            // Use subscription ID as license key if available, otherwise session ID
             const licenseKey = subscription ? subscription.id : session.id;
 
             if (userId && subscription) {
@@ -60,7 +63,59 @@ export async function POST(req) {
             // Don't fail the webhook response, we want to acknowledge receipt
         }
     }
+    // Handle SUBSCRIPTION DELETED
+    else if (event.type === "customer.subscription.deleted") {
+        const subscription = event.data.object;
+        console.log(`[STRIPE] Subscription deleted: ${subscription.id}`);
 
+        // Try to find user by metadata
+        let userId = subscription.metadata?.userId;
+
+        // Fallback: Find by Subscription ID in DB
+        if (!userId) {
+            try {
+                const dbUser = await db.query.users.findFirst({
+                    where: eq(users.subscriptionId, subscription.id),
+                    columns: { id: true }
+                });
+                if (dbUser) userId = dbUser.id;
+            } catch (err) {
+                console.error("[WEBHOOK] DB lookup failed:", err);
+            }
+        }
+
+        if (userId) {
+            console.log(`[WEBHOOK] Deactivating user ${userId}...`);
+
+            // 1. Update Clerk Metadata
+            try {
+                await clerkClient().users.updateUser(userId, {
+                    publicMetadata: {
+                        subscriptionStatus: "inactive",
+                        licenseKey: null
+                    }
+                });
+            } catch (err) {
+                console.error("[WEBHOOK] Clerk deactivation failed:", err);
+            }
+
+            // 2. Update Local DB
+            try {
+                await db.update(users)
+                    .set({
+                        subscriptionStatus: "inactive",
+                        licenseKey: null,
+                        subscriptionId: null
+                    })
+                    .where(eq(users.id, userId));
+                console.log(`[WEBHOOK] User ${userId} deactivated in DB.`);
+            } catch (err) {
+                console.error("[WEBHOOK] DB deactivation failed:", err);
+            }
+        } else {
+            console.warn(`[WEBHOOK] Could not find user for cancelled subscription: ${subscription.id}`);
+        }
+    }
 
     return NextResponse.json({ received: true });
 }

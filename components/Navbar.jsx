@@ -7,10 +7,10 @@ import { useState } from 'react';
 import styles from './Navbar.module.css';
 
 const localeFlags = {
-    en: '🇬🇧',
-    fr: '🇫🇷',
-    es: '🇪🇸',
-    pt: '🇧🇷'
+    en: 'EN',
+    fr: 'FR',
+    es: 'ES',
+    pt: 'PT'
 };
 
 const localeNames = {
@@ -34,6 +34,7 @@ export default function Navbar({ locale }) {
         { key: 'features', href: `/${locale}#features` },
         { key: 'tools', href: `/${locale}#tools` },
         { key: 'download', href: `/${locale}/download` },
+        { key: 'pricing', href: `/${locale}#pricing` },
         { key: 'faq', href: `/${locale}#faq` },
         { key: 'docs', href: '/docs/index.html', external: true },
         { key: 'contact', href: `/${locale}#contact` }
