@@ -1,6 +1,6 @@
 export const dynamic = 'force-dynamic';
 import { stripe } from "@/lib/stripe";
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
 import { users } from "@/lib/schema";
 import { eq } from "drizzle-orm";
@@ -12,13 +12,41 @@ export async function POST(req) {
         if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
         // Get user's license key from DB
-        const dbUser = await db.query.users.findFirst({
+        let dbUser = await db.query.users.findFirst({
             where: eq(users.id, userId),
             columns: { licenseKey: true, subscriptionStatus: true }
         });
 
         if (!dbUser || !dbUser.licenseKey) {
-            return NextResponse.json({ error: "No license found" }, { status: 404 });
+            // Attempt Self-Healing: Check Clerk Metadata
+            try {
+                const clerkUser = await clerkClient().users.getUser(userId);
+                const clerkLicense = clerkUser.publicMetadata?.licenseKey;
+
+                if (clerkLicense) {
+                    console.log(`[LICENSE] Self-healing: Found license ${clerkLicense} in Clerk for user ${userId}. Updating DB.`);
+
+                    // Update DB with found license
+                    await db.update(users)
+                        .set({ licenseKey: clerkLicense })
+                        .where(eq(users.id, userId));
+
+                    // Use this license for the rest of the request
+                    if (!dbUser) {
+                        dbUser = {
+                            licenseKey: clerkLicense,
+                            subscriptionStatus: clerkUser.publicMetadata?.subscriptionStatus || "active"
+                        };
+                    } else {
+                        dbUser.licenseKey = clerkLicense;
+                    }
+                } else {
+                    return NextResponse.json({ error: "No license found" }, { status: 404 });
+                }
+            } catch (err) {
+                console.error("Self-healing failed:", err);
+                return NextResponse.json({ error: "No license found" }, { status: 404 });
+            }
         }
 
         if (dbUser.subscriptionStatus !== 'active' && dbUser.subscriptionStatus !== 'trialing') {
@@ -52,7 +80,7 @@ export async function POST(req) {
     } catch (error) {
         console.error("License Reset Error:", error);
         return NextResponse.json({
-            error: "Failed to reset license. [V-DEBUG-LATEST]",
+            error: "Failed to reset license.",
             details: error.message
         }, { status: 500 });
     }
