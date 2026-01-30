@@ -551,3 +551,390 @@
     opacity: 0.8;
     color: #f87171;
 }
+
+/* ============================================
+   PREMIUM DASHBOARD STYLES
+   ============================================ */
+
+/* Quick Stats Bar */
+.quickStatsBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 32px;
+    margin-bottom: 32px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.statItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.statIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: var(--accent-primary);
+}
+
+.statContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.statLabel {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.statValue {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+.statActive {
+    color: #10b981;
+}
+
+.statInactive {
+    color: #ef4444;
+}
+
+.statHealthy {
+    color: #10b981;
+}
+
+.statWarning {
+    color: #f59e0b;
+}
+
+.statDivider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Dashboard Grid */
+.dashboardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.dashboardFullWidth {
+    grid-column: 1 / -1;
+}
+
+/* Widget Cards */
+.quickActionsCard,
+.marketCard,
+.chartCard {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.quickActionsCard {
+    animation-delay: 0.1s;
+}
+
+.marketCard {
+    animation-delay: 0.2s;
+}
+
+.chartCard {
+    animation-delay: 0.3s;
+}
+
+.widgetTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.widgetTitle svg {
+    color: var(--accent-primary);
+}
+
+/* Quick Actions Grid */
+.actionsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.actionItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.actionItem:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.actionDisabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.actionIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.actionprimary .actionIcon {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+}
+
+.actionsecondary .actionIcon {
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+}
+
+.actiontertiary .actionIcon {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+.actionquaternary .actionIcon {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+.actionupgrade .actionIcon {
+    background: rgba(236, 72, 153, 0.15);
+    color: #ec4899;
+}
+
+.actionText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.actionLabel {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.actionSublabel {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Market Sessions */
+.sessionsTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sessionItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.sessionActive {
+    background: rgba(var(--session-color), 0.08);
+    border-color: var(--session-color);
+}
+
+.sessionIndicator {
+    width: 12px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sessionDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sessionDotActive {
+    background: var(--session-color);
+    box-shadow: 0 0 12px var(--session-color);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+.sessionInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sessionName {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.sessionTime {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.sessionLive {
+    font-size: 10px;
+    font-weight: 700;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.15);
+    padding: 4px 8px;
+    border-radius: 6px;
+    animation: pulse 2s infinite;
+}
+
+.marketFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.utcTime {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: monospace;
+}
+
+.marketOpen {
+    font-size: 12px;
+    color: #10b981;
+    font-weight: 600;
+}
+
+.marketClosed {
+    font-size: 12px;
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Trading Chart */
+.chartCard {
+    min-height: 450px;
+}
+
+.chartContainer {
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Compact Profile Card for Grid */
+.profileCardCompact {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .quickStatsBar {
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .statDivider {
+        display: none;
+    }
+
+    .dashboardGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .actionsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .quickStatsBar {
+        padding: 16px;
+    }
+
+    .statItem {
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    .chartContainer {
+        height: 300px;
+    }
+}
