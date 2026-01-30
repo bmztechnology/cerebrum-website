@@ -15,43 +15,38 @@ export default function DashboardPage() {
     const searchParams = useSearchParams();
     const [showSuccess, setShowSuccess] = useState(false);
 
-    const userMetadata = user?.publicMetadata || {};
-    const effectiveStatus = userMetadata.subscriptionStatus || "inactive";
-    const initialKey = userMetadata.licenseKey || null;
+    // Start with loading state - don't trust Clerk metadata
+    const [subStatus, setSubStatus] = useState("loading");
+    const [licenseKey, setLicenseKey] = useState(null);
+    const [statusLoaded, setStatusLoaded] = useState(false);
 
-    // Local state for immediate UI updates
-    const [subStatus, setSubStatus] = useState(effectiveStatus);
-    const [licenseKey, setLicenseKey] = useState(initialKey);
-
-    // Sync local state when session changes
+    // Fetch status from DATABASE (source of truth) on mount
     useEffect(() => {
-        if (user) {
-            const meta = user.publicMetadata || {};
-            const status = meta.subscriptionStatus || "inactive";
-            setSubStatus(status);
-            setLicenseKey(meta.licenseKey || null);
-        }
-    }, [user]);
-
-    // Auto-refresh status from DB on mount (fixes stale Clerk metadata)
-    useEffect(() => {
-        if (isSignedIn && user) {
+        if (isSignedIn && user && !statusLoaded) {
             fetch("/api/user/status")
                 .then(res => res.json())
                 .then(data => {
-                    if (data.status && data.status !== subStatus) {
-                        console.log("Status updated from DB:", data.status);
+                    if (data.status) {
+                        console.log("Status from DB:", data.status);
                         setSubStatus(data.status);
-                        if (data.status === 'active' && data.licenseKey) {
-                            setLicenseKey(data.licenseKey);
-                        }
-                        // Optionally force a background reload of Clerk to sync for next time
-                        user.reload();
+                        setLicenseKey(data.licenseKey || null);
+                    } else if (data.error === "User not found") {
+                        // User exists in Clerk but not in DB - they are inactive
+                        console.log("User not in DB - setting inactive");
+                        setSubStatus("inactive");
+                        setLicenseKey(null);
+                    } else {
+                        setSubStatus("inactive");
                     }
+                    setStatusLoaded(true);
                 })
-                .catch(err => console.error("Auto-status check failed:", err));
+                .catch(err => {
+                    console.error("Status check failed:", err);
+                    setSubStatus("inactive");
+                    setStatusLoaded(true);
+                });
         }
-    }, [isSignedIn, user]);
+    }, [isSignedIn, user, statusLoaded]);
 
     useEffect(() => {
         const sessionId = searchParams.get("session_id");
@@ -82,7 +77,7 @@ export default function DashboardPage() {
         }
     }, [isLoaded, isSignedIn, router, locale]);
 
-    if (!isLoaded || !isSignedIn) {
+    if (!isLoaded || !isSignedIn || subStatus === "loading") {
         return (
             <div className={styles.dashboardPage}>
                 <div className={styles.container}>
