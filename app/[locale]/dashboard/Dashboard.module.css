@@ -38,15 +38,15 @@
 
 .title {
     font-family: var(--font-display);
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .welcome {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--text-secondary);
 }
 
@@ -79,7 +79,7 @@
 }
 
 .cardTitle {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 24px;
     display: flex;
@@ -330,7 +330,7 @@
 
 .identityName {
     font-family: var(--font-display);
-    font-size: 26px;
+    font-size: 22px;
     background: linear-gradient(to right, #fff, #94a3b8);
     background-clip: text;
     -webkit-background-clip: text;
@@ -601,7 +601,7 @@
 }
 
 .statValue {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     color: white;
 }

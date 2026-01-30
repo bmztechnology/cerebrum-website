@@ -48,18 +48,18 @@
 }
 
 .title {
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 800;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     font-family: var(--font-display);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .subtitle {
-    font-size: 18px;
+    font-size: 15px;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -117,7 +117,7 @@
 }
 
 .planTitle {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 16px;
     color: var(--text-primary);
@@ -130,7 +130,7 @@
 }
 
 .price {
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 800;
     color: var(--text-primary);
 }
@@ -151,9 +151,9 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .checkIcon {
