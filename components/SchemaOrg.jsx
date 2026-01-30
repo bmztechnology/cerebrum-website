@@ -4,7 +4,7 @@ import Script from 'next/script';
 
 // Schema.org JSON-LD for SEO and AI discoverability
 export default function SchemaOrg({ locale }) {
-    const baseUrl = 'https://cerebrumforex.com';
+    const baseUrl = 'https://cerebrumfx.com';
 
     const schema = {
         "@context": "https://schema.org",
@@ -68,14 +68,14 @@ export default function SchemaOrg({ locale }) {
                 },
                 "description": "Creators of AI-powered forex trading software for EUR/USD pairs.",
                 "sameAs": [
-                    "https://twitter.com/cerebrumforex",
-                    "https://youtube.com/@cerebrumforex",
-                    "https://discord.gg/cerebrumforex"
+                    "https://twitter.com/cerebrumfx",
+                    "https://youtube.com/@cerebrumfx",
+                    "https://discord.gg/cerebrumfx"
                 ],
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "customer support",
-                    "email": "support@cerebrumforex.com"
+                    "email": "support@cerebrumfx.com"
                 }
             },
             // WebSite

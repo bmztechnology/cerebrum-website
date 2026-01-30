@@ -1,7 +1,7 @@
 // Robots.txt configuration for search engines
 
 export default function robots() {
-    const baseUrl = 'https://cerebrumforex.com';
+    const baseUrl = 'https://cerebrumfx.com';
 
     return {
         rules: [

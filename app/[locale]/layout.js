@@ -13,7 +13,7 @@ export function generateStaticParams() {
 // SEO Metadata
 export async function generateMetadata({ params }) {
     const { locale } = await params;
-    const baseUrl = 'https://cerebrumforex.com';
+    const baseUrl = 'https://cerebrumfx.com';
 
     const titles = {
         en: 'Cerebrum Forex | AI-Powered EUR/USD Trading Software for MT5',
@@ -78,8 +78,8 @@ export async function generateMetadata({ params }) {
         },
         twitter: {
             card: 'summary_large_image',
-            site: '@CerebrumForex',
-            creator: '@CerebrumForex',
+            site: '@CerebrumFX',
+            creator: '@CerebrumFX',
             title: titles[locale] || titles.en,
             description: descriptions[locale] || descriptions.en,
             images: [`${baseUrl}/twitter-image.jpg`],

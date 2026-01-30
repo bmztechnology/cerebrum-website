@@ -2,7 +2,7 @@
 // Generates URLs for all locales and pages
 
 export default function sitemap() {
-    const baseUrl = 'https://cerebrumforex.com';
+    const baseUrl = 'https://cerebrumfx.com';
     const locales = ['en', 'fr', 'es', 'pt'];
     const lastModified = new Date();
 
