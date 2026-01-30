@@ -67,13 +67,18 @@
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    min-height: 500px;
+    min-height: 800px;
 }
 
 /* Chart */
 .chartContainer {
     width: 100%;
-    height: 500px;
+    height: 800px;
+}
+
+.widgetContainer {
+    width: 100%;
+    height: 800px;
 }
 
 .chartIframe {
