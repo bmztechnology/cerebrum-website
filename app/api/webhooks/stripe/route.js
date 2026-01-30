@@ -116,6 +116,52 @@ export async function POST(req) {
             console.warn(`[WEBHOOK] Could not find user for cancelled subscription: ${subscription.id}`);
         }
     }
+    // Handle CUSTOMER DELETED (when customer is manually deleted from Stripe Dashboard)
+    else if (event.type === "customer.deleted") {
+        const customer = event.data.object;
+        console.log(`[STRIPE] Customer deleted: ${customer.id}`);
+
+        try {
+            // Find user by stripeCustomerId
+            const dbUser = await db.query.users.findFirst({
+                where: eq(users.stripeCustomerId, customer.id),
+            });
+
+            if (dbUser) {
+                console.log(`[WEBHOOK] Found user ${dbUser.email} for deleted customer. Invalidating...`);
+
+                // Update Local DB - full invalidation
+                await db.update(users)
+                    .set({
+                        subscriptionStatus: "inactive",
+                        licenseKey: null,
+                        hwid: null,
+                        subscriptionId: null,
+                        stripeCustomerId: null,
+                        expiresAt: null,
+                    })
+                    .where(eq(users.id, dbUser.id));
+
+                console.log(`[WEBHOOK] User ${dbUser.email} fully invalidated after customer deletion.`);
+
+                // Also update Clerk if possible
+                try {
+                    await clerkClient().users.updateUser(dbUser.id, {
+                        publicMetadata: {
+                            subscriptionStatus: "inactive",
+                            licenseKey: null
+                        }
+                    });
+                } catch (clerkErr) {
+                    console.warn("[WEBHOOK] Clerk update failed (may be expected):", clerkErr.message);
+                }
+            } else {
+                console.warn(`[WEBHOOK] No user found for deleted customer: ${customer.id}`);
+            }
+        } catch (err) {
+            console.error("[WEBHOOK] Customer deletion handling failed:", err);
+        }
+    }
 
     return NextResponse.json({ received: true });
 }
