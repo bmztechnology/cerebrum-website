@@ -552,6 +552,73 @@
     color: #f87171;
 }
 
+/* License Key Section - Full Width Premium */
+.licenseSection {
+    margin-top: 24px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.licenseSectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.licenseKeyDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    border-radius: 10px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.licenseKeyDisplay:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.12) 0%, rgba(124, 58, 237, 0.12) 100%);
+    border-color: rgba(0, 212, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.licenseKeyText {
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    color: #00d4ff;
+    letter-spacing: 0.5px;
+    word-break: break-all;
+}
+
+.copyBadge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.licenseKeyLocked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(100, 116, 139, 0.1);
+    border: 1px dashed rgba(100, 116, 139, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
 /* ============================================
    PREMIUM DASHBOARD STYLES
    ============================================ */

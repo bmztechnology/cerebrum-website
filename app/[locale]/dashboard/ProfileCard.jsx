@@ -107,19 +107,19 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                 </button>
             </div>
 
-            {/* RIGHT COLUMN: DATA GRID (3 Rows, 2 Columns) */}
+            {/* RIGHT COLUMN: DATA GRID */}
             <div className={styles.dataColumn}>
 
-                {/* ROW 1: STATUS & LICENSE */}
+                {/* ROW 1: STATUS & MEMBER INFO */}
                 <div className={styles.dataRow}>
                     <div className={styles.dataCard}>
                         <span className={styles.dataLabel}>Subscription Status</span>
                         <div className={styles.statusBadgeWrapper}>
                             <span className={`${styles.statusBadge} ${isSubActive ? styles.statusActive : styles.statusInactive}`}>
-                                {t(subscriptionStatus) || subscriptionStatus}
+                                {isSubActive ? "ACTIVE" : "INACTIVE"}
                             </span>
                             {isSubActive ? (
-                                <button onClick={onManageSubscription} className={styles.linkBtn}>{t("manageSubscription")}</button>
+                                <button onClick={onManageSubscription} className={styles.linkBtn}>{t("manageSubscription") || "Manage"}</button>
                             ) : (
                                 <a href={`/${locale}/pricing`} className={styles.actionBtnPrimary} style={{ textDecoration: 'none' }}>
                                     Subscribe Now
@@ -129,34 +129,12 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                     </div>
 
                     <div className={styles.dataCard}>
-                        <span className={styles.dataLabel}>License Key</span>
-                        {isSubActive && licenseKey ? (
-                            <div className="flex flex-col gap-2">
-                                <div className={styles.licenseValue} title="Click to Copy" onClick={() => navigator.clipboard.writeText(licenseKey)}>
-                                    {licenseKey}
-                                    <span className={styles.copyIcon}>📋</span>
-                                </div>
-                                <button
-                                    className={styles.resetBtn}
-                                    onClick={async () => {
-                                        if (confirm("Reset License Lock? This allows you to switch computers.")) {
-                                            const res = await fetch('/api/license/reset', { method: 'POST' });
-                                            const data = await res.json();
-                                            if (res.ok) alert("License Reset! You can now login on your new PC.");
-                                            else alert(data.error || "Error resetting license.");
-                                        }
-                                    }}
-                                >
-                                    Reset PC Lock
-                                </button>
-                            </div>
-                        ) : (
-                            <div className={styles.licenseBlur}>CFX-XXXX-XXXX 🔒</div>
-                        )}
+                        <span className={styles.dataLabel}>Member Since</span>
+                        <div className={styles.dataValue}>{memberSince}</div>
                     </div>
                 </div>
 
-                {/* ROW 2: PERSONAL DETAILS */}
+                {/* ROW 2: COUNTRY & PHONE */}
                 <div className={styles.dataRow}>
                     <div className={styles.dataCard}>
                         <span className={styles.dataLabel}>{t("labelCountry") || "Country"}</span>
@@ -178,14 +156,6 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                     </div>
 
                     <div className={styles.dataCard}>
-                        <span className={styles.dataLabel}>Member Since</span>
-                        <div className={styles.dataValue}>{memberSince}</div>
-                    </div>
-                </div>
-
-                {/* ROW 3: CONTACT & ACTIONS */}
-                <div className={styles.dataRow}>
-                    <div className={styles.dataCard}>
                         <span className={styles.dataLabel}>{t("labelPhone") || "Phone"}</span>
                         {isEditing ? (
                             <input name="phone" value={formData.phone} onChange={handleChange} className={styles.miniInput} placeholder="+1..." />
@@ -193,20 +163,54 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                             <div className={styles.dataValue}>{formData.phone || "Not set"}</div>
                         )}
                     </div>
+                </div>
 
-                    <div className={styles.dataCard}>
-                        <span className={styles.dataLabel}>Actions</span>
-                        {isEditing ? (
-                            <button onClick={handleSave} disabled={isLoading} className={styles.actionBtnPrimary}>
-                                {isLoading ? "Saving..." : "Save Changes"}
+                {/* ROW 3: LICENSE KEY - FULL WIDTH PROMINENT */}
+                <div className={styles.licenseSection}>
+                    <div className={styles.licenseSectionHeader}>
+                        <span className={styles.dataLabel}>🔑 Security License Key</span>
+                        {isSubActive && licenseKey && (
+                            <button
+                                className={styles.resetBtn}
+                                onClick={async () => {
+                                    if (confirm("Reset License Lock? This allows you to switch computers.")) {
+                                        const res = await fetch('/api/license/reset', { method: 'POST' });
+                                        const data = await res.json();
+                                        if (res.ok) alert("License Reset! You can now login on your new PC.");
+                                        else alert(data.error || "Error resetting license.");
+                                    }
+                                }}
+                            >
+                                Reset PC Lock
                             </button>
-                        ) : (
-                            <div className={styles.dataValue} style={{ fontSize: '12px', color: '#64748b' }}>
-                                Account is secure
-                            </div>
                         )}
                     </div>
+                    {isSubActive && licenseKey ? (
+                        <div
+                            className={styles.licenseKeyDisplay}
+                            title="Click to Copy"
+                            onClick={() => {
+                                navigator.clipboard.writeText(licenseKey);
+                                alert("License Key Copied!");
+                            }}
+                        >
+                            <span className={styles.licenseKeyText}>{licenseKey}</span>
+                            <span className={styles.copyBadge}>📋 Copy</span>
+                        </div>
+                    ) : (
+                        <div className={styles.licenseKeyLocked}>
+                            <span>🔒</span>
+                            <span>Subscribe to unlock your license key</span>
+                        </div>
+                    )}
                 </div>
+
+                {/* SAVE BUTTON (Only when editing) */}
+                {isEditing && (
+                    <button onClick={handleSave} disabled={isLoading} className={styles.actionBtnPrimary} style={{ marginTop: '16px', width: '100%' }}>
+                        {isLoading ? "Saving..." : "Save Changes"}
+                    </button>
+                )}
 
             </div>
         </div>
