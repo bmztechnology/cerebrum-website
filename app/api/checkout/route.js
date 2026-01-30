@@ -8,7 +8,17 @@ export async function POST(req) {
     try {
         const { userId } = await auth();
         const user = await currentUser();
-        const { priceId, locale } = await req.json();
+        const { priceId: rawPriceId, locale } = await req.json();
+
+        // Hardcoded fallbacks in case environment variables are missing on server
+        const FALLBACK_MONTHLY = "price_1StdnvLBQKj11679zzcNfx1R";
+        const FALLBACK_YEARLY = "price_1Stvv7LBQKj11679Wxa984m3";
+
+        let priceId = rawPriceId;
+        if (!priceId || priceId === "undefined" || priceId === "null") {
+            // Try to infer from environment or use fallback
+            priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY || FALLBACK_MONTHLY;
+        }
 
         if (!userId || !user) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

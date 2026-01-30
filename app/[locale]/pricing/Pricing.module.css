@@ -215,3 +215,114 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Premium Enhancements */
+.premiumBadge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--accent-primary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.popularTag {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-primary);
+    color: black;
+    padding: 4px 20px;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 0 0 12px 12px;
+    letter-spacing: 0.05em;
+}
+
+.planIcon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+}
+
+.checkSvg {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.alertCanceled {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 48px;
+    text-align: center;
+    font-weight: 600;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.trustFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.trustItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.trustItem svg {
+    color: var(--accent-primary);
+    opacity: 0.8;
+}
+
+.statDivider {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 640px) {
+    .trustFooter {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .statDivider {
+        display: none;
+    }
+}

@@ -57,7 +57,7 @@ export default function QuickActions({ isActive, locale, onManageSubscription })
             ),
             label: "Contact Support",
             sublabel: "24/7 Help",
-            href: `/${locale}#contact`,
+            href: "mailto:support@cerebrumfx.com",
             color: "quaternary"
         },
         {
@@ -82,7 +82,7 @@ export default function QuickActions({ isActive, locale, onManageSubscription })
             ),
             label: "Upgrade Plan",
             sublabel: "Go Premium",
-            href: `/${locale}#pricing`,
+            href: `/${locale}/pricing`,
             hidden: isActive,
             color: "upgrade"
         }
