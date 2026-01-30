@@ -38,7 +38,8 @@ export default function Pricing() {
             if (data.url) {
                 window.location.href = data.url;
             } else {
-                alert('Checkout failed: ' + (data.error || 'Unknown error'));
+                const errorMsg = data.details ? `${data.error}: ${data.details}` : (data.error || 'Unknown error');
+                alert('Checkout failed: ' + errorMsg);
             }
         } catch (error) {
             console.error(error);
