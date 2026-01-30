@@ -118,6 +118,17 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                             <span className={`${styles.statusBadge} ${isSubActive ? styles.statusActive : styles.statusInactive}`}>
                                 {t(subscriptionStatus) || subscriptionStatus}
                             </span>
+                            <button
+                                onClick={async () => {
+                                    const res = await fetch('/api/user/refresh-status', { method: 'POST' });
+                                    const data = await res.json();
+                                    if (data.status) window.location.reload();
+                                }}
+                                className={styles.refreshBtnCircle}
+                                title="Refresh Status from Stripe"
+                            >
+                                🔄
+                            </button>
                             {isSubActive ? (
                                 <button onClick={onManageSubscription} className={styles.linkBtn}>{t("manageSubscription")}</button>
                             ) : (

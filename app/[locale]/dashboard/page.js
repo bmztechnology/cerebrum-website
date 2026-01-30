@@ -15,26 +15,9 @@ export default function DashboardPage() {
     const searchParams = useSearchParams();
     const [showSuccess, setShowSuccess] = useState(false);
 
-    // Helper: Generate Virtual License Key from User ID
-    const getVirtualLicense = (uid) => {
-        if (!uid) return null;
-        const part = uid.substring(0, 8).toUpperCase();
-        return `CFX-LIVE-${part}-2024`;
-    };
-
-    const initialStatus = "inactive"; // Clerk doesn't hold this in default user object, we might need publicMetadata
-    // NOTE: For now, we assume inactive until verified by Stripe or Custom Metadata
-    // Clerk Custom Metadata can hold { subscriptionStatus, licenseKey }
     const userMetadata = user?.publicMetadata || {};
     const effectiveStatus = userMetadata.subscriptionStatus || "inactive";
-
-    // Fallback: If in migration, we might rely on the DB sync. 
-    // BUT the Dashboard is client-side. We should probably fetch the latest status from our API or rely on Metadata.
-    // For this step, we will use the metadata if available, otherwise inactive.
-
-    const initialKey = effectiveStatus === "active"
-        ? (userMetadata.licenseKey || getVirtualLicense(user?.id))
-        : null;
+    const initialKey = userMetadata.licenseKey || null;
 
     // Local state for immediate UI updates
     const [subStatus, setSubStatus] = useState(effectiveStatus);
@@ -46,9 +29,7 @@ export default function DashboardPage() {
             const meta = user.publicMetadata || {};
             const status = meta.subscriptionStatus || "inactive";
             setSubStatus(status);
-            if (status === "active") {
-                setLicenseKey(meta.licenseKey || getVirtualLicense(user.id));
-            }
+            setLicenseKey(meta.licenseKey || null);
         }
     }, [user]);
 
