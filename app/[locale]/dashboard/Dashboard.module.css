@@ -438,6 +438,22 @@
     border-radius: 8px;
     font-size: 14px;
     width: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+.miniInput option {
+    background-color: #0f172a;
+    /* Explicit dark background for options */
+    color: white;
+    padding: 10px;
+}
+
+.miniInput optgroup {
+    background-color: #1e293b;
+    color: var(--accent-primary);
+    font-style: normal;
+    font-weight: 700;
 }
 
 .actionBtnPrimary {
