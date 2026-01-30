@@ -166,6 +166,7 @@ export default function DashboardPage() {
                         isSubActive={isActive}
                         licenseKey={licenseKey}
                         onManageSubscription={handlePortal}
+                        locale={locale}
                     />
 
                     {/* Secondary Grid for Downloads and other tools (if any) */}

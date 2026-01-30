@@ -12,12 +12,13 @@ async function main() {
         console.log('Connecting to DB...');
         console.log('TURSO_DATABASE_URL defined:', !!process.env.TURSO_DATABASE_URL);
 
-        console.log('Searching for user: mzzh78@gmail.com');
+        const licenseToFind = process.env.LICENSE_KEY || "sub_1M2x3G4H"; // Will replace dynamically if needed
+        console.log(`Searching for license: ${licenseToFind}`);
 
-        const result = await db.select().from(users).where(eq(users.email, 'mzzh78@gmail.com'));
+        const result = await db.select().from(users).where(eq(users.licenseKey, licenseToFind));
 
         if (result.length === 0) {
-            console.log('User NOT FOUND in database.');
+            console.log('License NOT FOUND in database.');
         } else {
             const u = result[0];
             console.log('--- USER FOUND ---');

@@ -3,9 +3,50 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import styles from './Pricing.module.css';
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Pricing() {
     const t = useTranslations('pricing');
+    const { isSignedIn, user } = useUser();
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
+
+    const handleCheckout = async (plan) => {
+        if (!isSignedIn) {
+            router.push('/auth/signup');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const priceId = plan === 'monthly'
+                ? process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY
+                : process.env.NEXT_PUBLIC_STRIPE_PRICE_YEARLY;
+
+            const res = await fetch('/api/checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    priceId,
+                    locale: 'en' // Default to en, ideally get from params or context
+                })
+            });
+
+            const data = await res.json();
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                alert('Checkout failed: ' + (data.error || 'Unknown error'));
+            }
+        } catch (error) {
+            console.error(error);
+            alert('An error occurred.');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <section className={styles.section} id="pricing">
@@ -38,9 +79,13 @@ export default function Pricing() {
                                 <span className={styles.check}>✓</span> {t('monthly.features.3')}
                             </div>
                         </div>
-                        <Link href="/auth/signup?plan=monthly" className={styles.ctaButton}>
-                            {t('monthly.cta')}
-                        </Link>
+                        <button
+                            onClick={() => handleCheckout('monthly')}
+                            className={styles.ctaButton}
+                            disabled={loading}
+                        >
+                            {loading ? 'Processing...' : t('monthly.cta')}
+                        </button>
                     </div>
 
                     {/* YEARLY PLAN (POPULAR) */}
@@ -65,9 +110,13 @@ export default function Pricing() {
                                 <span className={styles.check}>✓</span> {t('yearly.features.3')}
                             </div>
                         </div>
-                        <Link href="/auth/signup?plan=yearly" className={styles.ctaButton}>
-                            {t('yearly.cta')}
-                        </Link>
+                        <button
+                            onClick={() => handleCheckout('yearly')}
+                            className={styles.ctaButton}
+                            disabled={loading}
+                        >
+                            {loading ? 'Processing...' : t('yearly.cta')}
+                        </button>
                     </div>
                 </div>
             </div>

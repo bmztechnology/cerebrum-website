@@ -5,8 +5,9 @@ import { useUser } from "@clerk/nextjs";
 import styles from "./Dashboard.module.css";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { UN_COUNTRIES } from "@/lib/countries";
 
-export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKey, onManageSubscription }) {
+export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKey, onManageSubscription, locale }) {
     const { user, isLoaded } = useUser();
     const t = useTranslations("dashboard");
     const [isEditing, setIsEditing] = useState(false);
@@ -94,7 +95,9 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                             {isSubActive ? (
                                 <button onClick={onManageSubscription} className={styles.linkBtn}>{t("manageSubscription")}</button>
                             ) : (
-                                <a href="/pricing" className={styles.linkBtn}>Upgrade</a>
+                                <a href={`/${locale}#pricing`} className={styles.actionBtnPrimary} style={{ textDecoration: 'none' }}>
+                                    Subscribe Now
+                                </a>
                             )}
                         </div>
                     </div>
@@ -132,7 +135,17 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                     <div className={styles.dataCard}>
                         <span className={styles.dataLabel}>{t("labelCountry") || "Country"}</span>
                         {isEditing ? (
-                            <input name="country" value={formData.country} onChange={handleChange} className={styles.miniInput} placeholder="Global" />
+                            <select
+                                name="country"
+                                value={formData.country}
+                                onChange={handleChange}
+                                className={styles.miniInput}
+                            >
+                                <option value="">Global</option>
+                                {UN_COUNTRIES.map(country => (
+                                    <option key={country} value={country}>{country}</option>
+                                ))}
+                            </select>
                         ) : (
                             <div className={styles.dataValue}>{formData.country || "Global"}</div>
                         )}

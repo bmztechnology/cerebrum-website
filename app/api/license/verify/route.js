@@ -1,10 +1,14 @@
-import { stripe } from "@/lib/stripe";
+import { db } from "@/lib/db";
+import { users } from "@/lib/schema";
+import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
+
+export const dynamic = 'force-dynamic';
 
 export async function POST(req) {
     try {
         const body = await req.json();
-        // Support both naming conventions just in case
+        // Support both naming conventions
         const licenseKey = body.licenseKey || body.license_key;
         const hwid = body.hwid;
 
@@ -14,31 +18,32 @@ export async function POST(req) {
 
         console.log(`[LICENSE] Verifying: ${licenseKey}, HWID: ${hwid || 'N/A'}`);
 
-        // 1. Retrieve Subscription directly from Stripe
-        let subscription;
-        try {
-            subscription = await stripe.subscriptions.retrieve(licenseKey);
-        } catch (error) {
-            console.warn(`[LICENSE] Invalid Key: ${licenseKey}`);
+        // 1. Retrieve User from DB by License Key
+        const dbUser = await db.query.users.findFirst({
+            where: eq(users.licenseKey, licenseKey)
+        });
+
+        if (!dbUser) {
+            console.warn(`[LICENSE] Invalid Key (Not found in DB): ${licenseKey}`);
             return NextResponse.json({ valid: false, message: "Invalid License Key" }, { status: 404 });
         }
 
         // 2. Check Status
         // Active or Trialing = Valid
-        const isValidStatus = ["active", "trialing"].includes(subscription.status);
+        const isValidStatus = ["active", "trialing"].includes(dbUser.subscriptionStatus);
 
         if (!isValidStatus) {
-            console.warn(`[LICENSE] Inactive Subscription: ${subscription.status}`);
+            console.warn(`[LICENSE] Inactive Subscription: ${dbUser.subscriptionStatus}`);
             return NextResponse.json({
                 valid: false,
                 message: "Subscription inactive",
-                status: subscription.status
+                status: dbUser.subscriptionStatus
             });
         }
 
-        // 3. HWID Lock (Strict Mode)
+        // 3. HWID Lock (Strict Mode via DB)
         if (hwid) {
-            const currentLock = subscription.metadata?.cerebrum_hwid;
+            const currentLock = dbUser.hwid;
 
             if (currentLock && currentLock !== hwid) {
                 console.warn(`[LICENSE] HWID Mismatch! Locked: ${currentLock}, Incoming: ${hwid}`);
@@ -51,18 +56,23 @@ export async function POST(req) {
 
             if (!currentLock) {
                 console.log(`[LICENSE] Binding License to HWID: ${hwid}`);
-                await stripe.subscriptions.update(licenseKey, {
-                    metadata: { cerebrum_hwid: hwid }
-                });
+                await db.update(users)
+                    .set({ hwid: hwid })
+                    .where(eq(users.id, dbUser.id));
             }
         }
 
-        // 4. Success
+        // 4. Success- Return format matching previous API
         return NextResponse.json({
             valid: true,
             status: "active",
-            expiry: subscription.current_period_end,
-            plan: subscription.plan?.nickname || "Pro"
+            // expiresAt is ms, Stripe current_period_end is seconds. We return standard timestamp in ms or ISO?
+            // Python app likely expects compatible format.
+            // Previous code: expiry: subscription.current_period_end (Seconds)
+            // DB expiresAt: ms.
+            // Let's return seconds to maintain compatibility if Python app expects it.
+            expiry: dbUser.expiresAt ? Math.floor(dbUser.expiresAt / 1000) : null,
+            plan: "Pro" // Plan name not stored in DB currently, hardcoded or retrieved from internal logic? defaulting to "Pro" as per schema comment? No, schema has no plan. Stripe has.
         });
 
     } catch (error) {
