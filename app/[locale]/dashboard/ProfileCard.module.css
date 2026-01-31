@@ -1,314 +1,265 @@
-.profileMasterCard {
+.profileCard {
     background: var(--glass-bg);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 0;
+    border-radius: 16px;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    min-height: 400px;
-    width: 100%;
 }
 
-.profileTopSection {
-    display: flex;
+/* SECTION STYLING */
+.infoSection,
+.licenseSection {
+    padding: 24px;
+}
+
+.infoSection {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.identityColumn {
-    width: 240px;
-    background: rgba(0, 0, 0, 0.2);
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 20px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.avatarLarge {
-    width: 120px;
-    height: 120px;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.avatarImgLarge {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--accent-primary);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
-}
-
-.onlineBadge {
-    position: absolute;
-    bottom: 6px;
-    right: 6px;
-    width: 16px;
-    height: 16px;
-    background: #10b981;
-    border: 3px solid #1a1a20;
-    border-radius: 50%;
-}
-
-.identityInfo {
-    margin-bottom: 24px;
-    width: 100%;
-}
-
-.identityName {
-    font-family: var(--font-display);
-    font-size: 20px;
-    color: white;
-    margin-bottom: 6px;
-    line-height: 1.2;
-    word-break: break-word;
-}
-
-.identityEmail {
-    font-size: 12px;
-    color: var(--text-tertiary);
-    margin-bottom: 16px;
-    word-break: break-all;
-}
-
-.identityRole {
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: var(--accent-primary);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    padding: 4px 10px;
-    border-radius: 50px;
-    text-transform: uppercase;
-}
-
-.dataColumn {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 32px;
-}
-
-.dataGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.dataCard {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.dataLabel {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-tertiary);
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.dataValue {
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-}
-
-.statusBadgeWrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.statusBadge {
-    font-size: 11px;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 6px;
-    text-transform: uppercase;
-}
-
-.statusActive {
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.statusInactive {
-    background: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-.licenseFullWidthSection {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 24px 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.licenseHeaderRow {
+.sectionHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
-.licenseTitle {
+.sectionTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-secondary);
 }
 
+/* INFO GRID */
+.infoGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.infoLabel {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.infoValue {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    text-align: right;
+}
+
+/* STATUS WRAPPER */
+.statusWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.statusBadge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statusBadge.active {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.statusBadge.inactive {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.manageLink {
+    font-size: 12px;
+    color: var(--accent-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.subscribeBtn {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    background: var(--accent-primary);
+    color: black;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* BUTTONS */
+.editBtn {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.editBtn:hover {
+    background: white;
+    color: black;
+}
+
+.saveBtn {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--accent-primary);
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.saveBtn:hover {
+    opacity: 0.9;
+}
+
+.saveBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.resetBtn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #ef4444;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* INPUT FIELDS */
+.inputField {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    min-width: 180px;
+    text-align: right;
+}
+
+.inputField:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+/* LICENSE SECTION */
 .licenseBox {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: rgba(0, 212, 255, 0.03);
     border: 1px solid rgba(0, 212, 255, 0.15);
-    border-radius: 12px;
-    padding: 16px 24px;
-    width: 100%;
-    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
 .licenseBox:hover {
-    background: rgba(0, 212, 255, 0.05);
+    background: rgba(0, 212, 255, 0.06);
     border-color: rgba(0, 212, 255, 0.3);
 }
 
 .licenseKey {
-    font-family: 'Inter', monospace;
+    font-family: 'Consolas', 'Monaco', monospace;
     font-size: 13px;
     font-weight: 600;
     color: #4ade80;
     letter-spacing: 0.5px;
-    word-break: break-all;
 }
 
-.copyButtonPremium {
+.copyBtn {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 600;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s;
+}
+
+.copyBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.licenseBoxLocked {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    background: rgba(100, 116, 139, 0.05);
+    border: 1px dashed rgba(100, 116, 139, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    color: #64748b;
+    font-size: 13px;
 }
 
-.copyButtonPremium:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.resetLink {
-    color: #ef4444;
-    font-size: 11px;
-    font-weight: 700;
-    text-decoration: underline;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.resetLink:hover {
-    opacity: 0.8;
-}
-
-.editBtnOutline,
-.saveBtnSmall {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: transparent;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.editBtnOutline:hover {
-    background: white;
-    color: black;
-}
-
-.saveBtnSmall {
-    background: var(--accent-primary);
-    color: black;
-}
-
-.miniInput {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    width: 100%;
-    outline: none;
-}
-
-.linkBtn {
-    font-size: 12px;
-    text-decoration: underline;
-    color: var(--accent-primary);
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-@media (max-width: 900px) {
-    .profileTopSection {
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .infoRow {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
     }
 
-    .identityColumn {
+    .infoValue {
+        text-align: left;
+    }
+
+    .inputField {
         width: 100%;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .dataGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .licenseFullWidthSection {
-        padding: 24px;
+        text-align: left;
     }
 
     .licenseBox {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         align-items: flex-start;
     }
 
-    .copyButtonPremium {
+    .copyBtn {
         width: 100%;
-        justify-content: center;
+        text-align: center;
     }
 }

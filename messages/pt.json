@@ -10,9 +10,11 @@
         "tools": "Ferramentas",
         "faq": "FAQ",
         "download": "Download",
+        "pricing": "Preços",
         "contact": "Contato",
         "docs": "Documentação",
-        "dashboard": "Painel de Controle"
+        "dashboard": "Painel de Controle",
+        "login": "Entrar"
     },
     "academy": {
         "title": "Academia Cerebrum",

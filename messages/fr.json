@@ -13,7 +13,8 @@
         "pricing": "Tarifs",
         "contact": "Contact",
         "docs": "Documentation",
-        "dashboard": "Tableau de Bord"
+        "dashboard": "Tableau de Bord",
+        "login": "Connexion"
     },
     "academy": {
         "title": "Académie Cerebrum",

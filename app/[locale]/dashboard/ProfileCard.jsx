@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import styles from "./ProfileCard.module.css";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 const UN_COUNTRIES = [
     "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
@@ -71,16 +70,97 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
     const memberSince = new Date(user.createdAt).getFullYear();
 
     return (
-        <div className={styles.profileMasterCard}>
-            {/* TOP: FULL-WIDTH LICENSE SECTION */}
-            <div className={styles.licenseFullWidthSection}>
-                <div className={styles.licenseHeaderRow}>
-                    <div className={styles.licenseTitle}>
-                        <span>🔑</span> SECURITY LICENSE KEY
+        <div className={styles.profileCard}>
+            {/* SECTION 1: USER INFO */}
+            <div className={styles.infoSection}>
+                <div className={styles.sectionHeader}>
+                    <h3 className={styles.sectionTitle}>👤 Profile Information</h3>
+                    <button
+                        onClick={() => setIsEditing(!isEditing)}
+                        className={styles.editBtn}
+                    >
+                        {isEditing ? "Cancel" : "Edit"}
+                    </button>
+                </div>
+
+                <div className={styles.infoGrid}>
+                    <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>First Name</span>
+                        <span className={styles.infoValue}>{user.firstName || "—"}</span>
                     </div>
+                    <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>Last Name</span>
+                        <span className={styles.infoValue}>{user.lastName || "—"}</span>
+                    </div>
+                    <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>Email</span>
+                        <span className={styles.infoValue}>{user.primaryEmailAddress?.emailAddress}</span>
+                    </div>
+                    <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>Country</span>
+                        {isEditing ? (
+                            <select
+                                name="country"
+                                value={formData.country}
+                                onChange={handleChange}
+                                className={styles.inputField}
+                            >
+                                <option value="">Select Country</option>
+                                {UN_COUNTRIES.map(country => (
+                                    <option key={country} value={country}>{country}</option>
+                                ))}
+                            </select>
+                        ) : (
+                            <span className={styles.infoValue}>{formData.country || "Not set"}</span>
+                        )}
+                    </div>
+                    <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>Phone</span>
+                        {isEditing ? (
+                            <input
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                className={styles.inputField}
+                                placeholder="+1..."
+                            />
+                        ) : (
+                            <span className={styles.infoValue}>{formData.phone || "Not set"}</span>
+                        )}
+                    </div>
+                    <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>Member Since</span>
+                        <span className={styles.infoValue}>{memberSince}</span>
+                    </div>
+                    <div className={styles.infoRow}>
+                        <span className={styles.infoLabel}>Subscription</span>
+                        <div className={styles.statusWrapper}>
+                            <span className={`${styles.statusBadge} ${isSubActive ? styles.active : styles.inactive}`}>
+                                {isSubActive ? "ACTIVE" : "INACTIVE"}
+                            </span>
+                            {isSubActive ? (
+                                <button onClick={onManageSubscription} className={styles.manageLink}>Manage</button>
+                            ) : (
+                                <a href={`/${locale}/pricing`} className={styles.subscribeBtn}>Subscribe</a>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
+                {isEditing && (
+                    <button onClick={handleSave} disabled={isLoading} className={styles.saveBtn}>
+                        {isLoading ? "Saving..." : "Save Changes"}
+                    </button>
+                )}
+            </div>
+
+            {/* SECTION 2: LICENSE KEY */}
+            <div className={styles.licenseSection}>
+                <div className={styles.sectionHeader}>
+                    <h3 className={styles.sectionTitle}>🔑 Security License Key</h3>
                     {isSubActive && licenseKey && (
                         <button
-                            className={styles.resetLink}
+                            className={styles.resetBtn}
                             onClick={async () => {
                                 if (confirm("Reset License Lock? This allows you to switch computers.")) {
                                     const res = await fetch('/api/license/reset', { method: 'POST' });
@@ -98,116 +178,19 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                 {isSubActive && licenseKey ? (
                     <div
                         className={styles.licenseBox}
-                        title="Click to Copy"
                         onClick={() => {
                             navigator.clipboard.writeText(licenseKey);
                             alert("License Key Copied!");
                         }}
                     >
-                        <span className={styles.licenseKey}>{licenseKey}</span>
-                        <button className={styles.copyButtonPremium}>
-                            <span>📋</span> COPY
-                        </button>
+                        <code className={styles.licenseKey}>{licenseKey}</code>
+                        <button className={styles.copyBtn}>📋 Copy</button>
                     </div>
                 ) : (
-                    <div className={styles.licenseBox} style={{ justifyContent: 'center', opacity: 0.6 }}>
-                        <span style={{ fontSize: '13px', color: '#64748b' }}>🔒 Subscribe to unlock your license key</span>
+                    <div className={styles.licenseBoxLocked}>
+                        <span>🔒 Subscribe to unlock your license key</span>
                     </div>
                 )}
-            </div>
-
-            <div className={styles.profileTopSection}>
-                {/* LEFT: IDENTITY */}
-                <div className={styles.identityColumn}>
-                    <div className={styles.avatarLarge}>
-                        <Image
-                            src={user.imageUrl}
-                            alt={`${user.firstName}'s Profile`}
-                            width={120}
-                            height={120}
-                            className={styles.avatarImgLarge}
-                            priority
-                        />
-                        <div className={styles.onlineBadge}></div>
-                    </div>
-
-                    <div className={styles.identityInfo}>
-                        <h2 className={styles.identityName}>
-                            {user.firstName} {user.lastName}
-                        </h2>
-                        <div className={styles.identityEmail}>
-                            {user.primaryEmailAddress?.emailAddress}
-                        </div>
-                        <span className={styles.identityRole}>PRO TRADER</span>
-                    </div>
-
-                    <button
-                        onClick={() => setIsEditing(!isEditing)}
-                        className={isEditing ? styles.saveBtnSmall : styles.editBtnOutline}
-                    >
-                        {isEditing ? (t("cancelBtn") || "Cancel") : (t("editBtn") || "Edit Profile")}
-                    </button>
-                </div>
-
-                {/* RIGHT: DATA GRID */}
-                <div className={styles.dataColumn}>
-                    <div className={styles.dataGrid}>
-                        <div className={styles.dataCard}>
-                            <span className={styles.dataLabel}>Subscription Status</span>
-                            <div className={styles.statusBadgeWrapper}>
-                                <span className={`${styles.statusBadge} ${isSubActive ? styles.statusActive : styles.statusInactive}`}>
-                                    {isSubActive ? "ACTIVE" : "INACTIVE"}
-                                </span>
-                                {isSubActive ? (
-                                    <button onClick={onManageSubscription} className={styles.linkBtn}>{t("manageSubscription") || "Manage"}</button>
-                                ) : (
-                                    <a href={`/${locale}/pricing`} className={styles.actionBtnPrimary} style={{ textDecoration: 'none', fontSize: '11px', padding: '4px 10px', background: '#00d4ff', color: 'black', borderRadius: '4px', fontWeight: 'bold' }}>
-                                        Subscribe Now
-                                    </a>
-                                )}
-                            </div>
-                        </div>
-
-                        <div className={styles.dataCard}>
-                            <span className={styles.dataLabel}>Member Since</span>
-                            <div className={styles.dataValue}>{memberSince}</div>
-                        </div>
-
-                        <div className={styles.dataCard}>
-                            <span className={styles.dataLabel}>{t("labelCountry") || "Country"}</span>
-                            {isEditing ? (
-                                <select
-                                    name="country"
-                                    value={formData.country}
-                                    onChange={handleChange}
-                                    className={styles.miniInput}
-                                >
-                                    <option value="">Global</option>
-                                    {UN_COUNTRIES.map(country => (
-                                        <option key={country} value={country}>{country}</option>
-                                    ))}
-                                </select>
-                            ) : (
-                                <div className={styles.dataValue}>{formData.country || "Global"}</div>
-                            )}
-                        </div>
-
-                        <div className={styles.dataCard}>
-                            <span className={styles.dataLabel}>{t("labelPhone") || "Phone"}</span>
-                            {isEditing ? (
-                                <input name="phone" value={formData.phone} onChange={handleChange} className={styles.miniInput} placeholder="+1..." />
-                            ) : (
-                                <div className={styles.dataValue}>{formData.phone || "Not set"}</div>
-                            )}
-                        </div>
-                    </div>
-
-                    {isEditing && (
-                        <button onClick={handleSave} disabled={isLoading} className={styles.saveBtnSmall} style={{ marginTop: '24px' }}>
-                            {isLoading ? "Saving..." : "Save Changes"}
-                        </button>
-                    )}
-                </div>
             </div>
         </div>
     );
