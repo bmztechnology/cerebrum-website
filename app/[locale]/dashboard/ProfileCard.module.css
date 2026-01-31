@@ -311,3 +311,79 @@
         text-align: center;
     }
 }
+
+/* DANGER ZONE - Delete Account */
+.dangerZone {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 80, 80, 0.2);
+}
+
+.deleteBtn {
+    background: transparent;
+    border: 1px solid rgba(255, 80, 80, 0.5);
+    color: #ff5050;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+    background: rgba(255, 80, 80, 0.1);
+    border-color: #ff5050;
+}
+
+.confirmDelete {
+    background: rgba(255, 80, 80, 0.1);
+    border: 1px solid rgba(255, 80, 80, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.confirmDelete p {
+    color: #ff8080;
+    margin: 0 0 12px 0;
+    font-size: 14px;
+}
+
+.confirmBtns {
+    display: flex;
+    gap: 10px;
+}
+
+.confirmDeleteBtn {
+    background: #dc2626;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.confirmDeleteBtn:hover {
+    background: #b91c1c;
+}
+
+.confirmDeleteBtn:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.cancelDeleteBtn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.cancelDeleteBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}

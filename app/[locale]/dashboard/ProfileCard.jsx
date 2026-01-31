@@ -37,6 +37,8 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
     const t = useTranslations("dashboard");
     const [isEditing, setIsEditing] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
 
     const [formData, setFormData] = useState({
         country: user?.unsafeMetadata?.country || "",
@@ -201,6 +203,47 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                         {isLoading ? "Saving..." : "Save Changes"}
                     </button>
                 )}
+
+                {/* Delete Account Section */}
+                <div className={styles.dangerZone}>
+                    {!showDeleteConfirm ? (
+                        <button
+                            onClick={() => setShowDeleteConfirm(true)}
+                            className={styles.deleteBtn}
+                        >
+                            Delete Account
+                        </button>
+                    ) : (
+                        <div className={styles.confirmDelete}>
+                            <p>Are you sure? This action is irreversible.</p>
+                            <div className={styles.confirmBtns}>
+                                <button
+                                    onClick={async () => {
+                                        setIsDeleting(true);
+                                        try {
+                                            await user.delete();
+                                            window.location.href = "/";
+                                        } catch (error) {
+                                            console.error("Failed to delete account:", error);
+                                            alert("Failed to delete account. Please try again.");
+                                            setIsDeleting(false);
+                                        }
+                                    }}
+                                    disabled={isDeleting}
+                                    className={styles.confirmDeleteBtn}
+                                >
+                                    {isDeleting ? "Deleting..." : "Yes, Delete"}
+                                </button>
+                                <button
+                                    onClick={() => setShowDeleteConfirm(false)}
+                                    className={styles.cancelDeleteBtn}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
