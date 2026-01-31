@@ -20,13 +20,13 @@
 }
 
 .identityColumn {
-    width: 280px;
+    width: 240px;
     background: rgba(0, 0, 0, 0.2);
     border-right: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 24px;
+    padding: 32px 20px;
     text-align: center;
     flex-shrink: 0;
 }
@@ -101,8 +101,8 @@
 
 .dataGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px 32px;
 }
 
 .dataCard {
@@ -114,9 +114,10 @@
 .dataLabel {
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     color: var(--text-tertiary);
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .dataValue {
