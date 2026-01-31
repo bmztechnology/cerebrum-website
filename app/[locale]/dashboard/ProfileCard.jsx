@@ -221,11 +221,15 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                                     onClick={async () => {
                                         setIsDeleting(true);
                                         try {
-                                            await user.delete();
+                                            const res = await fetch("/api/account/delete", { method: "DELETE" });
+                                            if (!res.ok) {
+                                                const data = await res.json();
+                                                throw new Error(data.error || "Failed to delete");
+                                            }
                                             window.location.href = "/";
                                         } catch (error) {
                                             console.error("Failed to delete account:", error);
-                                            alert("Failed to delete account. Please try again.");
+                                            alert("Failed to delete account: " + error.message);
                                             setIsDeleting(false);
                                         }
                                     }}
