@@ -280,7 +280,7 @@
     position: relative;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 280px 1fr;
     /* Structure principale : Gauche | Droite */
     min-height: 400px;
 }
@@ -357,19 +357,21 @@
 
 /* Master Right: Data Grid */
 .dataColumn {
-    padding: 32px 40px;
+    padding: 32px 24px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     justify-content: center;
     flex: 1;
+    min-width: 0;
+    /* Prevent overflow */
 }
 
 .dataRow {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 24px;
-    padding-bottom: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -385,11 +387,12 @@
 }
 
 .dataLabel {
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     color: var(--text-tertiary);
-    font-weight: 600;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
 .dataValue {
@@ -584,10 +587,11 @@
     background: rgba(0, 212, 255, 0.05);
     border: 1px solid rgba(0, 212, 255, 0.2);
     border-radius: 8px;
-    padding: 12px 16px;
+    padding: 10px 14px;
     cursor: pointer;
     transition: all 0.2s ease;
-    gap: 12px;
+    gap: 10px;
+    width: 100%;
 }
 
 .licenseKeyDisplay:hover {
