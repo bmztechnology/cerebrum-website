@@ -1,6 +1,38 @@
 # Documentation Équipe / Team Documentation
 
-## 📅 Dernières Mises à jour (Changelog) - 29/01/2026
+## 📅 Dernières Mises à jour (Changelog) - 31/01/2026
+
+### 1. Migration Domaine : `cerebrumfx.com`
+*   **Objectif** : Migration complète du site vers le nouveau domaine `cerebrumfx.com`.
+*   **Changements** :
+    *   Mise à jour de `baseUrl` dans `layout.js`, `sitemap.js`, `robots.js`, `SchemaOrg.jsx`
+    *   Mise à jour des liens de téléchargement (`email.js`, `download/page.js`)
+    *   Mise à jour des handles Twitter vers `@CerebrumFX`
+
+### 2. Configuration Production (Clerk & Stripe)
+*   **Clerk** : Nouvelle instance production avec domaine personnalisé `cerebrumfx.com`
+    *   Webhook configuré : `https://cerebrumfx.com/api/webhooks/clerk`
+    *   Événements : `user.created`, `user.updated`, `user.deleted`
+*   **Stripe** : Webhook production configuré
+    *   Endpoint : `https://cerebrumfx.com/api/webhooks/stripe`
+    *   Événements : `checkout.session.completed`, `customer.subscription.deleted`, `customer.deleted`
+    *   ⚠️ **Note** : Actuellement en mode TEST. Passer en mode LIVE pour vrais paiements.
+
+### 3. Refonte ProfileCard (Dashboard)
+*   **Ancien** : Avatar + infos mélangées, licence en bas
+*   **Nouveau** : 
+    *   Structure claire sans avatar
+    *   Grille d'infos : First Name, Last Name, Email, Country, Phone, Member Since, Subscription
+    *   Section License Key séparée en bas
+*   **Fichiers** : `ProfileCard.jsx`, `ProfileCard.module.css`
+
+### 4. Ajout "Connexion" dans le Menu
+*   **Navbar** : Lien "Login/Connexion" ajouté au menu quand l'utilisateur n'est pas connecté
+*   **Traductions** : FR (Connexion), EN (Login), ES (Iniciar Sesión), PT (Entrar)
+
+---
+
+## 📅 Mises à jour - 29/01/2026
 
 ### 1. Correction Critique : "License User ID Mismatch"
 *   **Problème** : L'ID utilisateur stocké dans la base de données locale (Turso) ne correspondait pas à l'ID utilisateur Clerk, causant l'échec de la vérification de licence (`License not found`).
