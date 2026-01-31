@@ -196,10 +196,10 @@
 
 .licenseKey {
     font-family: 'Inter', monospace;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 600;
     color: #4ade80;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     word-break: break-all;
 }
 
