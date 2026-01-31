@@ -10,7 +10,7 @@ export default function DownloadPage() {
     const { isSignedIn, user } = useUser();
 
     // Use the Cloud Run URL as the "Source of Truth" for the file
-    const installerUrl = "https://cerebrumfx.com/downloads/CerebrumSetup_1.2.1.exe";
+    const installerUrl = "https://cerebrumfx.com/downloads/CerebrumSetup_1.2.0.exe";
 
     return (
         <div style={{
