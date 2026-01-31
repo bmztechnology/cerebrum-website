@@ -71,10 +71,76 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
 
     return (
         <div className={styles.profileCard}>
-            {/* SECTION 1: USER INFO */}
+            {/* TOP SECTION: SUBSCRIPTION & LICENSE */}
+            <div className={styles.topSection}>
+                <div className={styles.sectionHeader}>
+                    <h3 className={styles.sectionTitle}>💎 Subscription & License</h3>
+                </div>
+
+                {/* Subscription Row */}
+                <div className={styles.subscriptionRow}>
+                    <span className={styles.infoLabel}>Status</span>
+                    <div className={styles.statusWrapper}>
+                        <span className={`${styles.statusBadge} ${isSubActive ? styles.active : styles.inactive}`}>
+                            {isSubActive ? "ACTIVE" : "INACTIVE"}
+                        </span>
+                        {isSubActive ? (
+                            <button onClick={onManageSubscription} className={styles.manageLink}>Manage Subscription</button>
+                        ) : (
+                            <a href={`/${locale}/pricing`} className={styles.subscribeBtn}>Upgrade to Premium</a>
+                        )}
+                    </div>
+                </div>
+
+                {/* License Block */}
+                {isSubActive ? (
+                    <div className={styles.licenseBlock}>
+                        <div className={styles.licenseHeader}>
+                            <span className={styles.infoLabel}>Security License Key</span>
+                            {licenseKey && (
+                                <button
+                                    className={styles.resetBtn}
+                                    onClick={async () => {
+                                        if (confirm("Reset License Lock? This allows you to switch computers.")) {
+                                            const res = await fetch('/api/license/reset', { method: 'POST' });
+                                            const data = await res.json();
+                                            if (res.ok) alert("License Reset! You can now login on your new PC.");
+                                            else alert(data.error || "Error resetting license.");
+                                        }
+                                    }}
+                                >
+                                    Reset PC Lock
+                                </button>
+                            )}
+                        </div>
+
+                        <div
+                            className={styles.licenseBox}
+                            onClick={() => {
+                                navigator.clipboard.writeText(licenseKey);
+                                alert("License Key Copied!");
+                            }}
+                        >
+                            <code className={styles.licenseKey}>{licenseKey}</code>
+                            <button className={styles.copyBtn}>Copy</button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className={styles.licenseBlock}>
+                        <div className={styles.licenseHeader}>
+                            <span className={styles.infoLabel}>Security License Key</span>
+                        </div>
+                        <div className={styles.licenseBoxLocked}>
+                            <span>🔒 Subscribe to unlock your license key</span>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {/* INFO SECTION */}
             <div className={styles.infoSection}>
                 <div className={styles.sectionHeader}>
-                    <h3 className={styles.sectionTitle}>👤 Profile Information</h3>
+                    <h3 className={styles.sectionTitle}>👤 Personal Information</h3>
                     <button
                         onClick={() => setIsEditing(!isEditing)}
                         className={styles.editBtn}
@@ -132,64 +198,12 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                         <span className={styles.infoLabel}>Member Since</span>
                         <span className={styles.infoValue}>{memberSince}</span>
                     </div>
-                    <div className={styles.infoRow}>
-                        <span className={styles.infoLabel}>Subscription</span>
-                        <div className={styles.statusWrapper}>
-                            <span className={`${styles.statusBadge} ${isSubActive ? styles.active : styles.inactive}`}>
-                                {isSubActive ? "ACTIVE" : "INACTIVE"}
-                            </span>
-                            {isSubActive ? (
-                                <button onClick={onManageSubscription} className={styles.manageLink}>Manage</button>
-                            ) : (
-                                <a href={`/${locale}/pricing`} className={styles.subscribeBtn}>Subscribe</a>
-                            )}
-                        </div>
-                    </div>
                 </div>
 
                 {isEditing && (
                     <button onClick={handleSave} disabled={isLoading} className={styles.saveBtn}>
                         {isLoading ? "Saving..." : "Save Changes"}
                     </button>
-                )}
-            </div>
-
-            {/* SECTION 2: LICENSE KEY */}
-            <div className={styles.licenseSection}>
-                <div className={styles.sectionHeader}>
-                    <h3 className={styles.sectionTitle}>🔑 Security License Key</h3>
-                    {isSubActive && licenseKey && (
-                        <button
-                            className={styles.resetBtn}
-                            onClick={async () => {
-                                if (confirm("Reset License Lock? This allows you to switch computers.")) {
-                                    const res = await fetch('/api/license/reset', { method: 'POST' });
-                                    const data = await res.json();
-                                    if (res.ok) alert("License Reset! You can now login on your new PC.");
-                                    else alert(data.error || "Error resetting license.");
-                                }
-                            }}
-                        >
-                            Reset PC Lock
-                        </button>
-                    )}
-                </div>
-
-                {isSubActive && licenseKey ? (
-                    <div
-                        className={styles.licenseBox}
-                        onClick={() => {
-                            navigator.clipboard.writeText(licenseKey);
-                            alert("License Key Copied!");
-                        }}
-                    >
-                        <code className={styles.licenseKey}>{licenseKey}</code>
-                        <button className={styles.copyBtn}>📋 Copy</button>
-                    </div>
-                ) : (
-                    <div className={styles.licenseBoxLocked}>
-                        <span>🔒 Subscribe to unlock your license key</span>
-                    </div>
                 )}
             </div>
         </div>

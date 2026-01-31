@@ -7,16 +7,43 @@
     overflow: hidden;
 }
 
-/* SECTION STYLING */
-.infoSection,
-.licenseSection {
+/* TOP SECTION (Subscription + License) */
+.topSection {
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    /* Slight tint to differentiate */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subscriptionRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle border */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.licenseBlock {
+    margin-top: 16px;
+}
+
+.licenseHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* INFO SECTION */
+.infoSection {
     padding: 24px;
 }
 
-.infoSection {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
+/* HEADERS */
 .sectionHeader {
     display: flex;
     justify-content: space-between;
@@ -66,7 +93,7 @@
     text-align: right;
 }
 
-/* STATUS WRAPPER */
+/* STATUS & BUTTONS */
 .statusWrapper {
     display: flex;
     align-items: center;
@@ -113,7 +140,6 @@
     text-decoration: none;
 }
 
-/* BUTTONS */
 .editBtn {
     font-size: 12px;
     font-weight: 600;
@@ -143,6 +169,7 @@
     border-radius: 8px;
     cursor: pointer;
     transition: opacity 0.2s;
+    opacity: 1;
 }
 
 .saveBtn:hover {
@@ -181,7 +208,7 @@
     border-color: var(--accent-primary);
 }
 
-/* LICENSE SECTION */
+/* LICENSE BOX */
 .licenseBox {
     display: flex;
     align-items: center;
@@ -237,14 +264,22 @@
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-    .infoRow {
+
+    .infoRow,
+    .subscriptionRow {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
     }
 
-    .infoValue {
+    .infoValue,
+    .statusWrapper {
         text-align: left;
+        width: 100%;
+    }
+
+    .statusWrapper {
+        justify-content: space-between;
     }
 
     .inputField {
