@@ -151,12 +151,8 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
 
                 <div className={styles.infoGrid}>
                     <div className={styles.infoRow}>
-                        <span className={styles.infoLabel}>First Name</span>
-                        <span className={styles.infoValue}>{user.firstName || "—"}</span>
-                    </div>
-                    <div className={styles.infoRow}>
-                        <span className={styles.infoLabel}>Last Name</span>
-                        <span className={styles.infoValue}>{user.lastName || "—"}</span>
+                        <span className={styles.infoLabel}>Name</span>
+                        <span className={styles.infoValue}>{user.fullName || "—"}</span>
                     </div>
                     <div className={styles.infoRow}>
                         <span className={styles.infoLabel}>Email</span>
