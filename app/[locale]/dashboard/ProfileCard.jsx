@@ -72,6 +72,50 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
 
     return (
         <div className={styles.profileMasterCard}>
+            {/* TOP: FULL-WIDTH LICENSE SECTION */}
+            <div className={styles.licenseFullWidthSection}>
+                <div className={styles.licenseHeaderRow}>
+                    <div className={styles.licenseTitle}>
+                        <span>🔑</span> SECURITY LICENSE KEY
+                    </div>
+                    {isSubActive && licenseKey && (
+                        <button
+                            className={styles.resetLink}
+                            onClick={async () => {
+                                if (confirm("Reset License Lock? This allows you to switch computers.")) {
+                                    const res = await fetch('/api/license/reset', { method: 'POST' });
+                                    const data = await res.json();
+                                    if (res.ok) alert("License Reset! You can now login on your new PC.");
+                                    else alert(data.error || "Error resetting license.");
+                                }
+                            }}
+                        >
+                            Reset PC Lock
+                        </button>
+                    )}
+                </div>
+
+                {isSubActive && licenseKey ? (
+                    <div
+                        className={styles.licenseBox}
+                        title="Click to Copy"
+                        onClick={() => {
+                            navigator.clipboard.writeText(licenseKey);
+                            alert("License Key Copied!");
+                        }}
+                    >
+                        <span className={styles.licenseKey}>{licenseKey}</span>
+                        <button className={styles.copyButtonPremium}>
+                            <span>📋</span> COPY
+                        </button>
+                    </div>
+                ) : (
+                    <div className={styles.licenseBox} style={{ justifyContent: 'center', opacity: 0.6 }}>
+                        <span style={{ fontSize: '13px', color: '#64748b' }}>🔒 Subscribe to unlock your license key</span>
+                    </div>
+                )}
+            </div>
+
             <div className={styles.profileTopSection}>
                 {/* LEFT: IDENTITY */}
                 <div className={styles.identityColumn}>
@@ -164,50 +208,6 @@ export default function ProfileCard({ subscriptionStatus, isSubActive, licenseKe
                         </button>
                     )}
                 </div>
-            </div>
-
-            {/* BOTTOM: FULL-WIDTH LICENSE SECTION */}
-            <div className={styles.licenseFullWidthSection}>
-                <div className={styles.licenseHeaderRow}>
-                    <div className={styles.licenseTitle}>
-                        <span>🔑</span> SECURITY LICENSE KEY
-                    </div>
-                    {isSubActive && licenseKey && (
-                        <button
-                            className={styles.resetLink}
-                            onClick={async () => {
-                                if (confirm("Reset License Lock? This allows you to switch computers.")) {
-                                    const res = await fetch('/api/license/reset', { method: 'POST' });
-                                    const data = await res.json();
-                                    if (res.ok) alert("License Reset! You can now login on your new PC.");
-                                    else alert(data.error || "Error resetting license.");
-                                }
-                            }}
-                        >
-                            Reset PC Lock
-                        </button>
-                    )}
-                </div>
-
-                {isSubActive && licenseKey ? (
-                    <div
-                        className={styles.licenseBox}
-                        title="Click to Copy"
-                        onClick={() => {
-                            navigator.clipboard.writeText(licenseKey);
-                            alert("License Key Copied!");
-                        }}
-                    >
-                        <span className={styles.licenseKey}>{licenseKey}</span>
-                        <button className={styles.copyButtonPremium}>
-                            <span>📋</span> COPY
-                        </button>
-                    </div>
-                ) : (
-                    <div className={styles.licenseBox} style={{ justifyContent: 'center', opacity: 0.6 }}>
-                        <span style={{ fontSize: '13px', color: '#64748b' }}>🔒 Subscribe to unlock your license key</span>
-                    </div>
-                )}
             </div>
         </div>
     );
