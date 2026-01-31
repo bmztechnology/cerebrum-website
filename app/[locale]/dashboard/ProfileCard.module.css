@@ -193,15 +193,21 @@
 
 /* INPUT FIELDS */
 .inputField {
-    background: #000;
-    /* Force black background */
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-radius: 6px;
     font-size: 13px;
     min-width: 180px;
     text-align: right;
+    transition: all 0.2s;
+}
+
+.inputField:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-primary);
 }
 
 /* Fix for options specifically */
