@@ -193,7 +193,8 @@
 
 /* INPUT FIELDS */
 .inputField {
-    background: rgba(255, 255, 255, 0.05);
+    background: #000;
+    /* Force black background */
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
     padding: 8px 12px;
@@ -201,6 +202,12 @@
     font-size: 13px;
     min-width: 180px;
     text-align: right;
+}
+
+/* Fix for options specifically */
+.inputField option {
+    background-color: #000;
+    color: white;
 }
 
 .inputField:focus {
