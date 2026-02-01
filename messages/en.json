@@ -27,7 +27,10 @@
     "subtitle": "Hybrid AI + EA Trading Solution",
     "description": "Precision scalping powered by artificial intelligence and professional-grade MT5 execution.",
     "cta": "Download Now",
-    "ctaPrice": "29 $"
+    "ctaPrice": "29 $",
+    "demo": {
+      "title": "AI Analysis"
+    }
   },
   "architecture": {
     "title": "Smart Architecture",

@@ -94,11 +94,7 @@ export default function Hero() {
                 <div className={styles.visual}>
                     <div className={styles.chartMockup}>
                         <div className={styles.chartHeader}>
-                            <span className={styles.chartPair}>Best practices</span>
-                            <span className={styles.chartSignal}>
-                                <span className={styles.signalDot}></span>
-                                BUY 87%
-                            </span>
+                            <span className={styles.chartPair}>{t('hero.demo.title')}</span>
                         </div>
                         <div className={styles.chartBody}>
                             <video
@@ -108,8 +104,8 @@ export default function Hero() {
                                 loop
                                 playsInline
                                 preload="auto"
+                                src="/videos/project_demo.mp4"
                             >
-                                <source src="/videos/project_demo.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
