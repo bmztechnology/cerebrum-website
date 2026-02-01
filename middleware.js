@@ -1,4 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { locales, defaultLocale } from "./i18n/config";
 
@@ -16,10 +17,11 @@ export default clerkMiddleware(async (auth, req) => {
     const hostname = req.headers.get("host");
 
     // Redirect www to non-www
-    if (hostname && hostname.startsWith("www.cerebrumfx.com")) {
-        const newUrl = new URL(req.url);
-        newUrl.hostname = "cerebrumfx.com";
-        return Response.redirect(newUrl.toString(), 301);
+    if (hostname && hostname.startsWith("www.")) {
+        return NextResponse.redirect(
+            `https://cerebrumfx.com${url.pathname}${url.search}`,
+            308
+        );
     }
     // OPTIONAL: Basic Auth for "Maintenance Mode" or "Staging"
     // const sitePassword = process.env.SITE_PASSWORD;
