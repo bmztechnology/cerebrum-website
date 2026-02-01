@@ -357,33 +357,24 @@
 
 .chartBody {
     position: relative;
-    height: 300px;
-    padding: 20px;
+    height: 350px;
+    background: rgba(10, 10, 15, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.chartSvg {
+.chartVideo {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    opacity: 0.95;
+    transition: opacity var(--transition-normal);
 }
 
-.chartOverlay {
-    position: absolute;
-    inset: 20px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.entryZone {
-    padding: 8px 16px;
-    background: rgba(0, 212, 255, 0.1);
-    border: 1px dashed rgba(0, 212, 255, 0.4);
-    border-radius: var(--radius-sm);
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+.chartMockup:hover .chartVideo {
+    opacity: 1;
 }
 
 @media (max-width: 1024px) {

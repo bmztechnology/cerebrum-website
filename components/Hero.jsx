@@ -101,29 +101,17 @@ export default function Hero() {
                             </span>
                         </div>
                         <div className={styles.chartBody}>
-                            <svg className={styles.chartSvg} viewBox="0 0 400 200" preserveAspectRatio="none">
-                                <defs>
-                                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor="rgba(0, 212, 255, 0.4)" />
-                                        <stop offset="100%" stopColor="rgba(0, 212, 255, 0)" />
-                                    </linearGradient>
-                                </defs>
-                                <path
-                                    d="M0,150 Q50,120 100,130 T200,100 T300,80 T400,50"
-                                    fill="none"
-                                    stroke="var(--accent-primary)"
-                                    strokeWidth="3"
-                                />
-                                <path
-                                    d="M0,150 Q50,120 100,130 T200,100 T300,80 T400,50 V200 H0 Z"
-                                    fill="url(#chartGradient)"
-                                />
-                            </svg>
-                            <div className={styles.chartOverlay}>
-                                <div className={styles.entryZone}>
-                                    <span>Entry Zone</span>
-                                </div>
-                            </div>
+                            <video
+                                className={styles.chartVideo}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                preload="auto"
+                            >
+                                <source src="/videos/project_demo.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
                 </div>
