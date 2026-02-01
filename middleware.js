@@ -12,6 +12,15 @@ const intlMiddleware = createMiddleware({
 const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
+    const url = req.nextUrl;
+    const hostname = req.headers.get("host");
+
+    // Redirect www to non-www
+    if (hostname && hostname.startsWith("www.cerebrumfx.com")) {
+        const newUrl = new URL(req.url);
+        newUrl.hostname = "cerebrumfx.com";
+        return Response.redirect(newUrl.toString(), 301);
+    }
     // OPTIONAL: Basic Auth for "Maintenance Mode" or "Staging"
     // const sitePassword = process.env.SITE_PASSWORD;
     // if (sitePassword) {

@@ -162,18 +162,6 @@
         "Early Access to Beta Features",
         "2 Months Free Savings"
       ]
-    },
-    "basic": {
-      "title": "Basic Monthly",
-      "price": "1$",
-      "period": "/ month",
-      "cta": "Get Started",
-      "features": [
-        "Full AI Access",
-        "Standard Support",
-        "MT5 Expert Advisor",
-        "Regular Updates"
-      ]
     }
   },
   "auth": {
