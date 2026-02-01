@@ -17,7 +17,7 @@ export default function QuickActions({ isActive, locale, onManageSubscription })
             ),
             label: "Download App",
             sublabel: "v1.2.0 • 45 MB",
-            href: isActive ? "/downloads/CerebrumSetup_1.2.0.exe" : null,
+            href: isActive ? "https://github.com/bmztechnology/cerebrum-website/releases/download/v1.2.0/CerebrumSetup_1.2.0.exe" : null,
             disabled: !isActive,
             download: true,
             color: "primary"
