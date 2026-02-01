@@ -27,6 +27,22 @@ export default function PricingPage() {
 
     const plans = [
         {
+            id: "basic",
+            title: t("basic.title") || "Basic Monthly",
+            price: t("basic.price") || "1$",
+            period: t("basic.period") || "/ month",
+            cta: t("basic.cta") || "Get Started",
+            features: [
+                "Full AI Access",
+                "MT5 Expert Advisor Included",
+                "All Trading Modes",
+                "Standard Support",
+                "Regular Updates"
+            ],
+            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_GIFT,
+            icon: "🔹"
+        },
+        {
             id: "monthly",
             title: t("monthly.title") || "Monthly Pro",
             price: t("monthly.price") || "29$",

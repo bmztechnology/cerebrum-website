@@ -162,6 +162,18 @@
                 "Accès anticipé aux fonctions bêta",
                 "2 mois offerts"
             ]
+        },
+        "basic": {
+            "title": "Basic Mensuel",
+            "price": "1$",
+            "period": "/ mois",
+            "cta": "Commencer",
+            "features": [
+                "Accès complet IA",
+                "Support Standard",
+                "Expert Advisor MT5",
+                "Mises à jour régulières"
+            ]
         }
     },
     "auth": {

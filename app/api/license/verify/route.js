@@ -49,7 +49,7 @@ export async function POST(req) {
                 console.warn(`[LICENSE] HWID Mismatch! Locked: ${currentLock}, Incoming: ${hwid}`);
                 return NextResponse.json({
                     valid: false,
-                    message: "License already used on another machine (HWID mismatch).",
+                    message: "Device Mismatch! Please go to your online profile at cerebrumfx.com to 'Reset PC Lock'.",
                     code: "HWID_CONFLICT"
                 }, { status: 403 });
             }
