@@ -209,6 +209,9 @@
     "pair": "EUR/USD • M5 Timeframe",
     "confidence": "AI Confidence",
     "recentActivity": "Recent Activity",
-    "analyzing": "Analyzing..."
+    "analyzing": "Analyzing...",
+    "buy": "BUY",
+    "sell": "SELL",
+    "neutral": "NEUTRAL"
   }
 }

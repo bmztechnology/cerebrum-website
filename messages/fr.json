@@ -202,5 +202,10 @@
         "labelCountry": "Pays",
         "cancelBtn": "Annuler",
         "saveBtn": "Enregistrer"
+    },
+    "liveDemo": {
+        "buy": "ACHAT",
+        "sell": "VENTE",
+        "neutral": "NEUTRE"
     }
 }

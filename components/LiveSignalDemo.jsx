@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import styles from './LiveSignalDemo.module.css';
 
 const MOCK_LOGS = [
@@ -12,15 +13,16 @@ const MOCK_LOGS = [
 ];
 
 const SIGNALS = [
-    { type: 'NEUTRAL', confidence: 45, models: [true, false, true, false, false] },
-    { type: 'ACHAT', confidence: 82, models: [true, true, true, true, false] },
-    { type: 'ACHAT', confidence: 94, models: [true, true, true, true, true] },
-    { type: 'NEUTRAL', confidence: 60, models: [true, true, false, true, false] },
-    { type: 'VENTE', confidence: 78, models: [false, false, true, true, true] },
-    { type: 'VENTE', confidence: 88, models: [true, true, true, true, true] },
+    { type: 'neutral', confidence: 45, models: [true, false, true, false, false] },
+    { type: 'buy', confidence: 82, models: [true, true, true, true, false] },
+    { type: 'buy', confidence: 94, models: [true, true, true, true, true] },
+    { type: 'neutral', confidence: 60, models: [true, true, false, true, false] },
+    { type: 'sell', confidence: 78, models: [false, false, true, true, true] },
+    { type: 'sell', confidence: 88, models: [true, true, true, true, true] },
 ];
 
 export default function LiveSignalDemo() {
+    const t = useTranslations('liveDemo');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentSignal, setCurrentSignal] = useState(SIGNALS[0]);
     const [logs, setLogs] = useState(MOCK_LOGS);
@@ -32,7 +34,7 @@ export default function LiveSignalDemo() {
                 setCurrentSignal(SIGNALS[next]);
 
                 // Occasionally add a log entry for "liveness"
-                if (SIGNALS[next].type !== 'NEUTRAL' && Math.random() > 0.6) {
+                if (SIGNALS[next].type !== 'neutral' && Math.random() > 0.6) {
                     addLog(SIGNALS[next].type);
                 }
 
@@ -48,9 +50,9 @@ export default function LiveSignalDemo() {
         const time = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
         const newLog = {
             time,
-            action: `Entry ${type}`,
-            profit: 'Analyzing...',
-            type: type.toLowerCase()
+            action: `Entry ${type.toUpperCase()}`,
+            profit: t('analyzing'),
+            type: type
         };
         setLogs(prev => [newLog, ...prev.slice(0, 4)]);
     };
@@ -60,26 +62,26 @@ export default function LiveSignalDemo() {
             <div className={`container ${styles.demoBox}`}>
                 <div className={styles.header}>
                     <div className={styles.headerTitle}>
-                        <span>🤖</span> CEREBRUM AI CORE v1.2
+                        <span>🤖</span> {t('headerTitle')}
                     </div>
                     <div className={styles.liveIndicator}>
                         <div className={styles.liveDot}></div>
-                        LIVE SIMULATION
+                        {t('liveIndicator')}
                     </div>
                 </div>
 
                 <div className={styles.content}>
                     {/* Signal Visualizer */}
                     <div className={styles.signalCard}>
-                        <div className={styles.pair}>EUR/USD • M5 Timeframe</div>
+                        <div className={styles.pair}>{t('pair')}</div>
 
-                        <div className={`${styles.signalType} ${styles[currentSignal.type.toLowerCase()]}`}>
-                            {currentSignal.type}
+                        <div className={`${styles.signalType} ${styles[currentSignal.type]}`}>
+                            {t(currentSignal.type)}
                         </div>
 
                         <div className={styles.confidence}>
                             <div className={styles.confidenceLabel}>
-                                <span>AI Confidence</span>
+                                <span>{t('confidence')}</span>
                                 <span>{currentSignal.confidence}%</span>
                             </div>
                             <div className={styles.progressBar}>
@@ -103,7 +105,7 @@ export default function LiveSignalDemo() {
                     {/* Activity Log */}
                     <div className={styles.logContainer}>
                         <div className={styles.logTitle}>
-                            <span>Recent Activity</span>
+                            <span>{t('recentActivity')}</span>
                             <span>P/L: +20.7 Pips</span>
                         </div>
                         <div className={styles.logEntries}>
