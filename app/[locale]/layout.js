@@ -85,9 +85,9 @@ export async function generateMetadata({ params }) {
             images: [`${baseUrl}/twitter-image.jpg`],
         },
         verification: {
-            google: 'your-google-verification-code',
-            yandex: 'your-yandex-verification-code',
-            bing: 'your-bing-verification-code',
+            google: null,
+            yandex: null,
+            bing: null,
         },
         category: 'finance',
         classification: 'Trading Software',
@@ -149,7 +149,7 @@ export default async function LocaleLayout({ children, params }) {
                 <body>
                     <noscript>
                         <iframe
-                            src="https://www.googletagmanager.com/ns.html?id=GTM-M54W5N47"
+                            src="https://www.googletagmanager.com/ns.html?id=GTM-WVV3PSGS"
                             height="0"
                             width="0"
                             style={{ display: 'none', visibility: 'hidden' }}
@@ -161,7 +161,7 @@ export default async function LocaleLayout({ children, params }) {
                             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                            })(window,document,'script','dataLayer','GTM-M54W5N47');
+                            })(window,document,'script','dataLayer','GTM-WVV3PSGS');
                         `}
                     </Script>
                     <NextIntlClientProvider messages={messages} locale={locale}>
