@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
@@ -18,6 +18,20 @@ export default function Hero() {
     const t = useTranslations();
     const [showBanner, setShowBanner] = useState(true);
     const disclaimer = disclaimerTexts[locale] || disclaimerTexts.en;
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.defaultMuted = true;
+            videoRef.current.muted = true;
+            const playPromise = videoRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.error("Auto-play was prevented:", error);
+                });
+            }
+        }
+    }, []);
 
     return (
         <section className={styles.hero}>
@@ -94,10 +108,11 @@ export default function Hero() {
                 <div className={styles.visual}>
                     <div className={styles.chartMockup}>
                         <div className={styles.chartHeader}>
-                            <span className={styles.chartPair}>{t('hero.demo.title')}</span>
+                            <span className={styles.chartPair}>Best practices</span>
                         </div>
                         <div className={styles.chartBody}>
                             <video
+                                ref={videoRef}
                                 className={styles.chartVideo}
                                 autoPlay
                                 muted

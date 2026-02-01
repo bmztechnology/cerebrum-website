@@ -13,11 +13,11 @@ const MOCK_LOGS = [
 
 const SIGNALS = [
     { type: 'NEUTRAL', confidence: 45, models: [true, false, true, false, false] },
-    { type: 'BUY', confidence: 82, models: [true, true, true, true, false] },
-    { type: 'BUY', confidence: 94, models: [true, true, true, true, true] },
+    { type: 'ACHAT', confidence: 82, models: [true, true, true, true, false] },
+    { type: 'ACHAT', confidence: 94, models: [true, true, true, true, true] },
     { type: 'NEUTRAL', confidence: 60, models: [true, true, false, true, false] },
-    { type: 'SELL', confidence: 78, models: [false, false, true, true, true] },
-    { type: 'SELL', confidence: 88, models: [true, true, true, true, true] },
+    { type: 'VENTE', confidence: 78, models: [false, false, true, true, true] },
+    { type: 'VENTE', confidence: 88, models: [true, true, true, true, true] },
 ];
 
 export default function LiveSignalDemo() {

@@ -322,27 +322,6 @@
     color: var(--text-primary);
 }
 
-.chartSignal {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    background: rgba(16, 185, 129, 0.15);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--accent-tertiary);
-}
-
-.signalDot {
-    width: 8px;
-    height: 8px;
-    background: var(--accent-tertiary);
-    border-radius: 50%;
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
 @keyframes pulse {
 
     0%,

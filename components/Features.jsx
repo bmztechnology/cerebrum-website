@@ -95,10 +95,10 @@ export default function Features() {
                 pt: 'Painel de Sinais em Tempo Real'
             },
             descriptions: {
-                en: 'BUY/SELL/NEUTRAL signals with confidence levels, model breakdown, and regime detection.',
-                fr: 'Signaux BUY/SELL/NEUTRAL avec niveaux de confiance, détail des modèles, et détection de régime.',
-                es: 'Señales BUY/SELL/NEUTRAL con niveles de confianza, desglose de modelos, y detección de régimen.',
-                pt: 'Sinais BUY/SELL/NEUTRAL com níveis de confiança, detalhamento de modelos, e detecção de regime.'
+                en: 'ACHAT/VENTE/NEUTRAL signals with confidence levels, model breakdown, and regime detection.',
+                fr: 'Signaux ACHAT/VENTE/NEUTRE avec niveaux de confiance, détail des modèles, et détection de régime.',
+                es: 'Señales ACHAT/VENTE/NEUTRAL con niveles de confianza, desglose de modelos, y detección de régimen.',
+                pt: 'Sinais ACHAT/VENTE/NEUTRAL com níveis de confiança, detalhamento de modelos, e detecção de regime.'
             }
         },
         {
