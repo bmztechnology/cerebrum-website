@@ -10,14 +10,14 @@ export async function POST(req) {
         const user = await currentUser();
         const { priceId: rawPriceId, locale } = await req.json();
 
-        // Hardcoded fallbacks - Production Live Price IDs
-        const FALLBACK_MONTHLY = "price_1SvyqFLqcjPmp25lV4uU4G5B";
-        const FALLBACK_YEARLY = "price_1SvyrJLqcjPmp25l1Sq9w1ak";
-
         let priceId = rawPriceId;
         if (!priceId || priceId === "undefined" || priceId === "null") {
-            // Try to infer from environment or use fallback
-            priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY || FALLBACK_MONTHLY;
+            // Use environment variable - no hardcoded fallback
+            priceId = process.env.STRIPE_PRICE_ID;
+        }
+
+        if (!priceId) {
+            return NextResponse.json({ error: "Price ID not configured" }, { status: 500 });
         }
 
         if (!userId || !user) {

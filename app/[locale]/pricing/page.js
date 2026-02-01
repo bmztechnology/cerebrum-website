@@ -25,10 +25,6 @@ export default function PricingPage() {
         }
     }, [searchParams]);
 
-    // Production Live Price IDs
-    const FALLBACK_MONTHLY = "price_1SvyqFLqcjPmp25lV4uU4G5B";
-    const FALLBACK_YEARLY = "price_1SvyrJLqcjPmp25l1Sq9w1ak";
-
     const plans = [
         {
             id: "monthly",
@@ -43,7 +39,7 @@ export default function PricingPage() {
                 "Email Support",
                 "Regular Updates"
             ],
-            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY || FALLBACK_MONTHLY,
+            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY,
             icon: "⚡"
         },
         {
@@ -59,7 +55,7 @@ export default function PricingPage() {
                 "2 Months Free (Save 58$)",
                 "Elite Trading Community"
             ],
-            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_YEARLY || FALLBACK_YEARLY,
+            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_YEARLY,
             featured: true,
             icon: "🏆"
         },
