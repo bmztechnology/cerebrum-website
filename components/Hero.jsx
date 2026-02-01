@@ -94,7 +94,7 @@ export default function Hero() {
                 <div className={styles.visual}>
                     <div className={styles.chartMockup}>
                         <div className={styles.chartHeader}>
-                            <span className={styles.chartPair}>EUR/USD</span>
+                            <span className={styles.chartPair}>Best practices</span>
                             <span className={styles.chartSignal}>
                                 <span className={styles.signalDot}></span>
                                 BUY 87%
