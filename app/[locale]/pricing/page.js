@@ -25,9 +25,9 @@ export default function PricingPage() {
         }
     }, [searchParams]);
 
-    // Constant fallbacks to match backend
-    const FALLBACK_MONTHLY = "price_1StdnvLBQKj11679zzcNfx1R";
-    const FALLBACK_YEARLY = "price_1Stvv7LBQKj11679Wxa984m3";
+    // Production Live Price IDs
+    const FALLBACK_MONTHLY = "price_1SvyqFLqcjPmp25lV4uU4G5B";
+    const FALLBACK_YEARLY = "price_1SvyrJLqcjPmp25l1Sq9w1ak";
 
     const plans = [
         {

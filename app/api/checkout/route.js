@@ -10,9 +10,9 @@ export async function POST(req) {
         const user = await currentUser();
         const { priceId: rawPriceId, locale } = await req.json();
 
-        // Hardcoded fallbacks in case environment variables are missing on server
-        const FALLBACK_MONTHLY = "price_1StdnvLBQKj11679zzcNfx1R";
-        const FALLBACK_YEARLY = "price_1Stvv7LBQKj11679Wxa984m3";
+        // Hardcoded fallbacks - Production Live Price IDs
+        const FALLBACK_MONTHLY = "price_1SvyqFLqcjPmp25lV4uU4G5B";
+        const FALLBACK_YEARLY = "price_1SvyrJLqcjPmp25l1Sq9w1ak";
 
         let priceId = rawPriceId;
         if (!priceId || priceId === "undefined" || priceId === "null") {
