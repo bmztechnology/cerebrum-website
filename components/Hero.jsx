@@ -131,6 +131,7 @@ export default function Hero() {
                                 playsInline
                                 preload="auto"
                                 src="/videos/project_demo.mp4"
+                                poster="/images/p10.jpg"
                             >
                                 Your browser does not support the video tag.
                             </video>
