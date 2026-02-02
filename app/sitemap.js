@@ -6,14 +6,9 @@ export default function sitemap() {
     const locales = ['en', 'fr', 'es', 'pt'];
     const lastModified = new Date();
 
-    // Main pages
+    // Main pages (Only root level as search engines don't index fragments)
     const pages = [
         { path: '', priority: 1.0, changeFrequency: 'weekly' },
-        { path: '#features', priority: 0.9, changeFrequency: 'monthly' },
-        { path: '#trading-modes', priority: 0.9, changeFrequency: 'monthly' },
-        { path: '#tools', priority: 0.8, changeFrequency: 'weekly' },
-        { path: '#download', priority: 0.95, changeFrequency: 'weekly' },
-        { path: '#faq', priority: 0.85, changeFrequency: 'monthly' },
     ];
 
     // Generate URLs for each locale
