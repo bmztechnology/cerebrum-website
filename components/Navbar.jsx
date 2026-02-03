@@ -3,7 +3,8 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import styles from './Navbar.module.css';
 
 const localeFlags = {
@@ -25,11 +26,41 @@ import { useUser, SignOutButton } from "@clerk/nextjs";
 export default function Navbar({ locale }) {
     const { isSignedIn, isLoaded } = useUser();
     const t = useTranslations();
+    const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLangOpen, setIsLangOpen] = useState(false);
+    const [activeHash, setActiveHash] = useState('');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['features', 'tools', 'pricing', 'faq', 'contact'];
+            const scrollPosition = window.scrollY + 100;
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const top = element.offsetTop;
+                    const height = element.offsetHeight;
+                    if (scrollPosition >= top && scrollPosition < top + height) {
+                        setActiveHash(`#${section}`);
+                        return;
+                    }
+                }
+            }
+
+            if (window.scrollY < 500) {
+                setActiveHash('');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        // Initial check
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navItems = [
-        { key: 'home', href: `/${locale}/` },
+        { key: 'home', href: `/${locale}` },
         { key: 'academy', href: `/${locale}/academy/courses` },
         { key: 'features', href: `/${locale}#features` },
         { key: 'tools', href: `/${locale}#tools` },
@@ -39,6 +70,24 @@ export default function Navbar({ locale }) {
         { key: 'docs', href: '/docs/index.html', external: true },
         { key: 'contact', href: `/${locale}#contact` },
     ];
+
+    const isActive = (item) => {
+        if (item.external) return false;
+
+        // Exact page match
+        if (pathname === item.href) return true;
+
+        // Homepage with hash match
+        if (pathname === `/${locale}` || pathname === `/${locale}/`) {
+            if (item.key === 'home' && activeHash === '') return true;
+            if (item.href.includes('#') && item.href.endsWith(activeHash) && activeHash !== '') return true;
+        }
+
+        // Sub-pages match (e.g. Academy)
+        if (item.key === 'academy' && pathname.includes('/academy')) return true;
+
+        return false;
+    };
 
     return (
         <nav className={styles.navbar}>
@@ -55,15 +104,16 @@ export default function Navbar({ locale }) {
                 </Link>
 
                 <div className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
-                    {navItems.map((item) => (
-                        item.key === 'home' ? (
+                    {navItems.map((item) => {
+                        const active = isActive(item);
+                        return item.key === 'home' ? (
                             <Link
                                 key={item.key}
                                 href={item.href}
-                                className={styles.navLink}
+                                className={`${styles.navLink} ${active ? styles.active : ''}`}
                                 onClick={(e) => {
                                     setIsMenuOpen(false);
-                                    if (window.location.pathname === item.href || window.location.pathname === `/${locale}`) {
+                                    if (pathname === item.href || pathname === `/${locale}`) {
                                         e.preventDefault();
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
                                     }
@@ -75,7 +125,7 @@ export default function Navbar({ locale }) {
                             <a
                                 key={item.key}
                                 href={item.href}
-                                className={styles.navLink}
+                                className={`${styles.navLink} ${active ? styles.active : ''}`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {t(`nav.${item.key}`)}
@@ -84,13 +134,13 @@ export default function Navbar({ locale }) {
                             <Link
                                 key={item.key}
                                 href={item.href}
-                                className={styles.navLink}
+                                className={`${styles.navLink} ${active ? styles.active : ''}`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {t(`nav.${item.key}`)}
                             </Link>
-                        )
-                    ))}
+                        );
+                    })}
                 </div>
 
                 <div className={styles.actions}>

@@ -87,6 +87,14 @@
     transform: none;
 }
 
+.navLink.active {
+    color: var(--accent-primary);
+}
+
+.navLink.active::after {
+    width: 100%;
+}
+
 .actions {
     display: flex;
     align-items: center;
