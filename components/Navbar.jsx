@@ -29,7 +29,7 @@ export default function Navbar({ locale }) {
     const [isLangOpen, setIsLangOpen] = useState(false);
 
     const navItems = [
-        { key: 'home', href: `/${locale}` },
+        { key: 'home', href: `/${locale}/` },
         { key: 'academy', href: `/${locale}/academy/courses` },
         { key: 'features', href: `/${locale}#features` },
         { key: 'tools', href: `/${locale}#tools` },
