@@ -74,7 +74,11 @@ export default function PricingPage() {
             console.log("Initiating checkout with Price ID:", priceId);
             const res = await fetch("/api/checkout", {
                 method: "POST",
-                body: JSON.stringify({ priceId: String(priceId), locale }),
+                body: JSON.stringify({
+                    plan: planId, // Send planId (monthly/yearly)
+                    priceId: String(priceId),
+                    locale
+                }),
                 headers: { "Content-Type": "application/json" },
             });
             const data = await res.json();

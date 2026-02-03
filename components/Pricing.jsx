@@ -29,8 +29,9 @@ export default function Pricing() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    priceId,
-                    locale: 'en' // Default to en, ideally get from params or context
+                    plan, // Send plan name (monthly/yearly) to the server
+                    priceId, // Keep as fallback
+                    locale: 'en'
                 })
             });
 

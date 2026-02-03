@@ -8,16 +8,29 @@ export async function POST(req) {
     try {
         const { userId } = await auth();
         const user = await currentUser();
-        const { priceId: rawPriceId, locale } = await req.json();
+        const { priceId: rawPriceId, plan, locale } = await req.json();
 
         let priceId = rawPriceId;
+
+        // If a plan is passed (monthly/yearly), resolve it to a Price ID using server-side env vars
+        // This is much more robust than relying on NEXT_PUBLIC_ vars baked into the client at build time.
+        if (plan === 'monthly') {
+            priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY;
+        } else if (plan === 'yearly') {
+            priceId = process.env.NEXT_PUBLIC_STRIPE_PRICE_YEARLY;
+        }
+
         if (!priceId || priceId === "undefined" || priceId === "null") {
-            // Use environment variable - no hardcoded fallback
+            // Fallback for direct usage or missing plan
             priceId = process.env.STRIPE_PRICE_ID;
         }
 
         if (!priceId) {
-            return NextResponse.json({ error: "Price ID not configured" }, { status: 500 });
+            console.error("Checkout Error: Price ID not configured. Received plan:", plan, "rawPriceId:", rawPriceId);
+            return NextResponse.json({
+                error: "Price ID not configured",
+                details: "The system could not resolve a Stripe Price ID for this selection."
+            }, { status: 500 });
         }
 
         if (!userId || !user) {
