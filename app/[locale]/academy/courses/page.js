@@ -18,7 +18,7 @@ export default async function CoursesPage({ params }) {
         <div className={styles.academyPage}>
             <div className={styles.container}>
                 <div className={styles.heroSection}>
-                    <h2>
+                    <h2 className={styles.title}>
                         Cerebrum Learning Center
                     </h2>
                     <p className={styles.subtitle}>
