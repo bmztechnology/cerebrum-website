@@ -41,6 +41,11 @@ export async function POST(req) {
 
         const effectiveLocale = locale || 'en';
 
+        // Force the production domain to avoid Google Cloud default URLs in Stripe
+        const baseUrl = process.env.NODE_ENV === 'production'
+            ? 'https://cerebrumfx.com'
+            : (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000');
+
         const checkoutSession = await stripe.checkout.sessions.create({
             mode: "subscription",
             customer_email: email,
@@ -50,8 +55,8 @@ export async function POST(req) {
                     quantity: 1,
                 },
             ],
-            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/${effectiveLocale}/dashboard?success=true&session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/${effectiveLocale}/pricing?canceled=true`,
+            success_url: `${baseUrl}/${effectiveLocale}/dashboard?success=true&session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${baseUrl}/${effectiveLocale}/pricing?canceled=true`,
             metadata: {
                 userId: userId,
             },
