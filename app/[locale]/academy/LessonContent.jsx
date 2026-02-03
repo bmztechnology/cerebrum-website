@@ -7,7 +7,7 @@ export default function LessonContent({ title, content, nextLesson }) {
         <div className={styles.lessonContainer}>
             <div className={styles.lessonHeader}>
                 <Link href="/academy" className={styles.backLink}>← Back to Academy</Link>
-                <h1>{title}</h1>
+                <h2>{title}</h2>
             </div>
 
             <div className={styles.lessonBody}>

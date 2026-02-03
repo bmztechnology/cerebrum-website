@@ -5,6 +5,7 @@ import { locales } from '../../i18n/config';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import SchemaOrg from '../../components/SchemaOrg';
+import HashScrollHandler from '../../components/HashScrollHandler';
 
 export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
@@ -166,6 +167,7 @@ export default async function LocaleLayout({ children, params }) {
                     </Script>
                     <NextIntlClientProvider messages={messages} locale={locale}>
                         <Providers>
+                            <HashScrollHandler />
                             <SchemaOrg locale={locale} />
                             <Navbar locale={locale} />
                             <main>{children}</main>
