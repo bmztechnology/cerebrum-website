@@ -56,7 +56,22 @@ export default function Navbar({ locale }) {
 
                 <div className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
                     {navItems.map((item) => (
-                        item.external ? (
+                        item.key === 'home' ? (
+                            <Link
+                                key={item.key}
+                                href={item.href}
+                                className={styles.navLink}
+                                onClick={(e) => {
+                                    setIsMenuOpen(false);
+                                    if (window.location.pathname === item.href || window.location.pathname === `/${locale}`) {
+                                        e.preventDefault();
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }
+                                }}
+                            >
+                                {t(`nav.${item.key}`)}
+                            </Link>
+                        ) : item.external ? (
                             <a
                                 key={item.key}
                                 href={item.href}

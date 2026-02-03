@@ -76,7 +76,7 @@
 }
 
 .navLink:hover {
-    color: var(--text-primary);
+    color: var(--accent-primary);
 }
 
 .navLink:hover::after {

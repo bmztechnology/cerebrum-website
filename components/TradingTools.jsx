@@ -123,6 +123,7 @@ export default function TradingTools() {
         <section id="tools" className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
+                    <span className={styles.badge}>{t.title}</span>
                     <h2 className={styles.title}>{t.title}</h2>
                     <p className={styles.subtitle}>{t.subtitle}</p>
                 </div>

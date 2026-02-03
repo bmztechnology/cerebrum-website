@@ -12,6 +12,7 @@ export default function Architecture() {
         <section id="architecture" className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
+                    <span className={styles.badge}>Architecture</span>
                     <h2 className={styles.title}>{t('architecture.title')}</h2>
                     <p className={styles.subtitle}>{t('architecture.subtitle')}</p>
                 </div>

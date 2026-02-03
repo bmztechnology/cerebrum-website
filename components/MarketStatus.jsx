@@ -108,12 +108,15 @@ export default function MarketStatus() {
         <section className={styles.section} id="market-status">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.liveIndicator}>
-                        <span className={styles.liveDot}></span>
-                        LIVE
-                    </span>
+                    <span className={styles.badge}>Live Status</span>
                     <h3 className={styles.title}>{titles[locale] || titles.en}</h3>
-                    <span className={styles.time}>{formatTime(currentTime)}</span>
+                    <div className={styles.headerMeta}>
+                        <span className={styles.liveIndicator}>
+                            <span className={styles.liveDot}></span>
+                            LIVE
+                        </span>
+                        <span className={styles.time}>{formatTime(currentTime)}</span>
+                    </div>
                 </div>
 
                 {isWeekend() ? (

@@ -3,7 +3,7 @@
    ============================================ */
 
 .section {
-    padding: var(--section-padding) 0;
+    padding: 40px 0 100px;
     position: relative;
 }
 
@@ -69,7 +69,7 @@
     .row {
         grid-template-columns: 1fr;
     }
-    
+
     .form {
         padding: 24px;
     }
@@ -155,7 +155,9 @@
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .successMessage {
