@@ -328,8 +328,15 @@ h6 {
   z-index: 9999 !important;
   background: var(--bg-primary) !important;
   overflow-y: auto !important;
-  padding: 60px 20px !important;
+  padding: 20px !important;
+  /* Reduced padding from 60px */
   animation: fade-in 0.3s ease-out;
+}
+
+/* Minimize internal padding of components when in fullscreen */
+.fullscreen-section section {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
 }
 
 .fullscreen-active {
