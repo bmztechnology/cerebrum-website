@@ -14,6 +14,7 @@ import FAQ from '../../components/FAQ';
 import ContactForm from '../../components/ContactForm';
 import Pricing from '../../components/Pricing';
 import Download from '../../components/Download';
+import SectionWrapper from '../../components/SectionWrapper';
 
 export default function HomePage() {
     return (
@@ -22,43 +23,69 @@ export default function HomePage() {
             <Hero />
 
             {/* Live Market Status - Trader Utility */}
-            <MarketStatus />
+            <SectionWrapper id="market-status">
+                <MarketStatus />
+            </SectionWrapper>
 
             {/* AI Core Live Simulation */}
-            <LiveSignalDemo />
+            <SectionWrapper id="live-demo">
+                <LiveSignalDemo />
+            </SectionWrapper>
 
             {/* Features Grid - SEO Content */}
-            <Features />
+            <SectionWrapper id="features">
+                <Features />
+            </SectionWrapper>
 
             {/* Core Architecture - AI vs EA */}
-            <Architecture />
+            <SectionWrapper id="architecture">
+                <Architecture />
+            </SectionWrapper>
 
             {/* Trading Modes - Autonomous/Assisted/Manual */}
-            <Profiles />
+            <SectionWrapper id="profiles">
+                <Profiles />
+            </SectionWrapper>
 
             {/* How It Works - Conversion Funnel */}
-            <HowItWorks />
+            <SectionWrapper id="how-it-works">
+                <HowItWorks />
+            </SectionWrapper>
 
             {/* Position Calculator - Trader Utility */}
-            <PositionCalculator />
+            <SectionWrapper id="calculator">
+                <PositionCalculator />
+            </SectionWrapper>
 
             {/* Interface Visuals */}
-            <Visuals />
+            <SectionWrapper id="visuals">
+                <Visuals />
+            </SectionWrapper>
 
             {/* Trading Tools - Charts/Calendar/News */}
-            <TradingTools />
+            <SectionWrapper id="tools">
+                <TradingTools />
+            </SectionWrapper>
 
             {/* FAQ - SEO + AI Discoverability */}
-            <FAQ />
+            <SectionWrapper id="faq">
+                <FAQ />
+            </SectionWrapper>
 
             {/* Contact Form - Email Support */}
-            <ContactForm />
+            <SectionWrapper id="contact">
+                <ContactForm />
+            </SectionWrapper>
 
             {/* Pricing Plans */}
-            <Pricing />
+            <SectionWrapper id="pricing">
+                <Pricing />
+            </SectionWrapper>
 
             {/* Download CTA */}
-            <Download />
+            <SectionWrapper id="download">
+                <Download />
+            </SectionWrapper>
         </>
     );
 }

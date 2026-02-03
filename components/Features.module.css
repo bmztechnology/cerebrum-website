@@ -29,7 +29,6 @@
 }
 
 .title {
-    font-size: clamp(32px, 4vw, 48px);
     font-weight: 700;
     margin-bottom: 16px;
     color: var(--text-primary);
