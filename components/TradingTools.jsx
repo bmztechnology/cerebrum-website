@@ -6,7 +6,7 @@ import styles from './TradingTools.module.css';
 
 const translations = {
     en: {
-        title: 'Live Trading Tools',
+        title: 'Trading Tools',
         subtitle: 'Real-time market data at your fingertips',
         chart: 'EUR/USD Live Chart',
         calendar: 'Economic Calendar',
@@ -17,7 +17,7 @@ const translations = {
         loading: 'Loading...'
     },
     fr: {
-        title: 'Outils de Trading Live',
+        title: 'Outils de Trading',
         subtitle: 'Données de marché en temps réel',
         chart: 'Graphique EUR/USD Live',
         calendar: 'Calendrier Économique',
@@ -28,7 +28,7 @@ const translations = {
         loading: 'Chargement...'
     },
     es: {
-        title: 'Herramientas de Trading en Vivo',
+        title: 'Herramientas de Trading',
         subtitle: 'Datos de mercado en tiempo real',
         chart: 'Gráfico EUR/USD en Vivo',
         calendar: 'Calendario Económico',
@@ -39,7 +39,7 @@ const translations = {
         loading: 'Cargando...'
     },
     pt: {
-        title: 'Ferramentas de Trading ao Vivo',
+        title: 'Ferramentas de Trading',
         subtitle: 'Dados de mercado em tempo real',
         chart: 'Gráfico EUR/USD ao Vivo',
         calendar: 'Calendário Econômico',

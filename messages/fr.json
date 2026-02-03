@@ -139,7 +139,7 @@
         "error": "Échec de l'envoi du message. Veuillez réessayer."
     },
     "pricing": {
-        "title": "Plans & Tarifs",
+        "title": "Tarifs",
         "subtitle": "Choisissez le meilleur plan pour votre parcours de trading",
         "monthly": {
             "title": "Abonnement Mensuel",
