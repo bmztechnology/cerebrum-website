@@ -17,7 +17,7 @@ export default function AcademyPage() {
     return (
         <div className={styles.academyPage}>
             <section className={styles.heroSection}>
-                <h1 className={styles.title}>{t("title") || "Cerebrum Academy"}</h1>
+                <h2>{t("title") || "Cerebrum Academy"}</h2>
                 <p className={styles.subtitle}>{t("subtitle") || "Master the art of AI-Enhanced Trading."}</p>
             </section>
 

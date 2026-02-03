@@ -18,9 +18,9 @@ export default async function CoursesPage({ params }) {
         <div className={styles.academyPage}>
             <div className={styles.container}>
                 <div className={styles.heroSection}>
-                    <h1 className={styles.title}>
+                    <h2>
                         Cerebrum Learning Center
-                    </h1>
+                    </h2>
                     <p className={styles.subtitle}>
                         Master the principles of algorithmic trading with our comprehensive knowledge base.
                         <br />

@@ -38,7 +38,6 @@ export default function Navbar({ locale }) {
         { key: 'faq', href: `/${locale}#faq` },
         { key: 'docs', href: '/docs/index.html', external: true },
         { key: 'contact', href: `/${locale}#contact` },
-        ...(!isSignedIn ? [{ key: 'login', href: `/${locale}/auth/login` }] : [])
     ];
 
     return (
