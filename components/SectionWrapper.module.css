@@ -9,8 +9,9 @@
 
 .controls {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 130px;
+    /* Moved lower to align with content area */
+    right: 24px;
     z-index: 10;
     display: flex;
     gap: 10px;
@@ -42,8 +43,8 @@
     background: var(--accent-primary);
     color: var(--bg-primary);
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 24px;
+    right: 24px;
 }
 
 .fullscreenContent {
