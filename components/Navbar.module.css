@@ -4,11 +4,12 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 16px 0;
-    background: rgba(10, 10, 15, 0.95);
+    padding: 12px 0;
+    background: linear-gradient(180deg, rgba(0, 31, 63, 0.95) 0%, rgba(0, 15, 31, 0.98) 100%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 212, 255, 0.1);
 }
 
 .container {
@@ -56,12 +57,13 @@
 }
 
 .navLink {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 500;
-    transition: color var(--transition-fast);
+    font-size: 13px;
+    font-weight: 600;
+    transition: all var(--transition-fast);
     position: relative;
+    letter-spacing: 0.02em;
 }
 
 .navLink::after {
@@ -76,7 +78,7 @@
 }
 
 .navLink:hover {
-    color: var(--accent-primary);
+    color: #fff;
 }
 
 .navLink:hover::after {
@@ -84,15 +86,18 @@
 }
 
 .navLink:active {
-    transform: none;
+    transform: translateY(1px);
 }
 
 .navLink.active {
     color: var(--accent-primary);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 }
 
 .navLink.active::after {
     width: 100%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 10px var(--accent-primary);
 }
 
 .actions {
@@ -119,7 +124,7 @@
 }
 
 .langButton:hover {
-    color: var(--text-primary);
+    color: #fff;
 }
 
 .chevron {
