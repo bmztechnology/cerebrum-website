@@ -34,7 +34,13 @@ export default function Navbar({ locale }) {
     useEffect(() => {
         const handleScroll = () => {
             const sections = ['features', 'tools', 'pricing', 'faq', 'contact'];
-            const scrollPosition = window.scrollY + 100;
+            const scrollPosition = window.scrollY + 120; // Improved offset
+
+            // Special check for bottom of page (Contact)
+            if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+                setActiveHash('#contact');
+                return;
+            }
 
             for (const section of sections) {
                 const element = document.getElementById(section);
@@ -48,15 +54,18 @@ export default function Navbar({ locale }) {
                 }
             }
 
-            if (window.scrollY < 500) {
+            if (window.scrollY < 300) {
                 setActiveHash('');
             }
         };
 
         window.addEventListener('scroll', handleScroll);
-        // Initial check
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
+        // Initial delayed check to allow for layout shifts
+        const timer = setTimeout(handleScroll, 100);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            clearTimeout(timer);
+        };
     }, []);
 
     const navItems = [
@@ -74,16 +83,18 @@ export default function Navbar({ locale }) {
     const isActive = (item) => {
         if (item.external) return false;
 
-        // Exact page match
-        if (pathname === item.href) return true;
+        const isHomepage = pathname === `/${locale}` || pathname === `/${locale}/`;
 
-        // Homepage with hash match
-        if (pathname === `/${locale}` || pathname === `/${locale}/`) {
-            if (item.key === 'home' && activeHash === '') return true;
-            if (item.href.includes('#') && item.href.endsWith(activeHash) && activeHash !== '') return true;
+        // homepage specific logic
+        if (isHomepage) {
+            if (activeHash !== '') {
+                return item.href.endsWith(activeHash);
+            }
+            return item.key === 'home';
         }
 
-        // Sub-pages match (e.g. Academy)
+        // Other pages (Academy, Download)
+        if (pathname === item.href) return true;
         if (item.key === 'academy' && pathname.includes('/academy')) return true;
 
         return false;
