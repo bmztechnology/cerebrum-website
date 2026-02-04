@@ -107,8 +107,8 @@ export default function Navbar({ locale }) {
                     <Image
                         src="/assets/logo.jpg"
                         alt="Cerebrum Forex"
-                        width={50}
-                        height={50}
+                        width={40}
+                        height={40}
                         className={styles.logoImage}
                     />
                     <span className={styles.logoText}>Cerebrum<span className={styles.logoAccent}>Forex</span></span>
