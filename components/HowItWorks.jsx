@@ -13,6 +13,13 @@ export default function HowItWorks() {
         pt: 'Como Funciona'
     };
 
+    const badgeTitles = {
+        en: 'Guide',
+        fr: 'Guide',
+        es: 'Guía',
+        pt: 'Guia'
+    };
+
     const subtitles = {
         en: 'Start trading with AI in 4 simple steps',
         fr: 'Commencez à trader avec l\'IA en 4 étapes simples',
@@ -91,7 +98,7 @@ export default function HowItWorks() {
         <section className={styles.section} id="how-it-works">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>Getting Started</span>
+                    <span className={styles.badge}>{badgeTitles[locale] || badgeTitles.en}</span>
                     <h2 className={styles.title}>{titles[locale] || titles.en}</h2>
                     <p className={styles.subtitle}>{subtitles[locale] || subtitles.en}</p>
                 </div>

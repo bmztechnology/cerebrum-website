@@ -16,7 +16,7 @@ export default function Profiles() {
         <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.mainBadge}>Trading Modes</span>
+                    <span className={styles.mainBadge}>{t('profiles.badge')}</span>
                     <h2 className={styles.title}>{t(`profiles.title`)}</h2>
                     <p className={styles.subtitle}>{t(`profiles.subtitle`)}</p>
                 </div>

@@ -14,7 +14,7 @@ export default function Visuals() {
         <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>Experience</span>
+                    <span className={styles.badge}>{t('visuals.badge')}</span>
                     <h2 className={styles.title}>{t('visuals.title')}</h2>
                     <p className={styles.subtitle}>{t('visuals.subtitle')}</p>
                 </div>

@@ -33,6 +33,7 @@
         }
     },
     "architecture": {
+        "badge": "Moteur",
         "title": "Architecture Intelligente",
         "subtitle": "Séparation claire entre la détection par l'IA et l'exécution par l'EA",
         "ai": {
@@ -45,6 +46,7 @@
         }
     },
     "profiles": {
+        "badge": "Stratégie",
         "title": "Modes de Trading",
         "subtitle": "Trois modes d'exécution adaptés à votre style de trading",
         "master": {
@@ -82,6 +84,7 @@
         }
     },
     "visuals": {
+        "badge": "Interface",
         "title": "Visualisation Intelligente",
         "subtitle": "Des signaux en temps réel directement sur vos graphiques",
         "features": [
@@ -127,6 +130,7 @@
         "terms": "Conditions d'Utilisation"
     },
     "contactForm": {
+        "badge": "Aide",
         "title": "Contactez-nous",
         "subtitle": "Une question ? Nous serions ravis de vous entendre.",
         "name": "Votre Nom",
@@ -139,6 +143,7 @@
         "error": "Échec de l'envoi du message. Veuillez réessayer."
     },
     "pricing": {
+        "badge": "Plans",
         "title": "Tarifs",
         "subtitle": "Choisissez le meilleur plan pour votre parcours de trading",
         "monthly": {
@@ -204,6 +209,7 @@
         "saveBtn": "Enregistrer"
     },
     "liveDemo": {
+        "badge": "Temps Réel",
         "buy": "ACHAT",
         "sell": "VENTE",
         "neutral": "NEUTRE"

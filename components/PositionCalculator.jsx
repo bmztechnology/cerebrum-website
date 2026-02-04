@@ -33,6 +33,13 @@ export default function PositionCalculator() {
         pt: 'Calculadora de Tamanho de Posição'
     };
 
+    const badgeTitles = {
+        en: 'Risk',
+        fr: 'Risque',
+        es: 'Riesgo',
+        pt: 'Risco'
+    };
+
     const subtitles = {
         en: 'Calculate your optimal lot size based on risk management',
         fr: 'Calculez votre taille de lot optimale selon la gestion du risque',
@@ -53,7 +60,7 @@ export default function PositionCalculator() {
         <section className={styles.section} id="calculator">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>🧮 Free Tool</span>
+                    <span className={styles.badge}>🧮 {badgeTitles[locale] || badgeTitles.en}</span>
                     <h2 className={styles.title}>{titles[locale] || titles.en}</h2>
                     <p className={styles.subtitle}>{subtitles[locale] || subtitles.en}</p>
                 </div>

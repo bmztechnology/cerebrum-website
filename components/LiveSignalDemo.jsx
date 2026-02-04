@@ -61,7 +61,7 @@ export default function LiveSignalDemo() {
         <section className={styles.container}>
             <div className={`container ${styles.demoBox}`}>
                 <div className={styles.standardHeader}>
-                    <span className={styles.badge}>Live Signals</span>
+                    <span className={styles.badge}>{t('badge')}</span>
                     <h2 className={styles.mainTitle}>{t('headerTitle')}</h2>
                     <div className={styles.liveIndicator}>
                         <div className={styles.liveDot}></div>

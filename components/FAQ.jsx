@@ -22,6 +22,13 @@ export default function FAQ() {
         pt: 'Tudo o que você precisa saber sobre Cerebrum Forex'
     };
 
+    const badgeTitles = {
+        en: 'Q&A',
+        fr: 'S.A.V',
+        es: 'S.A.V',
+        pt: 'S.A.V'
+    };
+
     const faqs = [
         // General
         {
@@ -154,7 +161,7 @@ export default function FAQ() {
         <section className={styles.section} id="faq">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>FAQ</span>
+                    <span className={styles.badge}>{badgeTitles[locale] || badgeTitles.en}</span>
                     <h2 className={styles.title}>{titles[locale] || titles.en}</h2>
                     <p className={styles.subtitle}>{subtitles[locale] || subtitles.en}</p>
                 </div>

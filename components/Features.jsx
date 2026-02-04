@@ -13,6 +13,13 @@ export default function Features() {
         pt: 'Recursos Poderosos'
     };
 
+    const badgeTitles = {
+        en: 'Technology',
+        fr: 'Technologie',
+        es: 'Tecnología',
+        pt: 'Tecnologia'
+    };
+
     const subtitles = {
         en: 'Everything you need for professional EUR/USD trading',
         fr: 'Tout ce dont vous avez besoin pour trader EUR/USD professionnellement',
@@ -155,7 +162,7 @@ export default function Features() {
         <section className={styles.section} id="features">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>Features</span>
+                    <span className={styles.badge}>{badgeTitles[locale] || badgeTitles.en}</span>
                     <h2 className={styles.title}>{titles[locale] || titles.en}</h2>
                     <p className={styles.subtitle}>{subtitles[locale] || subtitles.en}</p>
                 </div>

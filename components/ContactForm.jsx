@@ -68,7 +68,7 @@ export default function ContactForm() {
         <section className={styles.section} id="contact">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>📧 Contact</span>
+                    <span className={styles.badge}>📧 {t.badge || 'Contact'}</span>
                     <h2 className={styles.title}>{t.title}</h2>
                     <p className={styles.subtitle}>{t.subtitle}</p>
                 </div>

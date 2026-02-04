@@ -6,6 +6,7 @@ import styles from './TradingTools.module.css';
 
 const translations = {
     en: {
+        badge: 'Utilities',
         title: 'Trading Tools',
         subtitle: 'Real-time market data at your fingertips',
         chart: 'EUR/USD Live Chart',
@@ -17,6 +18,7 @@ const translations = {
         loading: 'Loading...'
     },
     fr: {
+        badge: 'Outils',
         title: 'Outils de Trading',
         subtitle: 'Données de marché en temps réel',
         chart: 'Graphique EUR/USD Live',
@@ -28,6 +30,7 @@ const translations = {
         loading: 'Chargement...'
     },
     es: {
+        badge: 'Herramientas',
         title: 'Herramientas de Trading',
         subtitle: 'Datos de mercado en tiempo real',
         chart: 'Gráfico EUR/USD en Vivo',
@@ -39,6 +42,7 @@ const translations = {
         loading: 'Cargando...'
     },
     pt: {
+        badge: 'Utilitários',
         title: 'Ferramentas de Trading',
         subtitle: 'Dados de mercado em tempo real',
         chart: 'Gráfico EUR/USD ao Vivo',
@@ -123,7 +127,7 @@ export default function TradingTools() {
         <section id="tools" className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>{t.title}</span>
+                    <span className={styles.badge}>{t.badge}</span>
                     <h2 className={styles.title}>{t.title}</h2>
                     <p className={styles.subtitle}>{t.subtitle}</p>
                 </div>

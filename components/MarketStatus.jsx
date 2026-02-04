@@ -85,6 +85,13 @@ export default function MarketStatus() {
         pt: 'Status do Mercado Forex'
     };
 
+    const badgeTitles = {
+        en: 'Health',
+        fr: 'État',
+        es: 'Estado',
+        pt: 'Estado'
+    };
+
     const weekendText = {
         en: 'Markets Closed',
         fr: 'Marchés Fermés',
@@ -108,7 +115,7 @@ export default function MarketStatus() {
         <section className={styles.section} id="market-status">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>Live Status</span>
+                    <span className={styles.badge}>{badgeTitles[locale] || badgeTitles.en}</span>
                     <h3 className={styles.title}>{titles[locale] || titles.en}</h3>
                     <div className={styles.headerMeta}>
                         <span className={styles.liveIndicator}>

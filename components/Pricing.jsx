@@ -54,7 +54,7 @@ export default function Pricing() {
         <section className={styles.section} id="pricing">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <span className={styles.badge}>{t('title')}</span>
+                    <span className={styles.badge}>{t('badge')}</span>
                     <h2 className={styles.title}>{t('title')}</h2>
                     <p className={styles.subtitle}>{t('subtitle')}</p>
                 </div>
