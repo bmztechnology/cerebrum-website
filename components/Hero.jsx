@@ -130,7 +130,7 @@ export default function Hero() {
                                 loop
                                 playsInline
                                 preload="auto"
-                                src="/videos/project_demo.mp4"
+                                src="/videos/stra1.mp4"
                                 poster="/images/p10.jpg"
                             >
                                 Your browser does not support the video tag.
@@ -154,7 +154,7 @@ export default function Hero() {
                             className={styles.zoomedVideo}
                             controls
                             autoPlay
-                            src="/videos/project_demo.mp4"
+                            src="/videos/stra1.mp4"
                         >
                             Your browser does not support the video tag.
                         </video>
