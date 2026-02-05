@@ -126,12 +126,15 @@ export default function Hero() {
                             <video
                                 ref={videoRef}
                                 className={styles.chartVideo}
-                                muted={false}
+                                autoPlay
+                                muted
                                 loop
                                 playsInline
                                 preload="auto"
                                 src="/videos/stra1.mp4"
                                 poster="/images/p10.jpg"
+                                onPlay={() => setIsPlaying(true)}
+                                onPause={() => setIsPlaying(false)}
                             >
                                 Your browser does not support the video tag.
                             </video>
