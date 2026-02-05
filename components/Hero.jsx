@@ -131,7 +131,7 @@ export default function Hero() {
                                 loop
                                 playsInline
                                 preload="auto"
-                                src="/videos/stra1.mp4"
+                                src="/videos/stra_v121.mp4"
                                 poster="/images/p10.jpg"
                                 onPlay={() => setIsPlaying(true)}
                                 onPause={() => setIsPlaying(false)}
@@ -157,7 +157,7 @@ export default function Hero() {
                             className={styles.zoomedVideo}
                             controls
                             autoPlay
-                            src="/videos/stra1.mp4"
+                            src="/videos/stra_v121.mp4"
                         >
                             Your browser does not support the video tag.
                         </video>
