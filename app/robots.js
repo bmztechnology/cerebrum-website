@@ -12,6 +12,7 @@ export default function robots() {
                     '/api/',
                     '/_next/',
                     '/private/',
+                    '/*/dashboard',
                 ],
             },
             {
