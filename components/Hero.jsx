@@ -18,6 +18,11 @@ export default function Hero() {
     const t = useTranslations();
     const [showBanner, setShowBanner] = useState(true);
     const disclaimer = disclaimerTexts[locale] || disclaimerTexts.en;
+    const [isZoomed, setIsZoomed] = useState(false);
+
+    const toggleZoom = () => {
+        setIsZoomed(!isZoomed);
+    };
 
 
     return (
@@ -92,10 +97,54 @@ export default function Hero() {
                     </div>
                 </div>
 
-
+                <div className={styles.visual}>
+                    <div className={styles.videoPortal}>
+                        <div className={styles.ambientGlow}></div>
+                        <div className={styles.videoInner}>
+                            <div className={styles.portalHeader}>
+                                <div className={styles.portalStatus}>
+                                    <span className={styles.statusDot}></span>
+                                    LIVE TRADING SYSTEM
+                                </div>
+                                <button className={styles.zoomBtn} onClick={toggleZoom} title="Expand View">
+                                    <svg viewBox="0 0 24 24" width="20" height="20">
+                                        <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <video
+                                className={styles.portalVideo}
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                poster="/images/p10.jpg"
+                            >
+                                <source src="/videos/presentation_v1.mp4?v=3" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div className={styles.portalOverlay}></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-
+            {/* Zoom Modal */}
+            {isZoomed && (
+                <div className={styles.zoomModal} onClick={toggleZoom}>
+                    <div className={styles.zoomContent} onClick={(e) => e.stopPropagation()}>
+                        <button className={styles.closeBtn} onClick={toggleZoom}>×</button>
+                        <video
+                            className={styles.zoomedVideo}
+                            controls
+                            autoPlay
+                            src="/videos/presentation_v1.mp4?v=3"
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
