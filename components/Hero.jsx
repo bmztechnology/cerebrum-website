@@ -66,9 +66,6 @@ export default function Hero() {
                                 <path fill="currentColor" d="M5 12h14m-6-6l6 6-6 6" />
                             </svg>
                         </Link>
-                        <Link href={`/${locale}#architecture`} className={styles.ctaSecondary}>
-                            {t(`nav.features`)}
-                        </Link>
                     </div>
 
                     <div className={styles.stats}>
