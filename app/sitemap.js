@@ -9,6 +9,9 @@ export default function sitemap() {
     // Main pages (Only root level as search engines don't index fragments)
     const pages = [
         { path: '', priority: 1.0, changeFrequency: 'weekly' },
+        { path: '/download', priority: 0.9, changeFrequency: 'monthly' },
+        { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
+        { path: '/academy', priority: 0.8, changeFrequency: 'weekly' },
     ];
 
     // Generate URLs for each locale
