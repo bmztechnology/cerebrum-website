@@ -92,7 +92,7 @@ export default function DownloadPage() {
                 <div style={{ marginTop: "80px", textAlign: "left", maxWidth: "800px", margin: "80px auto 0" }}>
                     <h3 style={{ fontSize: "24px", marginBottom: "32px", textAlign: "center" }}>{t("installTitle") || "Installation Guide"}</h3>
 
-                    {[1, 2, 3].map((step) => (
+                    {[1, 2, 3, 4].map((step) => (
                         <div key={step} style={{ display: "flex", gap: "24px", marginBottom: "32px" }}>
                             <div style={{
                                 width: "48px", height: "48px", borderRadius: "50%",
@@ -105,12 +105,14 @@ export default function DownloadPage() {
                                 <h4 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "8px" }}>
                                     {step === 1 ? (t("step1Title") || "Run the Installer") :
                                         step === 2 ? (t("step2Title") || "Enter License Key") :
-                                            (t("step3Title") || "Start Trading")}
+                                            step === 3 ? (t("step3Title") || "Start Trading") :
+                                                (t("step4Title") || "Trade with Cerebrum")}
                                 </h4>
                                 <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
                                     {step === 1 ? (t("step1Desc") || "Double-click CerebrumSetup.exe and follow the wizard.") :
                                         step === 2 ? (t("step2Desc") || "Use the key sent to your email or found in your Dashboard.") :
-                                            (t("step3Desc") || "Launch MT5 and attach Cerebrum to your EUR/USD chart.")}
+                                            step === 3 ? (t("step3Desc") || "Launch MT5 and attach Cerebrum to your EUR/USD chart.") :
+                                                (t("step4Desc") || "Match the App Timeframe with MT5 and start scalping on signals.")}
                                 </p>
                             </div>
                         </div>

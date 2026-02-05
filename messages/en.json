@@ -108,7 +108,9 @@
     "step2Title": "Enter License Key",
     "step2Desc": "Use the key sent to your email or found in your Dashboard.",
     "step3Title": "Start Trading",
-    "step3Desc": "Launch MT5 and attach Cerebrum to your EUR/USD chart."
+    "step3Desc": "Launch MT5 and attach Cerebrum to your EUR/USD chart.",
+    "step4Title": "Trade with Cerebrum",
+    "step4Desc": "Match the App Timeframe with MT5 and start scalping on signals."
   },
   "legal": {
     "title": "Legal Disclaimer",

@@ -108,7 +108,9 @@
         "step2Title": "Entrer la Clé de Licence",
         "step2Desc": "Utilisez la clé envoyée par email ou trouvable dans votre Dashboard.",
         "step3Title": "Commencer à Trader",
-        "step3Desc": "Lancez MT5 et attachez Cerebrum à votre graphique EUR/USD."
+        "step3Desc": "Lancez MT5 et attachez Cerebrum à votre graphique EUR/USD.",
+        "step4Title": "Trader avec Cerebrum",
+        "step4Desc": "Alignez le Timeframe de l'App avec MT5 et commencez à scalper sur les signaux."
     },
     "legal": {
         "title": "Avis Légal",
