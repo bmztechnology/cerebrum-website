@@ -17,26 +17,11 @@ export default function Hero() {
     const { locale } = useParams();
     const t = useTranslations();
     const [showBanner, setShowBanner] = useState(true);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [isZoomed, setIsZoomed] = useState(false);
     const disclaimer = disclaimerTexts[locale] || disclaimerTexts.en;
-    const videoRef = useRef(null);
-
-    const togglePlay = (e) => {
-        e.stopPropagation();
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause();
-            } else {
-                videoRef.current.play();
-            }
-            setIsPlaying(!isPlaying);
-        }
-    };
+    const [isZoomed, setIsZoomed] = useState(false);
 
     const toggleZoom = () => {
         setIsZoomed(!isZoomed);
-        // If zooming in, we might want to also ensure it plays OR keep current state
     };
 
     return (
@@ -122,27 +107,18 @@ export default function Hero() {
                                 </svg>
                             </button>
                         </div>
-                        <div className={styles.chartBody} onClick={togglePlay}>
+                        <div className={styles.chartBody}>
                             <video
-                                ref={videoRef}
                                 className={styles.chartVideo}
                                 autoPlay
                                 muted
                                 loop
                                 playsInline
-                                preload="auto"
-                                src="/videos/stra_v121.mp4"
                                 poster="/images/p10.jpg"
-                                onPlay={() => setIsPlaying(true)}
-                                onPause={() => setIsPlaying(false)}
                             >
+                                <source src="/videos/stra_v121.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
-                            {!isPlaying && (
-                                <div className={styles.videoOverlay}>
-                                    <img src="/images/play.jpg" alt="Play" className={styles.playIcon} />
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>
