@@ -74,12 +74,12 @@ const docSections = [
     {
         id: 'propfirm',
         icon: '🏆',
-        title: { en: 'Prop Firm Mode', fr: 'Mode Prop Firm', es: 'Modo Prop Firm', pt: 'Modo Prop Firm' },
+        title: { en: 'Prop Firm Strategy', fr: 'Stratégie Prop Firm', es: 'Estrategia Prop Firm', pt: 'Estratégia Prop Firm' },
         description: {
-            en: 'Strict rules for FTMO/MFF challenges: Max Daily Loss 4-5%, Max Drawdown 8-10%, Risk 0.5%, Profit Target 8-10%, News Filter.',
-            fr: 'Règles strictes pour les challenges FTMO/MFF: Max Daily Loss 4-5%, Max Drawdown 8-10%, Risk 0.5%, Profit Target 8-10%, News Filter.',
-            es: 'Reglas estrictas para desafíos FTMO/MFF: Max Daily Loss 4-5%, Max Drawdown 8-10%, Risk 0.5%, Profit Target 8-10%, News Filter.',
-            pt: 'Regras rígidas para desafios FTMO/MFF: Max Daily Loss 4-5%, Max Drawdown 8-10%, Risk 0.5%, Profit Target 8-10%, News Filter.'
+            en: 'Standard Strategy: Match App TF with MT5. Scan M1, M5, M15. Click TF button for manual entry on signals. Wait for small profit, then exit manually inside MT5.',
+            fr: 'Stratégie Standard: Alignez le TF App avec MT5. Scannez M1, M5, M15. Cliquez sur le bouton TF pour entrer. Attendez un petit gain, puis sortez manuellement dans MT5.',
+            es: 'Estrategia Estándar: Sincronice TF App con MT5. Escanee M1, M5, M15. Use el botón TF para entrar. Espere una ganancia pequeña y salga manualmente en MT5.',
+            pt: 'Estratégia Padrão: Sincronize TF App com MT5. Escaneie M1, M5, M15. Use o botão TF para entrar. Aguarde um pequeno ganho e saia manualmente no MT5.'
         }
     },
     {

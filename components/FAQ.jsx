@@ -70,10 +70,10 @@ export default function FAQ() {
                 pt: 'Cerebrum Forex é compatível com prop firms como FTMO?'
             },
             a: {
-                en: 'Yes! Cerebrum Forex includes a dedicated Prop Firm mode with built-in risk management: daily loss limits (4-5%), max drawdown protection (8-10%), news filter, and conservative position sizing. Compatible with FTMO, MyForexFunds, The Funded Trader, and more.',
-                fr: 'Oui ! Cerebrum Forex inclut un mode Prop Firm dédié avec gestion du risque intégrée : limites de perte journalière (4-5%), protection drawdown max (8-10%), filtre news, et dimensionnement conservateur. Compatible FTMO, MyForexFunds, The Funded Trader, et plus.',
-                es: '¡Sí! Cerebrum Forex incluye un modo Prop Firm dedicado con gestión de riesgo integrada: límites de pérdida diaria (4-5%), protección de drawdown máximo (8-10%), filtro de noticias, y tamaño conservador. Compatible con FTMO, MyForexFunds, The Funded Trader, y más.',
-                pt: 'Sim! Cerebrum Forex inclui um modo Prop Firm dedicado com gestão de risco integrada: limites de perda diária (4-5%), proteção de drawdown máximo (8-10%), filtro de notícias, e dimensionamento conservador. Compatível com FTMO, MyForexFunds, The Funded Trader, e mais.'
+                en: 'Yes! For Prop Firms (FTMO, etc.), we recommend our manual scalping strategy: 1) Synchronize your App Timeframe with the MT5 chart. 2) Monitor M1, M5, and M15 for signals. 3) Click the TF button in Cerebrum to enter a trade. 4) Close the trade manually via MT5 once a small profit is reached to secure gains.',
+                fr: 'Oui ! Pour les Prop Firms (FTMO, etc.), nous recommandons notre stratégie de scalping manuel : 1) Synchronisez le Timeframe de l\'App avec celui de MT5. 2) Surveillez M1, M5 et M15. 3) Cliquez sur le bouton TF dans Cerebrum pour entrer en position. 4) Fermez le trade manuellement via MT5 dès qu\'un petit gain est atteint.',
+                es: '¡Sí! Para Prop Firms (FTMO, etc.), recomendamos nuestra estrategia de scalping manual: 1) Sincronice el Timeframe de la App con el de MT5. 2) Monitoree M1, M5 y M15. 3) Use le botón TF en Cerebrum para entrar. 4) Cierre el trade manualmente vía MT5 tras una pequeña ganancia para asegurar beneficios.',
+                pt: 'Sim! Para Prop Firms (FTMO, etc.), recomendamos nossa estratégia de scalping manual: 1) Sincronize o Timeframe do App com o do MT5. 2) Monitore M1, M5 e M15. 3) Use o botão TF no Cerebrum para entrar. 4) Feche o trade manualmente via MT5 após um pequeno ganho para garantir lucros.'
             }
         },
         {

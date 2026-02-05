@@ -80,16 +80,16 @@ export default function HowItWorks() {
             number: '04',
             icon: '🚀',
             titles: {
-                en: 'Start Trading',
-                fr: 'Commencer à Trader',
-                es: 'Comenzar a Operar',
-                pt: 'Começar a Negociar'
+                en: 'Start Trading (Scalping)',
+                fr: 'Commencer à Trader (Scalping)',
+                es: 'Comenzar a Operar (Scalping)',
+                pt: 'Começar a Negociar (Scalping)'
             },
             descriptions: {
-                en: 'Configure your risk in EA Manager. Receive real-time AI signals. Choose your mode: Autonomous, Assisted, or Manual.',
-                fr: 'Configurez votre risque dans EA Manager. Recevez des signaux IA en temps réel. Choisissez votre mode : Autonome, Assisté, ou Manuel.',
-                es: 'Configure su riesgo en EA Manager. Reciba señales IA en tiempo real. Elija su modo: Autónomo, Asistido, o Manual.',
-                pt: 'Configure seu risco no EA Manager. Receba sinais IA em tempo real. Escolha seu modo: Autônomo, Assistido, ou Manual.'
+                en: 'Match your App Timeframe with MT5. Scan M1/M5/M15 for signals. Click the TF button to enter on non-neutral signals, then exit manually via MT5 after a small gain.',
+                fr: 'Alignez le Timeframe de l\'App avec MT5. Scannez M1/M5/M15. Cliquez sur le bouton TF pour entrer sur un signal actif, puis sortez manuellement via MT5 après un gain rapide.',
+                es: 'Sincronice el Timeframe de la App con MT5. Escanee M1/M5/M15. Haga clic en el botón TF para entrar en señales activas y salga manualmente vía MT5 tras una ganancia rápida.',
+                pt: 'Sincronize o Timeframe do App com MT5. Escaneie M1/M5/M15. Clique no botão TF para entrar em sinais ativos e saia manualmente via MT5 após um ganho rápido.'
             }
         }
     ];
