@@ -1,0 +1,33 @@
+# Cerebrum Forex - Detailed Technical Overview
+
+## 1. Introduction
+Cerebrum Forex is an algorithmic trading system designed for the EUR/USD currency pair. Unlike traditional indicators (RSI, MACD), it relies on supervised machine learning to detect non-linear patterns in price action.
+
+## 2. Architecture
+### 2.1 The Core (Python)
+- **Data Ingestion**: Pulls OHLCV data from MT5 terminal via `MetaTrader5` python package.
+- **Feature Engineering**: Calculates over 50 technical features (Moving Averages, Volatility, Momentum).
+- **Inference**: Runs 5 optimized models in parallel.
+- **Voting System**: A "Congress" engine aggregates weighted votes from all models to produce a final signal.
+
+### 2.2 The Interface (PyQt6)
+- **Dashboard**: Visualizes live market status, current signal, and account metrics.
+- **Training Tab**: Allows users to extract historical data and retrain models.
+- **Settings**: Configurable risk thresholds, notification preferences, and prop firm rules.
+
+### 2.3 The Expert Advisor (MQL5)
+- Acts as a bridge between the Python application and the MT5 terminal.
+- Receives trade commands (Open Order, Close Position, Modify SL/TP).
+- Sends account info (Balance, Equity) back to the GUI.
+
+## 3. Usage Workflow
+1. **Launch**: Open MT5 and Cerebrum Forex. Connection is automatic.
+2. **Scan**: The AI continuously scans enabled timeframes (default: M15, H1).
+3. **Signal**: When confidence > threshold (e.g., 70%), a signal is generated.
+4. **Action**: 
+   - **Auto Mode**: The EA executes the trade with pre-defined Risk/Reward.
+   - **Manual Mode**: User receives a desktop/email alert and confirms execution.
+
+## 4. Documentation
+For detailed installation and API references, visit:
+https://cerebrumfx.com/docs/index.html

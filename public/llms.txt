@@ -1,0 +1,23 @@
+# Cerebrum Forex - AI Trading Software
+
+> AI-Powered EUR/USD Trading Co-Pilot for MetaTrader 5
+
+## Summary
+Cerebrum Forex is a sophisticated desktop application that uses 5 machine learning models (XGBoost, LightGBM, RandomForest, CatBoost, Stacking) to predict EUR/USD market movements in real-time. It connects to MetaTrader 5 via a custom Expert Advisor to execute or suggest trades.
+
+## Core Features
+1. **AI Prediction Engine**: Real-time signals (BUY/SELL/NEUTRAL) with confidence scores for 6 timeframes (M1-H4).
+2. **MetaTrader 5 Integration**: Seamless connection for data extraction and trade execution.
+3. **Prop Firm Mode**: Dedicated risk management tools for FTMO/MFF challenges (Drawdown limits, Daily loss caps).
+4. **Local Processing**: All AI models run locally on the user's machine for privacy and speed.
+5. **Smart Training**: Users can retrain models on their own extracted broker data.
+
+## Technical Stack
+- **Backend/GUI**: Python (PyQt6), scikit-learn, XGBoost, LightGBM.
+- **Frontend (Website)**: Next.js 14, TailwindCSS, Framer Motion.
+- **Documentation**: Sphinx (HTML).
+
+## Links
+- **Website**: https://cerebrumfx.com
+- **Documentation**: https://cerebrumfx.com/docs/index.html
+- **Full Context**: https://cerebrumfx.com/llms-full.txt
