@@ -8,7 +8,14 @@ async function main() {
         return;
     }
 
-    const licenseToUse = process.env.LICENSE_KEY || "sub_1StydrLBQKj11679RS6TaKsF";
+    const email = process.argv[2];
+    const licenseToUse = process.argv[3] || "sub_1StydrLBQKj11679RS6TaKsF";
+
+    if (!email) {
+        console.error('❌ Error: Missing email address.');
+        console.log('Usage: node sync_clerk.js <EMAIL> [LICENSE_KEY]');
+        return;
+    }
 
     try {
         // 1. Get User ID from Clerk to stay clean

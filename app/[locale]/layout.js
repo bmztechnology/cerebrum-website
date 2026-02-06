@@ -2,10 +2,25 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '../../i18n/config';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import SchemaOrg from '../../components/SchemaOrg';
 import HashScrollHandler from '../../components/HashScrollHandler';
+import { Providers } from '../../components/Providers';
+import '../globals.css';
+
+import Script from 'next/script';
+import { Inter, Orbitron } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
+
+const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-primary',
+});
+
+const orbitron = Orbitron({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-display',
+});
 
 export function generateStaticParams() {
     return locales.map((locale) => ({ locale }));
@@ -107,38 +122,15 @@ export async function generateMetadata({ params }) {
         },
         formatDetection: {
             telephone: false,
+            themeColor: '#00d4ff',
         },
-        themeColor: '#00d4ff',
     };
 }
-
-import { Providers } from '../../components/Providers';
-
-import '../globals.css';
-
-import Script from 'next/script';
-import { Inter, Orbitron } from 'next/font/google';
-import { ClerkProvider } from '@clerk/nextjs';
-
-const inter = Inter({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-primary',
-});
-
-const orbitron = Orbitron({
-    subsets: ['latin'],
-    display: 'swap',
-    variable: '--font-display',
-});
 
 export default async function LocaleLayout({ children, params }) {
     const { locale } = await params;
 
-    console.log(`[LocaleLayout] Rendering for locale: ${locale} (Available: ${locales.join(', ')})`);
-
     if (!locales.includes(locale)) {
-        console.warn(`[LocaleLayout] Locale ${locale} not found in config, triggering notFound()`);
         notFound();
     }
 
@@ -168,10 +160,7 @@ export default async function LocaleLayout({ children, params }) {
                     <NextIntlClientProvider messages={messages} locale={locale}>
                         <Providers>
                             <HashScrollHandler />
-                            <SchemaOrg locale={locale} />
-                            <Navbar locale={locale} />
-                            <main>{children}</main>
-                            <Footer locale={locale} />
+                            {children}
                         </Providers>
                     </NextIntlClientProvider>
                 </body>
