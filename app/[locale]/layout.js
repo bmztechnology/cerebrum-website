@@ -68,7 +68,6 @@ export async function generateMetadata({ params }) {
             'max-video-preview': -1,
         },
         alternates: {
-            canonical: `/${locale}`,
             languages: {
                 'en': '/en',
                 'fr': '/fr',

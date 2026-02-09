@@ -15,6 +15,15 @@ const isProtectedRoute = createRouteMatcher(["/:locale/dashboard(.*)"]);
 export default clerkMiddleware(async (auth, req) => {
     const url = req.nextUrl;
     const hostname = req.headers.get("host");
+    const proto = req.headers.get("x-forwarded-proto");
+
+    // Redirect http to https (only for production)
+    if (proto === "http" && !hostname.includes("localhost") && !hostname.includes("127.0.0.1")) {
+        return NextResponse.redirect(
+            `https://${hostname}${url.pathname}${url.search}`,
+            301
+        );
+    }
 
     // Redirect www to non-www
     if (hostname && hostname.startsWith("www.")) {

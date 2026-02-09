@@ -13,7 +13,16 @@ export default function robots() {
                     '/_next/',
                     '/private/',
                     '/*/dashboard',
+                    '/admin/',
                 ],
+            },
+            {
+                // Explicitly allow bot to crawl sign-in if needed, 
+                // but usually auth should stay private.
+                // However, GSC error is annoying, so we ensure standard paths are OK.
+                userAgent: '*',
+                allow: '/sign-in',
+                allow: '/sign-up',
             },
             {
                 userAgent: 'Googlebot',
