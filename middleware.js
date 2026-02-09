@@ -23,6 +23,15 @@ export default clerkMiddleware(async (auth, req) => {
             308
         );
     }
+
+    // Redirect /home to /
+    if (url.pathname.endsWith("/home")) {
+        const newPath = url.pathname.replace(/\/home$/, "") || "/";
+        return NextResponse.redirect(
+            new URL(newPath, req.url),
+            301
+        );
+    }
     // OPTIONAL: Basic Auth for "Maintenance Mode" or "Staging"
     // const sitePassword = process.env.SITE_PASSWORD;
     // if (sitePassword) {

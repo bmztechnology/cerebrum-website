@@ -88,12 +88,7 @@ export default function SchemaOrg({ locale }) {
                 "publisher": {
                     "@id": `${baseUrl}/#organization`
                 },
-                "inLanguage": ["en", "fr", "es", "pt"],
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": `${baseUrl}/search?q={search_term_string}`,
-                    "query-input": "required name=search_term_string"
-                }
+                "inLanguage": ["en", "fr", "es", "pt"]
             },
             // FAQ Page
             {

@@ -53,6 +53,7 @@ export async function generateMetadata({ params }) {
     };
 
     return {
+        metadataBase: new URL(baseUrl),
         title: titles[locale] || titles.en,
         description: descriptions[locale] || descriptions.en,
         keywords: keywords[locale] || keywords.en,
@@ -67,13 +68,13 @@ export async function generateMetadata({ params }) {
             'max-video-preview': -1,
         },
         alternates: {
-            canonical: `${baseUrl}/${locale}`,
+            canonical: `/${locale}`,
             languages: {
-                'en': `${baseUrl}/en`,
-                'fr': `${baseUrl}/fr`,
-                'es': `${baseUrl}/es`,
-                'pt': `${baseUrl}/pt`,
-                'x-default': `${baseUrl}/en`,
+                'en': '/en',
+                'fr': '/fr',
+                'es': '/es',
+                'pt': '/pt',
+                'x-default': '/en',
             },
         },
         openGraph: {
